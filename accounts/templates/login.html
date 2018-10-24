@@ -7,7 +7,7 @@
     <title>Authorisation</title>
 </head>
 <body>
-    <h1>Home</h1>
+    <h1>User Login</h1>
      <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -20,6 +20,13 @@
     <div>
         {% for message in messages %} {{ message }} {% endfor %}
     </div>
-    {% endif %} 
+    {% endif %}
+    <form method="POST">
+    <!--use the cross site request forgery django function to prevent cross site scripting-->
+        {% csrf_token %}
+        {{ login_form }}
+       <button type="submit" class="btn btn-default">Login</button> 
+    </form>
+    
 </body>
 </html>
