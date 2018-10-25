@@ -1,32 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Authorisation</title>
-</head>
-<body>
-    <h1>User Login</h1>
-     <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-    </nav>
-    {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
-    </div>
-    {% endif %}
-    <form method="POST">
-    <!--use the cross site request forgery django function to prevent cross site scripting-->
-        {% csrf_token %}
-        {{ login_form }}
-       <button type="submit" class="btn btn-default">Login</button> 
-    </form>
-    
+{% extends 'base.html' %}
+
+{% block page_title %}Log in Page{% endblock %}
+{% block page_heading %}User Login{% endblock %}  
+{% block content %}
+<form method="POST">
+     <!--use the cross site request forgery django function to prevent cross site scripting-->
+    {% csrf_token %}
+    {{ login_form }}
+    <button type="submit">Login</button>
+</form>
+{% endblock %}
 </body>
 </html>
