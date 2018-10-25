@@ -16,6 +16,9 @@ def logout(request):
     
 def login(request):
     """Return a login page"""
+    #redirect to the index if use is authenticated
+    if request.user.is_authenticated:
+        return redirect(reverse('index'))
      #create an instance of the login form
     if request.method == "POST":
         #  create new login form with the data posted from the form 
@@ -29,6 +32,8 @@ def login(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully logged in!")
+                #redirect to the index page so the login page is not visible
+                return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
                   
