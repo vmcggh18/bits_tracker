@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
     """Return the index.html file"""
     return render(request,  'index.html')
     
-
+# use decorator to ensure user is only logged out when logged in  
+@login_required
 def logout(request):
     """Log the user out"""
     auth.logout(request)
@@ -65,3 +68,10 @@ def registration(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
         "registration_form": registration_form})
+        
+def user_profile(request):
+    """The user's profile page"""
+    # retrieve the user from the database
+    user = User.objects.get(email=request.user.email)
+    return render(request, 'profile.html', {"profile": user})
+    
