@@ -32,8 +32,10 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [django](https://www.djangoproject.com/)
     - The project uses **django 1.11.16** as the main fully featured server-side web framework.
     - 
-    - - [django_forms_bootstrap](https://django-bootstrap-form.readthedocs.io/en/latest/)
+- [django_forms_bootstrap](https://django-bootstrap-form.readthedocs.io/en/latest/)
     - The project uses **django_forms** to fire django forms in the settings.py and bootstrap tags in the html.
+- [bootstrap](https://getbootstrap.com/docs/3.3/getting-started/)
+    - The project uses bootstrap to theme and style the html pages (buttons)
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 

@@ -28,5 +28,11 @@ class TestViews(TestCase):
             username='admin1', email='admin1@example.com', password='secret')
     def test_user_can_login(self):
         response = self.client.post("/accounts/login/", {"username": "admin1", "password": "secret"})  
-  
-        
+    def test_get_registration_page(self):
+        page = self.client.get("/register/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "registration.html")
+   
+
+     
+   

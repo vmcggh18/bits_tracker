@@ -68,10 +68,14 @@ def registration(request):
         registration_form = UserRegistrationForm()
     return render(request, 'registration.html', {
         "registration_form": registration_form})
-        
+@login_required        
 def user_profile(request):
     """The user's profile page"""
     # retrieve the user from the database
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    if request.user.is_authenticated:
+        return render(request, 'profile.html', {"profile": user})
+    else:
+        return redirect(reverse('index'))
+        
     

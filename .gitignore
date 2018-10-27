@@ -4,3 +4,4 @@
 __pycache__/
 env.py
 htmlcov/
+test_file.py

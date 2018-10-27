@@ -12,4 +12,3 @@ class TestTrackerUserLoginForm(TestCase):
         form = UserLoginForm({'username': ''})
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['username'], [u'This field is required.'])
-   
