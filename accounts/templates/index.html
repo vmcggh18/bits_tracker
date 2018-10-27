@@ -1,3 +1,59 @@
 {% extends 'base.html' %}
 {% block page_title %}Issue Tracker{% endblock %}
 {% block page_heading %}Home Page{% endblock %}
+{% block content %}
+ <div class="container-fluid callout-container">
+        <div class="opaque-overlay">&nbsp;</div>
+        <!-- Callout -->
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="callout jumbotron text-center">
+                    <h1>Bug Issue Tracker Solutions for all Your Needs </h1>
+                    <hr class='block-divider block-divider--orange'>
+                    <p class="lead">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <strong><mark>All bugs fixed for free!</mark></strong></p>
+                     <p class="lead">We also develop features <span class="visible-xs"><br></span> <strong><mark>For a Reasonable Fee!</mark></strong></p>
+                    <p><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign up!</button></p>
+                     <p class="lead"><medium>You must sign up to contribute to bugs and features</medium></p>
+                   
+                    
+                </section>
+            </div>
+        </div>
+    </div>
+     <div class="container-wrapper">
+        <div class="container quotes-container content-container">
+            <!-- Quotes -->
+            <section class="quotes">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="page-header">
+                            <h2 class="text-uppercase text-center">Our Promise:</h2>
+                            <hr class="block-divider block-divider--short">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="media">
+                            <div class="media-body">
+                                <blockquote class="quote">
+                                    <p>To spend 50 percent of our time dedicated to solving the highest upvoted bug issues for free.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="media">
+                            <div class="media-body">
+                                <blockquote class="quote">
+                                    <p>To spend 50 percent of our time dedicated to creating the highest upvoted feature for a modest fee per upvote.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    {% endblock %}
