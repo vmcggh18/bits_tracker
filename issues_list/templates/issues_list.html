@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block page_title %}Issue Tracker{% endblock %}
+{% block page_heading %}Home Page{% endblock %}
+{% block content %}
+<h1>Issues Tracker List</h1>
+
+<table id ="table_id" class = "table table-responsive">
+        <thead class = "table thead-dark">
+             <tr class="text-center">
+                
+                <td>Name</td>
+                <td>Content</td>
+                <td>Submitted by</td>
+                <td>Category</td>
+                <td>Created on</td>
+                <td>Upvotes</td>
+                <td>Status</td>
+                <td>Assigned to</td>
+                <td>Completed on</td>
+                <td>Comments</td>
+             </tr>
+        </thead>
+        <tbody>
+             {% for item in items %}
+            <tr class="text-center">
+            
+                    
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.content }}</td>
+                    <td>{{ item.submitted_by }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.created_date }}</td>
+                    <td>{{ item.upvotes }}</td>
+                    <td>{{ item.status }}</td>
+                    <td>{{ item.assigned_to }}</td>
+                    <td>{{ item.completed_date }}</td> 
+                    <td>{{ item.comments }}</td>
+                  
+            </tr>
+            {% endfor %}  
+        </tbody>
+           
+    </table>
+{% endblock %}
