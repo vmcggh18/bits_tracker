@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_title %}Issue Tracker{% endblock %}
+{% block page_heading %}About Page{% endblock %}
+{% block content %}
+<!----------------------band image and link to gallery page-------------------->
+	 <div class=" row background-info">
+	     <div class="col-xs-12 col-sm-4 logo">
+			<figure class="members"> 
+			        <img  src="{% static 'images/bitsImage.png' %}" class="img-responsive img-logo" alt="BITS Company Image logo" height = 50% width = 50%></img>
+				<div class="text-logo text-center">
+				    <h1>B I T S</h1>
+				</div>
+			</figure>
+		</div>	
+<!-------------narrative about band----------------------->
+			<article class="description">
+				 <div class= "col-xs-12 col-sm-8 logo about-bits">
+					<h2>About BITS</h2>
+					
+							<p class="narrative1">Bug Issue Tracker Solutions provides you with a central place to submit and comment on bugs and features. The focus is on accountability and progress, ensuring that not only does the work get done, but it gets done correctly.</p>
+							<p class="narrative1">The user community decides the priority through upvotes. The user community can also participate in the review process through commenting, ensuring that issues are dealt with correctly. In effect the user community acts as a second set of eyes.</p> 
+							<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication.</p>
+							<p "narrative1">An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively. </p>
+							<p "narrative1">For example:
+							    <ul class="list-style">
+                                      <li>specific people with specific expertise handle specific issues</li>
+                                      <li>issue are dealt with by both individuals and teams</li>
+                                      <li>upvotes determine which issues to prioritise</li>
+                                      <li>issues are communicated throughout the team through regular meetings, log checks, status updates emails, and so on</li>
+                                  </ul>
+							</p>
+								<p "narrative1">This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.</p>
+				</div>	   
+			</article>
+		</div>
+
+<div class="row the-players">
+    <h2 class = "text-center">Meet the team</h2>
+</div>
+                    <div class="row staffing">
+                        <div class="col-xs-12 col-sm-6 media">
+                            <div class="media-left">
+                                <img src="{% static 'images/prof.png' %}" class="img-circle media-object" alt="Staff 1 Prof image" height=100 width=100>
+                            </div>
+                            <div class="media-body personnel">
+                                <blockquote class="quote">
+                                    <h3>The professor.</h3>
+                                    <p>So called because of his wide range expertise in legal and financial matters. Also an expertise in many software technologies.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class=" col-xs-12 col-sm-6 media">
+                            <div class="media-left">
+                               <img src="{% static 'images/jDoe.png' %}" class="img-circle media-object" alt="Staff 2 Jane Doe image" height=100 width=100>
+                            </div>
+                            <div class="media-body personnel">
+                                <blockquote class="quote">
+                                   <h3>Jane Doe.</h3>
+                                   <p>Our expert on human resources and company management.</p> 
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row staffing">
+                        <div class="col-xs-12 col-sm-6 media">
+                            <div class="media-left">
+                                <img src="{% static 'images/jSmith.png' %}" class="img-circle media-object" alt="Staff 3 Jane Smith image" height=100 width=100>
+                            </div>
+                            <div class="media-body personnel">
+                                <blockquote class="quote">
+                                    <h3>Jane Smith.</h3>
+                                    <p>Our expert in all medical and pharaceutical matters.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 media">
+                            <div class="media-left">
+                                <img src="{% static 'images/johnD.png' %}" class="img-circle media-object" alt="Staff 4 John Doe image" height=100 width=100>
+                            </div>
+                            <div class="media-body personnel">
+                                <blockquote class="quote">
+                                    <h3>John Doe.</h3> 
+                                    <p>Our expert in engineering and technical matters.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row staffing">
+                        <div class="col-xs-12 col-sm-6 media">
+                            <div class="media-left">
+                                <img src="{% static 'images/JohnS.png' %}" class="img-circle media-object" alt="Staff 5 John Smith image" height=100 width=100>
+                            </div>
+                            <div class="media-body personnel">
+                                <blockquote class="quote">
+                                    <h3>John Smith.</h3> 
+                                    <p>Our expert in full stack development.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

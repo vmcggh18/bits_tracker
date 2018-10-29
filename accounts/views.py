@@ -77,5 +77,8 @@ def user_profile(request):
         return render(request, 'profile.html', {"profile": user})
     else:
         return redirect(reverse('index'))
-        
+def get_about(request):
+    """Return the about.html file"""
+    return render(request,  'about.html')
+           
     

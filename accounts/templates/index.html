@@ -8,45 +8,44 @@
         <div class="row">
             <div class="col-xs-12">
                 <section class="callout jumbotron text-center">
-                    <h1>Bug Issue Tracker Solutions for all Your Needs </h1>
+                    <h1 class ="brand-name" id="brand-name">Bug Issue Tracker Solutions</h1>
+                    <h2 class = "brand-text">For all your needs</h2>
                     <hr class='block-divider block-divider--orange'>
-                    <p class="lead">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <strong><mark>All bugs fixed for free!</mark></strong></p>
-                     <p class="lead">We also develop features <span class="visible-xs"><br></span> <strong><mark>For a Reasonable Fee!</mark></strong></p>
+                    <p class="lead text-uppercase">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <strong><mark>All bugs fixed for free!</mark></strong></p><br>
+                     <p class="lead text-uppercase"><strong><mark>For a Reasonable Fee!</mark></strong> We also develop features <br></p><br>
                     <p><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign up!</button></p>
                      <p class="lead"><medium>You must sign up to contribute to bugs and features</medium></p>
-                   
-                    
                 </section>
             </div>
         </div>
     </div>
-     <div class="container-wrapper">
+     <div class="container-wrapper our-promise">
         <div class="container quotes-container content-container">
             <!-- Quotes -->
             <section class="quotes">
-                <div class="row">
+                <div class="row quotes">
                     <div class="col-xs-12">
                         <div class="page-header">
-                            <h2 class="text-uppercase text-center">Our Promise:</h2>
+                            <h2 class="text-uppercase commitment text-center">Our Promise:</h2>
                             <hr class="block-divider block-divider--short">
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
+                <div class="row quotes">
+                    <div class="col-xs-12 col-sm-6">
                         <div class="media">
                             <div class="media-body">
                                 <blockquote class="quote">
-                                    <p>To spend 50 percent of our time dedicated to solving the highest upvoted bug issues for free.</p>
+                                    <h3 class = "text-center">To spend 50 percent of our time dedicated to solving the highest upvoted bug issues for free.</h3>
                                 </blockquote>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-6">
+                    <div class="col-xs-12 col-sm-6">
                         <div class="media">
                             <div class="media-body">
                                 <blockquote class="quote">
-                                    <p>To spend 50 percent of our time dedicated to creating the highest upvoted feature for a modest fee per upvote.</p>
+                                    <h3 class = "text-center">To spend 50 percent of our time dedicated to creating the highest upvoted feature for a modest fee per upvote.</h3>
                                 </blockquote>
                             </div>
                         </div>
@@ -55,5 +54,39 @@
             </section>
         </div>
     </div>
-
+     <!-- Existing and planned Features -->
+    <section class = "features">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="page-header">
+                            <h2 class="text-uppercase feature-header text-center">Features:</h2>
+                            <hr class="block-divider block-divider--short block-divider--white">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="feature">
+                            <h3 class= "current-features"><span class="glyphicon glyphicon-gift hidden-xs"></span>Current</h3>
+                                <ul class="list-style para-features">
+                                      <li>user friendly environment for users to submit, view and comment on issues</li>
+                                      <li>transparency through the issue of  realtime data in an easy to analyse format, including tables and charts.</li>
+                                      <li>user community prioritises the issues to be dealt with</li>
+                                      <li>cloud based ensuring real time collaboration</li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="feature">
+                            <h3 class="planned-features"><span class="glyphicon glyphicon-credit-card hidden-xs"></span> Planned</h3>
+                                 <ul class="list-style para-features">
+                                      <li>advanced notification:Provide notifications on projects, issues assigned, status changes, due dates.</li>
+                                      <li>issue identification to prevent repeated actions lilke personnel assignement, notifications and attachments</li>
+                                      <li>instant reporting allowing the creation of executive-ready status reports with the push of a button. Reports as a PDF, Word or Excel file.</li>
+                                      <li>email support When you have complex questions, you can get detailed answers via our email support system</li>
+                                  </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
     {% endblock %}
