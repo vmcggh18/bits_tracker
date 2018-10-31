@@ -34,8 +34,11 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href ="#">View Activities</a></li>
+                    <li><a href ="{% url 'activities' %}">View Activities</a></li>
                     <li class="visible-xs"><a href="">Sign In</a></li>
+                     {% if user.is_authenticated %}
+                     <li><a href="{% url 'issues_list' %}">View Issues</a></li>{% else %}
+                     {% endif %}
                 </ul>
 
                 <div class="navbar-header navbar-right hidden-xs">

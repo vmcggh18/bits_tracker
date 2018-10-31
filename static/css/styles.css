@@ -118,3 +118,7 @@ form {
      display: block;
      margin: auto;
  }
+ /*==== Issues List styles ===*/
+ .tracker-header, .statistics-section {
+     background-color: Beige;
+ }

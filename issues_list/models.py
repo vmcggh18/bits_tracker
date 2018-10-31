@@ -34,6 +34,7 @@ class Item(models.Model):
     # sort the data by upvotes decsending
     class Meta:
         ordering = ['-upvotes']
+        permissions = (("can_add_comments", "Set new comment"),)  
 
 
 

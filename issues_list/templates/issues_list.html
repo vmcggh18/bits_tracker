@@ -2,12 +2,11 @@
 {% block page_title %}Issue Tracker{% endblock %}
 {% block page_heading %}Home Page{% endblock %}
 {% block content %}
-<h1>Issues Tracker List</h1>
+<div class = "row tracker-header text-center"><h1>Issues Tracker List</h1></div>
 
-<table id ="table_id" class = "table table-responsive">
+<table id ="table_id" class = "table table-bordered table-responsive">
         <thead class = "table thead-dark">
              <tr class="text-center">
-                
                 <td>Name</td>
                 <td>Content</td>
                 <td>Submitted by</td>
@@ -22,9 +21,14 @@
         </thead>
         <tbody>
              {% for item in items %}
-            <tr class="text-center">
-            
-                    
+            <!--provide bacground color to represent status-->
+                {% if item.status == "Completed" %}
+            <tr class = "text-center success">
+                {% elif item.status == "Ongoing" %}
+            <tr class = "text-center warning">  
+                {% elif item.status == "Pending" %}
+            <tr class = "text-center danger">
+                {% endif %}
                     <td>{{ item.name }}</td>
                     <td>{{ item.content }}</td>
                     <td>{{ item.submitted_by }}</td>
