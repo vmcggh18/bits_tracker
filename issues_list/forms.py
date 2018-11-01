@@ -6,6 +6,6 @@ class ItemForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ('name', 'content', 'submitted_by', 'category', 'upvotes', 'status', 'assigned_to', 'completed_date', 'comments')
+        fields = ('name', 'content', 'submitted_by', 'category', 'upvotes', 'status', 'assigned_to', 'comments')
         ordering = ['-upvotes']
         #order_with_respect_to = 'upvotes'

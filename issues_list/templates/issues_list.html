@@ -6,8 +6,9 @@
 
 <table id ="table_id" class = "table table-bordered table-responsive">
         <thead class = "table thead-dark">
-            <div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>
+            <!--<div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>-->
              <tr class="text-center">
+                 <td class = "glyphicon glyphicon-pencil"></td>
                 <td>Name</td>
                 <td>Content</td>
                 <td>Submitted by</td>
@@ -18,6 +19,7 @@
                 <td>Assigned to</td>
                 <td>Completed on</td>
                 <td>Comments</td>
+                <td class="glyphicon glyphicon-comment"></td>
              </tr>
         </thead>
         <tbody>
@@ -30,6 +32,19 @@
                 {% elif item.status == "Pending" %}
             <tr class = "text-center danger">
                 {% endif %}
+                <!--provide edit link-->
+                {% if user.is_staff %}
+                    <td>
+                        <form method="GET" action="edit/{{ item.id }}">
+                           <button type="submit"data-toggle="tooltip" title="Click on icon to edit!">
+                               <span class="glyphicon glyphicon-pencil"></span>
+                            </button>    
+                        </form>
+              
+                {% else %}
+                <td></td>
+                {% endif %}
+                    </td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.content }}</td>
                     <td>{{ item.submitted_by }}</td>
@@ -40,9 +55,20 @@
                     <td>{{ item.assigned_to }}</td>
                     <td>{{ item.completed_date }}</td> 
                     <td>{{ item.comments }}</td>
+                    <td>
+                         <form method="GET" action="comment/{{ comment.id }}">
+                             <button type="submit"data-toggle="tooltip" title="Click on icon to add comment!">
+                               <span class="glyphicon glyphicon-comment"></span>
+                            </button>  
+                        </form>
+                    </td>
             </tr>
             {% endfor %}  
         </tbody>
     </table>
-    <div class = "add-ticket-bot"><a href="add"><button class ="btn btn-default">Add a new item</button></a></div>
+    <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 {% endblock %}

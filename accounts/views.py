@@ -32,7 +32,6 @@ def login(request):
         if login_form.is_valid():
             user = auth.authenticate(username=request.POST['username'],
                                     password=request.POST['password'])
-           
             #if we have a user then log them in
             if user:
                 auth.login(user=user, request=request)
@@ -41,12 +40,11 @@ def login(request):
                 return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
-                  
     else:
         #create an empty object
         login_form = UserLoginForm()
-
     return render(request, 'login.html', {'login_form': login_form})
+    
 def registration(request):
     """Render the registration page"""
     #redirect to the index page if user is authenticated
@@ -58,12 +56,12 @@ def registration(request):
         registration_form = UserRegistrationForm(request.POST)
         if registration_form.is_valid():
             registration_form.save()
-
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
+                return redirect(reverse('index'))
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:

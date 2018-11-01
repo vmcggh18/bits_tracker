@@ -13,8 +13,13 @@
                     <hr class='block-divider block-divider--orange'>
                     <p class="lead text-uppercase">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <strong><mark>All bugs fixed for free!</mark></strong></p><br>
                      <p class="lead text-uppercase"><strong><mark>For a Reasonable Fee!</mark></strong> We also develop features <br></p><br>
+                      {% if user.is_authenticated %}
+                      <p><a href="{% url 'issues_list' %}"><button class="btn btn-lg btn--cta btn--red">View Tracker</button></a></p>
+                      <p class = "lead"><medium>Feel free to create and comment on bugs and features</medium></p>
+                      {% else %}
                     <p> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign up!</button></a></p>
-                     <p class="lead"><medium>You must sign up to contribute to bugs and features</medium></p>
+                     <p class="lead"><medium>You must sign up or login to contribute to bugs and features</medium></p>
+                      {% endif %} 
                 </section>
             </div>
         </div>
