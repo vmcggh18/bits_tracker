@@ -1,15 +1,56 @@
-# issue_tracker
+# BITS issue_tracker
 
+This project creates an issue tracker full stack web application incorporating a range of apps to provide a range of functionality .......
 
  
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+### Strategy: ###
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+#### Problem Definition 
+In order to fulfill brief requirements the issues to be sorted are defined as:
+Build  an issue tracker web app offering bug fixes and features. In doing so:
+* Provide ticket functionality to allow users to create tickets
+* Provide ticket functionality to allow users to comment on tickets
+* Provide ticket functionality to show the status of tickets  (e.g. ‘to do,’ ‘doing,’ or ‘done’). 
+* Bug ticket issues are fixed for free
+* Provide upvote functionality to prioritise ticket issues
+* Feature ticket issues involve e-commerce functionality (developed for a fee) paid on upvote. Highest paid up takes precedence.
+* Provide visual transparency showing how many bugs or features are tended to on a daily, weekly and monthly basis, as well as the highest-voted bugs and features.
+* Provide optional additional functionality such as a blog page
+* Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
+* Include an authentication mechanism, allowing a user to register and log in.
+* Provide a description of the application.
+* Provide documentation for the application.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Bugs and features can be present across the full spectrum of specifications, design, code and end product. Thus issues are not directly limited to a coding context only,  meaning the end-user of this product may be an individual or business user involved in any form of business or activity. Consequently a full proof management system enabling identification, prioritisation, assignment, processing, resolution and review of raised issues can apply to any line of work. An issue tracker focuses on resolution of issues with emphasis on accountability and progress, thereby ensuring that the work gets done, correctly. The intention is to have a community of users involved in driving the site and as the work is driven by how popular an issue is  (upvote), consensus will ensure that work carried out is relevant and desirable. A competitive edge is maintained by only charging a nominal sum to carry out work on the most popular feature. 50% of time is spent working on free solutions.
+
+A typical user profile would include project managers of a team who need a structured way to enable their team to raise and address issues within the project. Small companies may not feel the need to design their own trackers if there is a plethora of companies already offering tracking solutions and thus would look externally for a solution. Even large companies may trawl the web in search of solutions difficult to solve in-house. Using outsourced solutions may also offer more flexibility and diversity than an in-house system.
+The intention is to have a multidisciplined team with expertise in several other fields as well as software know-how. While this broadens the scope of the company it also widens the potential market of users.
+
+#### User stories include: ####
+*As a user of an issue tracker site I want a safe safe and reliable method for my team to raise issues
+*As a user of an issue tracker site I want adequate transparency and accountability to ensure issues are dealt with professionally
+- As a manager I want to my team to be be part of a well informed interactive online community participating in addressing issues raised by the community. 
+- As a small company manager I want to outsource issues and participate in solutions with the community.
+- As an interested party I want to use a site where issues are easily prioritised and pushed
+- As an interested party I want to use a site to push for features to be developed by a motivated partner
+
+### Scope: ###
+
+Considerations to address include, who deals with issues and where? What was agreed in relation to the issue and when was it agreed? How important is it? What is the solution and who is responsible for it? What is the outcome and is it relevant? 
+A simple issue tracker will be used combining both bugs and features, with the most popular issues, by upvote being prioritised. Authorisation and authentication is required as a security measure. In addition users need to be registered to persist their shopping cart between sessions. Users need to be allowed to create and comment on tickets. Other users also need to be allowed to create and edit models in the backend.. Some form of graph is required to provide visual transparency on showing how many bugs or features are tended to and what is the upvote status is. A blog page is required to provide further interaction. Description and documentation pages are also required to inform users.
+A landing page image is considered as is a brand logo. Fundamentally it is an information based activity and thus a functional way of presenting and accessing the data is required. Tables and simple but familiar form types are necessary. Background color is required to break the monotony of text and text itself can be intuitively coloured. Where possible icons can be used to portray meaning. 
+
+### Structure: ###
+
+Being a django based application the app fundamentally comprises a series of apps. Different links specific to the app function are provided where necessary to provide functionality and interactivity specific to the app being used. The intention is to create meaningful relationships between these apps as the user navigates the site. Main navigation elements are  provided conventionally (horizontally at the top of the page) and remain consistent throughout in form and function. They allow allows users to efficiently move through content. Buttons or links provide further navigation where necessary. Familiarity is induced by ensuring themes, content and imagery have a stable consistent style. Information is grouped into familar categories.Template logic is required to ensure authenticated users are catered for differently to a general peruser.  Authorisation is implemented through the use of permissions. 
+A simple minimalistic page structure facilitates a mobile first approach while ensuring there is scope for growth and change to allow the site to evolve as more content is added.
+
+### Skeleton: ###
+
+The users navigate through the site through navigation menus, links and buttons. Navigation remains conventional throughout to cultivate familiarity and to promote a positive user friendly experience. Specific content is further built on through the specific link and progressive disclosure in conjunction with similar expression of  similar parts, ensures consistent perception throughout the site. The information is revealed  across a number of pages through the use of simple features and minimal clicks. Navigation is enhanced through the  use of representational icons that are conventional and visible.  Being familiar objects they are easily understood  and provide clear meaning to all users. Similar icons on different pages induce the same positive user experience.  Keyword searches and filters are used to manipulate the data in the backend and front end. Paginationi s used to quickly cycle through data on the front-end.
+Pencil wireframe was used to plot a two-dimensional model of the perceived end product. These static diagrams represented the content, navigations and interactions in a meaningful visual format. The wireframes are included with the project and located in the additional_info folder in the assets
 
 ## Features
 

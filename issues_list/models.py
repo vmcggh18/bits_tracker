@@ -25,7 +25,7 @@ class Item(models.Model):
     status = models.CharField(max_length=20, choices=Status, blank=False, default = False) 
     assigned_to = models.CharField(max_length=30, blank=False, default="Not yet Assigned")
     completed_date = models.DateTimeField(null=True, blank=True)
-    comments = models.TextField(max_length=200, default="Add relevant ongoing or completion comments")
+    comments = models.TextField(max_length=200, help_text="Add comments relevant to the status")
    # define names in admin panel
     def __str__(self):
         return self.name

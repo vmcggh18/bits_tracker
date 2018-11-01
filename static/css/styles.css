@@ -118,7 +118,11 @@ form {
      display: block;
      margin: auto;
  }
- /*==== Issues List styles ===*/
- .tracker-header, .statistics-section {
+ /*==== Generral style on Issues List page ===*/
+ .tracker-header, .statistics-section, .add-ticket-top {
      background-color: Beige;
  }
+.add-ticket-bot {
+    background-color: DarkSalmon;
+    padding: 0px;
+}

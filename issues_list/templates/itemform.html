@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block page_title %}Issue Tracker{% endblock %}
+{% block page_heading %}Home Page{% endblock %}
+{% block content %}
+<h1>New Ticket</h1>
+        <form method="POST">
+        <!--prevent cross site scripting-->
+            {% csrf_token %}
+        <!--use as_bootstrap to render as bootstrap style-->
+            {{ form.as_p }}
+             <button class ="btn btn-default" type="submit">Save</button>
+        </form>
+{% endblock %}

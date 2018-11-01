@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from accounts.views import index, logout, login, registration, user_profile, get_about, get_activities_summary
-from issues_list.views import get_issues_list
+from issues_list.views import get_issues_list, create_an_item
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="index"),
@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^activities/', get_activities_summary, name="activities"),
     #URLS RELATING TO ISSUES_LIST APP
     url(r'^issues_list/$', get_issues_list, name='issues_list'),
+    url(r'^issues_list/add$', create_an_item, name = 'add'),
 ]
