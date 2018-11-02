@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User, Group, Permission
+from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import datetime
 #from vote.models import VoteModel
-from django.contrib.auth.models import User, Group, Permission
+
 # Create your models here.
 
 class Item(models.Model):
@@ -23,18 +23,24 @@ class Item(models.Model):
         ('Completed', 'Completed'),
     )
     status = models.CharField(max_length=20, choices=Status, blank=False, default = False) 
-    assigned_to = models.CharField(max_length=30, blank=False, default="Not yet Assigned")
+    Assigned_to = (
+        ('Admin1', 'Admin1'),
+        ('The Prof', 'The Prof'),
+        ('Jane Doe', 'Jane Doe'),
+        ('Jane Smith', 'Jane Smith'),
+        ('John Doe', 'John Doe'),
+        ('John Smith', 'John Smith'),
+    )
+    assigned_to = models.CharField(max_length=30, choices=Assigned_to, blank=False, default="Not yet Assigned")
     completed_date = models.DateTimeField(null=True, blank=True, auto_now=True)
-    comments = models.TextField(max_length=200, help_text="Add comments relevant to the status")
+    progress = models.TextField(max_length=200, default='', help_text="Add progress comments to the status")
    # define names in admin panel
     def __str__(self):
         return self.name
-    # def __unicode__(self):
-    #     return self.title
     # sort the data by upvotes decsending
     class Meta:
         ordering = ['-upvotes']
-        permissions = (("can_add_comments", "Set new comment"),)  
+          
 
 
 

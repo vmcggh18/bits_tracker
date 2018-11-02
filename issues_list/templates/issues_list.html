@@ -18,7 +18,7 @@
                 <td>Status</td>
                 <td>Assigned to</td>
                 <td>Completed on</td>
-                <td>Comments</td>
+                <td>Progress</td>
                 <td class="glyphicon glyphicon-comment"></td>
              </tr>
         </thead>
@@ -35,12 +35,15 @@
                 <!--provide edit link-->
                 {% if user.is_staff %}
                     <td>
+                      {% if item.status == "Completed" %}
+                         <form></form>
+                      {% else %}
                         <form method="GET" action="edit/{{ item.id }}">
                            <button type="submit"data-toggle="tooltip" title="Click on icon to edit!">
                                <span class="glyphicon glyphicon-pencil"></span>
                             </button>    
                         </form>
-              
+                      {% endif %}
                 {% else %}
                 <td></td>
                 {% endif %}
@@ -54,13 +57,17 @@
                     <td>{{ item.status }}</td>
                     <td>{{ item.assigned_to }}</td>
                     <td>{{ item.completed_date }}</td> 
-                    <td>{{ item.comments }}</td>
+                    <td>{{ item.progress }}</td>
                     <td>
+                        {% if item.status == "Completed" %}
+                         <form></form>
+                      {% else %}
                          <form method="GET" action="comment/{{ comment.id }}">
                              <button type="submit"data-toggle="tooltip" title="Click on icon to add comment!">
                                <span class="glyphicon glyphicon-comment"></span>
                             </button>  
                         </form>
+                      {% endif %}
                     </td>
             </tr>
             {% endfor %}  

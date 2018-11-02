@@ -1,7 +1,7 @@
 from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
 from .models import Item
 from .forms import ItemForm
-from django.contrib.auth.models import User, Group, Permission, ContentType
+from django.contrib.auth.models import User
 # Create your views here.
 
 def get_issues_list(request):

@@ -12,6 +12,13 @@ form {
 #navbar, .navbar-brand, .navbar-default, .container-fluid, body {
     background-color:  #B0C4DE;
 }
+/* glyphicon styles */
+.glyphicon-pencil {
+    color: blue;
+}
+.glyphicon-comment {
+    color: orange;
+}
 /* ==== Index page styles ==== */
 .callout-container {
     height: 100vh;
