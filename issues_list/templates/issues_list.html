@@ -8,7 +8,8 @@
         <thead class = "table thead-dark">
             <!--<div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>-->
              <tr class="text-center">
-                 <td class = "glyphicon glyphicon-pencil"></td>
+                <td class = "glyphicon glyphicon-pencil"></td>
+                <td>Upvote</td>
                 <td>Name</td>
                 <td>Content</td>
                 <td>Submitted by</td>
@@ -44,13 +45,24 @@
                             </button>    
                         </form>
                       {% endif %}
+                    </td>
                 {% else %}
                 <td></td>
                 {% endif %}
+                    <td>
+                {% if item.status == "Completed" %}
+                    <form></form>
+                {% else %}
+                        <form method="GET" action="upvote/{{ item.id }}">
+                            <button type="submit"data-toggle="tooltip" title="Click on icon to like!">
+                               <span class="glyphicon glyphicon-thumbs-up"></span>
+                            </button>    
+                        </form>
+                 {% endif %}
                     </td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.content }}</td>
-                    <td>{{ item.submitted_by }}</td>
+                    <td>{{ item.user }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.created_date }}</td>
                     <td>{{ item.upvotes }}</td>

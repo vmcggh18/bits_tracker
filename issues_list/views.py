@@ -16,13 +16,15 @@ def create_an_item(request):
         form = ItemForm(request.POST, request.FILES)
         #django checks if form is valid and saves if so
         if form.is_valid():
-            form.save()
-            return redirect(get_issues_list)
+            if request.user.is_authenticated():
+                form = form.save(commit=False)
+                form.user=request.user
+                form.save()
+                return redirect(get_issues_list)
     #if not a post request return an empty form
     else:
         form = ItemForm()
     return render(request, "itemform.html", {'form': form})
-    
 #get item where primary key = id
 def edit_an_item(request, id):
     """ Return an existing form for edit """

@@ -9,7 +9,7 @@ from datetime import datetime
 class Item(models.Model):
     name = models.CharField(max_length=30, blank=False)
     content = models.TextField(max_length=200, blank=False)
-    submitted_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     Category = (
         ('Feature', 'Feature'),
         ('Bug', 'Bug'),
@@ -24,6 +24,7 @@ class Item(models.Model):
     )
     status = models.CharField(max_length=20, choices=Status, blank=False, default = False) 
     Assigned_to = (
+        ('Not yet assigned', 'Not yet assigned'),
         ('Admin1', 'Admin1'),
         ('The Prof', 'The Prof'),
         ('Jane Doe', 'Jane Doe'),
