@@ -29,7 +29,7 @@ class TestViews(TestCase):
     def test_user_can_login(self):
         response = self.client.post("/accounts/login/", {"username": "admin1", "password": "secret"})  
     def test_get_registration_page(self):
-        page = self.client.get("/register/")
+        page = self.client.get("/accounts/register/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "registration.html")
    
