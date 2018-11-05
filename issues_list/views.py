@@ -2,12 +2,24 @@ from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
 from .models import Item
 from .forms import ItemForm
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def get_issues_list(request):
     """ Render the ticket list """
-    results=Item.objects.all()
-    return render(request, "issues_list.html", {'items': results})#,'ordering': ordering})
+    item_list=Item.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(item_list, 10)
+    page = request.GET.get('page')
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        items = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        items = paginator.page(paginator.num_pages)
+    return render(request, "issues_list.html", {'items': items})
 
 def create_an_item(request):
     """ Present a blank form to be filled in """
