@@ -1,8 +1,10 @@
 from django.shortcuts import render,  HttpResponse, redirect, get_object_or_404
-from .models import Item
+from .models import Item, Votefor
 from .forms import ItemForm
+from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db import IntegrityError
 # Create your views here.
 
 def get_issues_list(request):
@@ -50,3 +52,32 @@ def edit_an_item(request, id):
         #item is the instance that we want to construct the object from
         form = ItemForm(instance=item)
     return render(request, "editform.html", {'form': form})
+    
+# return the issue detail
+def get_issue_detail(request,id):
+    item = get_object_or_404(Item, pk=id)
+    return render(request, "issue_detail.html", {'item': item})
+    
+    #return the upvote form
+def cast_an_upvote(request, id):
+    """Vote up a feature or bug"""
+    item = get_object_or_404(Item, id=id)
+    voteup = Votefor(item=item, user=request.user)
+    if item.category == 'Feature':
+        voteup.save()
+   # Confirm upvote
+        
+        return HttpResponse("Upvote has been added to Payments")
+        #return redirect('fee_form',id)
+    else:
+        voteup.save()
+        # Confirm bug has been upvoted
+        
+        #return HttpResponse("Your Bug has been upvoted!")
+        return redirect('issue_detail', id)
+
+
+
+
+
+        

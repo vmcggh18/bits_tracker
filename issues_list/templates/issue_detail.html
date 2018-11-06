@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block page_title %}Issue Detail{% endblock %}
+{% block page_heading %}Issue{% endblock %}
+{% block content %}
+<div class = "tracker-item">
+<div class="row ">
+            <div class="col-sm3">
+                <h3>{{item.name}}</h3>
+            </div>
+            <div class="col-sm-9">
+                <h4>Description</h4>
+                <p>{{item.content}}</p>
+            </div>
+</div>    
+    
+        <div class="row">  
+            <div class="col-sm-4">
+                <p><a href="{% url 'issues_list' %}" class="btn btn-danger">Back To Tracker</a></p>
+            </div>
+            <div class="col-sm-4">
+                <h5>Status</h5>
+                <p>{{item.status}}</p>
+            </div>
+            <div class="col-sm-4">
+                <h5>Votes</h5>
+                <p>{{voteup}}</p>
+            </div>
+</div>
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Item
+from .models import Item, Votefor
 
 
 class ItemForm(forms.ModelForm):
@@ -9,4 +9,9 @@ class ItemForm(forms.ModelForm):
         fields = ('name', 'content', 'category',  'status', 'assigned_to', 'progress')
         #order_with_respect_to = 'upvotes decsending'
         ordering = ['-upvotes']
+class VoteforForm(forms.ModelForm):
+    
+    class Meta:
+        model = Votefor
+        exclude =['user']
         

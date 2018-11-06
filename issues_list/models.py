@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 from django.utils import timezone
 from datetime import datetime
-#from vote.models import VoteModel
+from vote.models import VoteModel
 
 # Create your models here.
 
@@ -41,6 +42,11 @@ class Item(models.Model):
     # sort the data by upvotes decsending
     class Meta:
         ordering = ['-upvotes']
+class Votefor(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name ='upvote')
+    item = models.ForeignKey(Item)
+    # class Meta:
+    #     unique_together = ('user', 'item')
           
 
 
