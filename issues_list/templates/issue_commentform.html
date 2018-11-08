@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% block page_title %}Issue Tracker{% endblock %}
-{% block page_heading %}Home Page{% endblock %}
+{% block page_heading %}Comment Form{% endblock %}
 {% block content %}
-<h1>New Ticket</h1>
+<h1>New Comment</h1>
         <form method="POST">
         <!--prevent cross site scripting-->
             {% csrf_token %}
         <!--use as_bootstrap to render as bootstrap style-->
-            {{ form | as_bootstrap }}
-             <button class ="btn btn-default" type="submit">Save</button>
+            {{ form | as_bootstrap  }}
+             <button class ="btn btn-lg btn-warning" type="submit">Save</button>
         </form>
 {% endblock %}

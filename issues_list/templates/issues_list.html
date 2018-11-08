@@ -8,7 +8,7 @@
         <thead class = "table thead-dark">
             <!--<div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>-->
              <tr class="text-center">
-                <td class = "glyphicon glyphicon-pencil"></td>
+                <td></td>
                 <td>Upvote</td>
                 <td>Name</td>
                 <td>Content</td>
@@ -20,7 +20,7 @@
                 <td>Assigned to</td>
                 <td>Completed on</td>
                 <td>Progress</td>
-                <td class="glyphicon glyphicon-comment"></td>
+                <td></td>
              </tr>
         </thead>
         <tbody>
@@ -41,7 +41,7 @@
                       {% else %}
                         <form method="GET" action="edit/{{ item.id }}">
                            <button type="submit"data-toggle="tooltip" title="Click on icon to edit!">
-                               <span class="glyphicon glyphicon-pencil"></span>
+                               <span class="glyphicon glyphicon-pencil" aria ="hidden"></span>
                             </button>    
                         </form>
                       {% endif %}
@@ -53,11 +53,15 @@
                 {% if item.status == "Completed" %}
                     <form></form>
                 {% else %}
-                        <form method="GET" action="upvote/{{ item.id }}">
-                            <button type="submit"data-toggle="tooltip" title="Click on icon to upvote!">
-                               <span class="glyphicon glyphicon-thumbs-up"></span>
-                            </button>    
-                        </form>
+                <!-- make it a link and send to detail sheet see test shop line 90 or original form link-->
+                        {% if votefor == 0 %}
+                            <a href ="{% url 'upvote' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
+                            <span class="glyphicon glyphicon-thumbs-up text-secondary" aria ="hidden"></span></a>
+                        {% else %}
+                            <a href ="{% url 'upvote' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
+                            <span class="glyphicon glyphicon-thumbs-up text-secondary" aria ="hidden"></span></a>
+                          
+                        {% endif %}
                  {% endif %}
                     </td>
                     <td>{{ item.name }}</td>
@@ -74,11 +78,7 @@
                         {% if item.status == "Completed" %}
                          <form></form>
                       {% else %}
-                         <form method="GET" action="comment/{{ comment.id }}">
-                             <button type="submit"data-toggle="tooltip" title="Click on icon to add comment!">
-                               <span class="glyphicon glyphicon-comment"></span>
-                            </button>  
-                        </form>
+                        <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!">{{ comments.count }}<span class="glyphicon glyphicon-comment text-secondary" aria ="hidden"></span></a></a>
                       {% endif %}
                     </td>
             </tr>

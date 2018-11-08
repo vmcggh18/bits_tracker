@@ -2,29 +2,84 @@
 {% block page_title %}Issue Detail{% endblock %}
 {% block page_heading %}Issue{% endblock %}
 {% block content %}
-<div class = "tracker-item">
-<div class="row ">
-            <div class="col-sm3">
-                <h3>{{item.name}}</h3>
-            </div>
-            <div class="col-sm-9">
-                <h4>Description</h4>
-                <p>{{item.content}}</p>
-            </div>
-</div>    
-    
-        <div class="row">  
-            <div class="col-sm-4">
-                <p><a href="{% url 'issues_list' %}" class="btn btn-danger">Back To Tracker</a></p>
-            </div>
-            <div class="col-sm-4">
-                <h5>Status</h5>
-                <p>{{item.status}}</p>
-            </div>
-            <div class="col-sm-4">
-                <h5>Votes</h5>
-                <p>{{voteup}}</p>
-            </div>
+
+<div class="panel panel-default">
+    <div class = "row">
+        <div class = "col-sm-6">
+            <h3 class = "text-right">Title:</h3> 
+        </div>
+        <div class ="col-sm-6">
+            <h3 class = "text-left text-muted">{{item.name}}</h3>
+        </div>
+    </div>
+
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4>Content</h4></div>
+        <p class = "text-primary">{{item.content}}</p>
+  <!-- Table -->
+  <table class="table table-bordered table-responsive">
+    <thead class = "table thead-dark">
+        <tr class="text-center">
+            <td>Category</td>
+            <td>Status</td>
+            <td>Upvotes</td>
+            <td>Total fees</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center">
+            <td class = "text-primary">{{ item.category }}</td>  
+            <td class = "text-primary">{{ item.status }}</td>
+            <td class = "text-primary">{{ item.upvotes }}</td>
+            {% if item.category == "Bug" %}
+            <td class = "text-primary">{{ 0 }}</td>
+            {% else %}
+            <td class = "text-primary">{{ item.upvotes }}</td>
+            {% endif %}
+        </tr>
+    </table>
+    <hr>
+    <div class="row">  
+        <div class="col-sm-4 text-center">
+            <p><a href="{% url 'issues_list' %}" class="btn btn-md btn-danger">Back To Tracker</a></p>
+        </div>
+    <div class = "text-center">
+        <div class="col-sm-4 text-center">
+            <form class = "text-center" method="GET" action="/issue_comment/{{ item.id }}">
+                 <button type="submit" class = "btn btn-md btn btn-warning" data-toggle="tooltip" title="Click on icon to view comment!">
+                   <span class="glyphicon glyphicon-comment text-white" aria ="hidden"></span>  Comment!
+                </button>  
+            </form>
+        </div>
+    </div>
+        <div class="col-sm-4 center-block">
+            {% if votefor == 0 %}
+               <button type="submit" class = "btn btn-md btn-success hidden center-block" data-toggle="tooltip" title="Click on icon to upvote!"> <a href ="{% url 'upvote' item.id %}">
+                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria ="hidden"> Upvote</span></a>
+               </button> 
+                <p>You have already upvoted this item.</p>
+                
+            {% else %}
+               <button type="submit" class = "btn btn-md btn-success center-block" data-toggle="tooltip" title="Click on icon to upvote!"><a href ="{% url 'upvote' item.id %}">
+                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria ="hidden"> Upvote</span></a>
+              </button> 
+            {% endif %}
+        </div>
+    </div>
 </div>
-</div>
+<h1>Leave a Comment</h1>
+<p>Total Number of Comments  {{ comments.count }}</p>
+<a  href ="{% url 'issue_comment' item.id %}"><button class = "btn btn-lg btn-warning">Add Comment</button></a>
+{% for comment in comments.all %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ item.user }}</strong>
+         <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+                                               
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}  
+
 {% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Item, Votefor
+from .models import Item, Votefor, Comment
 
 
 class ItemForm(forms.ModelForm):
@@ -14,4 +14,10 @@ class VoteforForm(forms.ModelForm):
     class Meta:
         model = Votefor
         exclude =['user']
+class CommentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Comment
+        fields = ('text',)
+
         

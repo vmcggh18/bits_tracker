@@ -14,10 +14,13 @@ form {
 }
 /* glyphicon styles */
 .glyphicon-pencil {
-    color: blue;
+    color: red;
 }
 .glyphicon-comment {
-    color: orange;
+    color: green;
+}
+.glyphicon-thumbs-up {
+    color: blue;
 }
 /* ==== Index page styles ==== */
 .callout-container {
@@ -125,11 +128,15 @@ form {
      display: block;
      margin: auto;
  }
- /*==== Generral style on Issues List page ===*/
+ /*==== General style on Issues List page ===*/
  .tracker-header, .statistics-section, .add-ticket-top {
      background-color: Beige;
  }
 .add-ticket-bot {
     background-color: DarkSalmon;
     padding: 0px;
+}
+/*==== Generral style on Issues detail page ===*/
+.comment {
+    margin: 20px 0px 20px 20px;
 }
