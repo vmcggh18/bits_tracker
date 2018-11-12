@@ -14,6 +14,7 @@ class VoteforForm(forms.ModelForm):
     class Meta:
         model = Votefor
         exclude =['user']
+        
 class CommentForm(forms.ModelForm):
     
     class Meta:

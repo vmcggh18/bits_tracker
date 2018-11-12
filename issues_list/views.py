@@ -1,10 +1,10 @@
-from django.shortcuts import render,  HttpResponse, redirect, reverse, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render,  HttpResponse, redirect, reverse, get_object_or_404
 from .models import Item, Votefor, Comment
 from .forms import ItemForm, VoteforForm, CommentForm
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db import IntegrityError
+
 # Create your views here.
 
 def get_issues_list(request):
@@ -54,68 +54,53 @@ def edit_an_item(request, id):
     return render(request, "editform.html", {'form': form})
     
     #return the ticket detail view
+    
 def get_issue_detail(request,id):
-    if Item.objects.filter(id=id, user_id=request.user.id).exists():
-
-        # return render(request, 'issue_detail.html', {
-        #     'error_message': "Sorry, but you have already voted."
-        # })
-        return HttpResponse( "Sorry, but you have already voted.")
-    else:
-        item = get_object_or_404(Item, pk=id)
-        user = request.user
-        #votefor = Votefor.objects.filter(item=item).count() 
-        upvotes = Votefor.objects.filter(item=item, user=user).count()
-        return render(request, "issue_detail.html", {'item' : item, 'upvotes' : upvotes})
+    item = get_object_or_404(Item, pk=id)
+    user = request.user
+    upvotes = Votefor.objects.filter(item=item, user=user).count()
+    comments = Comment.objects.all()
+    return render(request, "issue_detail.html", {'item' : item, 'upvotes' : upvotes, 'comments' : comments})
     
     #upvote an issue item
 def cast_an_upvote(request, id):
     """Vote up a feature or bug"""
     item = get_object_or_404(Item, id=id)
-    if Votefor.objects.filter(id=id, user_id=request.user.id).exists():
-         return HttpResponse("Sorry, but you have already voted!")
-        # return render(request, 'issue_detail.html', {'item': item, 'error_message': "Sorry, but you have already voted."})
+    user = request.user
+    if Votefor.objects.filter(item=item, user_id=request.user.id).exists():
+        messages.success(request, "Sorry you have already voted!")
+        return redirect(get_issues_list)  
     else:
-        item = get_object_or_404(Item, id=id)
-    
-    #votefor = Votefor(item=item, user=request.user)
+        #at the moment this votes the feature need to set up the payments functionality and redirect there
         if item.category == 'Feature':
             item.upvotes += 1
             item.save()
-            votefor= Votefor(user=request.user, item=item)
-            #votefor.save()
-      # Confirm upvote
-            #messages.success(request, "Upvote has been added to Payments!")
-            return HttpResponse("Upvote has been added to Payments")
-            #return redirect('fee_form',id)
+            Votefor.objects.get_or_create(user=user, item=item)
+            messages.success(request, "Your Vote has been added to the feature!")
+            return redirect(get_issues_list)    
             #free vote a bug
         else:
             item.upvotes += 1
             item.save()
-            votefor= Votefor(user=request.user, item=item)
-           #votefor.save()
-            # Confirm bug has been upvoted
-            #return HttpResponse("Your Bug has been upvoted!")
+            Votefor.objects.get_or_create(user=user, item=item)
             messages.success(request, "Your Bug has been upvoted!")
-            return redirect('issue_detail', id)
+            return redirect(get_issues_list)    
             
 def add_comment_to_issue(request, id):
-     comment_item = get_object_or_404(Item, pk=id)
+     """Add a comment to a ticket item"""
+     item= get_object_or_404(Item, pk=id)
      form = CommentForm(request.POST)
-     author = request.user
      if request.method == "POST":
         if form.is_valid():
             form = form.save(commit=False)
-            form.user = author
-            form.item = comment_item
+            form.author = request.user
+            form.item = item
             form.save()
             return redirect(get_issue_detail, id)
      else:
         form = CommentForm()
      return render(request, "issue_commentform.html", {'form': form})
-        
-    
-        
+
 
 
 

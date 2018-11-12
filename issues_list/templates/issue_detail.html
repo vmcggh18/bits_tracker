@@ -2,7 +2,7 @@
 {% block page_title %}Issue Detail{% endblock %}
 {% block page_heading %}Issue{% endblock %}
 {% block content %}
-
+<section class = "tracker-issue-detail">
 <div class="panel panel-default">
     <div class = "row">
         <div class = "col-sm-6">
@@ -15,7 +15,7 @@
 
   <!-- Default panel contents -->
   <div class="panel-heading"><h4>Content</h4></div>
-        <p class = "text-primary">{{item.content}}</p>
+        <p class = "text-primary">{{item.content}}</p><br>
   <!-- Table -->
   <table class="table table-bordered table-responsive">
     <thead class = "table thead-dark">
@@ -37,7 +37,7 @@
             <td class = "text-primary">{{ item.upvotes }}</td>
             {% endif %}
         </tr>
-    </table>
+    </table><br>
     <hr>
     <div class="row">  
         <div class="col-sm-4 text-center">
@@ -47,39 +47,41 @@
         <div class="col-sm-4 text-center">
             <form class = "text-center" method="GET" action="/issue_comment/{{ item.id }}">
                  <button type="submit" class = "btn btn-md btn btn-warning" data-toggle="tooltip" title="Click on icon to view comment!">
-                   <span class="glyphicon glyphicon-comment text-white" aria ="hidden"></span>  Comment!
+                   <span class="glyphicon glyphicon-comment text-white" aria-hidden ="true"></span>  Comment!
                 </button>  
             </form>
         </div>
     </div>
         <div class="col-sm-4 center-block">
-            {% if votefor == 0 %}
-               <button type="submit" class = "btn btn-md btn-success hidden center-block" data-toggle="tooltip" title="Click on icon to upvote!"> <a href ="{% url 'upvote' item.id %}">
-                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria ="hidden"> Upvote</span></a>
-               </button> 
-                <p>You have already upvoted this item.</p>
-                
-            {% else %}
-               <button type="submit" class = "btn btn-md btn-success center-block" data-toggle="tooltip" title="Click on icon to upvote!"><a href ="{% url 'upvote' item.id %}">
-                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria ="hidden"> Upvote</span></a>
+               <button  id = "upvote" type="submit" class = "btn btn-md btn-success center-block" data-toggle="tooltip" title="Click on icon to upvote!"><a href ="{% url 'upvote' item.id %}">
+                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"> Upvote</span></a>
               </button> 
-            {% endif %}
         </div>
     </div>
 </div>
+</section>
+<section class = "issue-comment-section">
 <h1>Leave a Comment</h1>
-<p>Total Number of Comments  {{ comments.count }}</p>
-<a  href ="{% url 'issue_comment' item.id %}"><button class = "btn btn-lg btn-warning">Add Comment</button></a>
-{% for comment in comments.all %}
-    <div class="comment">
-        <div class="date">{{ comment.created_date }}</div>
-        <strong>{{ item.user }}</strong>
-         <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
+<p>Total Number of Comments  {{ item.comments.count }}</p>
+{% for comment in item.comments.all %}
+    <div class= "row comment">
+        <div class ="row">
+            <div class="col-sm-2 pub_date"><h5 class="text-right">Original issue by::</h5></div>
+            <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ item.user }}</h5></div>
+            <div class="col-sm-2 pub_date"><h5 class="text-right">Comment Published Date:</h5></div>
+            <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ comment.created_date }}</h5></div>
+            <div class="col-sm-2 text-right"><h5>Published by: </h5></div>
+            <div class = "col-sm-2 text-left"><h5><strong>{{ comment.author }}</strong></h5></div>
+        </div>
+        <div class = "row item_comment_para">
+            <div class = "col-sm-12"><p>{{ comment.text|linebreaks }}</p></div>
+        </div>
     </div>
+    <hr>
                                                
 {% empty %}
     <p>No comments here yet :(</p>
+</section>
 {% endfor %}  
 
 {% endblock %}

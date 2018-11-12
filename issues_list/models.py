@@ -44,9 +44,12 @@ class Item(models.Model):
         ordering = ['-upvotes']
         
 class Votefor(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name ='upvote')
-    item = models.ForeignKey(Item)
+    user = models.ForeignKey(User, related_name ='user_votes')
+    item = models.ForeignKey(Item, related_name="item_votes")
     voteup = models.BooleanField(default=False)
+    
+    class Meta:
+        unique_together = ('user', 'item')
 
    
 class Comment(models.Model):

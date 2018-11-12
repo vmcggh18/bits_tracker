@@ -1,4 +1,7 @@
-/* General style for forms */
+
+body {
+    margin:auto;
+}/* General style for forms */
 form {
     width: 50%;
 }
@@ -139,4 +142,18 @@ form {
 /*==== Generral style on Issues detail page ===*/
 .comment {
     margin: 20px 0px 20px 20px;
+}
+/* section background color styles */
+.issue-comment-section {
+    background-color: beige;
+}
+.tracker-issue-detail {
+    background-color: DarkSalmon;
+/* issue list table styles */
+}
+/*table.table-bordered > tr > td {*/
+/*  border:3px ridge Gray;*/
+/*}*/
+.bordered thead > tr > td, tbody > tr > td{
+  border:2px solid Gray;
 }
