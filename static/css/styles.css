@@ -1,9 +1,13 @@
 
 body {
     margin:auto;
+    background-color: white;
 }/* General style for forms */
 form {
     width: 50%;
+}
+.messages {
+    background-color: yellow;
 }
 /* footer text */
 .end-line {

@@ -3,7 +3,14 @@
 {% block page_heading %}Home Page{% endblock %}
 {% block content %}
 <div class = "row tracker-header text-center"><h1>Issues Tracker List</h1></div>
-
+    <div class="container">
+        <div class="display">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q">
+                <button type="submit">Search by name</button>
+            </form>
+        </div>
+    </div>
 <table id ="table_id" class = "table-responsive table table-condensed">
         <thead class = "table thead-dark bordered">
             <!--<div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>-->
