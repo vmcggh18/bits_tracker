@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block page_title %}Feature Detail{% endblock %}
+{% block page_heading %}Feature{% endblock %}
+{% block content %}
+<section class = "feature-issue-detail">
+<div class="panel panel-default">
+    <div class = "row">
+        <div class = "col-sm-6">
+            <h3 class = "text-right">Title:</h3> 
+        </div>
+        <div class ="col-sm-6">
+            <h3 class = "text-left text-muted">{{item.name}}</h3>
+        </div>
+    </div>
+
+   Default panel contents 
+  <div class="panel-heading"><h4>Content</h4></div>
+        <p class = "text-primary">{{item.content}}</p><br>
+   Table 
+  <table class="table table-bordered table-responsive">
+    <thead class = "table thead-dark">
+        <tr class="text-center">
+            <td>Category</td>
+            <td>Status</td>
+            <td>Upvotes</td>
+            <td>Total fees</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center">
+            <td class = "text-primary">{{ item.category }}</td>  
+            <td class = "text-primary">{{ item.status }}</td>
+            <td class = "text-primary">{{ item.upvotes }}</td>
+            <td class = "text-primary">{{ part.total }}</td>
+        </tr>
+    </table><br>
+    <hr>
+    <div class="row">  
+        <div class="col-sm-4 text-center">
+            <p><a href="{% url 'issues_list' %}" class="btn btn-md btn-danger">Back To Tracker</a></p>
+        </div>
+        <div class = "text-center">
+            <div class="col-sm-4 text-center">
+                <form class = "text-center" method="GET" action="/issue_comment/{{ item.id }}">
+                     <button type="submit" class = "btn btn-md btn btn-warning" data-toggle="tooltip" title="Click on icon to view comment!">
+                       <span class="glyphicon glyphicon-comment text-white" aria-hidden ="true"></span>  Comment!
+                    </button>  
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4 center-block">
+            <form method="post" action="{% url 'add_to_cart' item.id %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name='upvote' type="number" min="1" max="999" class="form-control" placeholder="Upvote quantity">
+                    <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Upvote</button>
+                          </span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+</section>
+<section class = "issue-comment-section">
+<h1>Leave a Comment</h1>
+<p>Total Number of Comments  {{ item.comments.count }}</p>
+{% for comment in item.comments.all %}
+    <div class= "row comment">
+        <div class ="row">
+            <div class="col-sm-2 pub_date"><h5 class="text-right">Original issue by::</h5></div>
+            <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ item.user }}</h5></div>
+            <div class="col-sm-2 pub_date"><h5 class="text-right">Comment Published Date:</h5></div>
+            <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ comment.created_date }}</h5></div>
+            <div class="col-sm-2 text-right"><h5>Published by: </h5></div>
+            <div class = "col-sm-2 text-left"><h5><strong>{{ comment.author }}</strong></h5></div>
+        </div>
+        <div class = "row item_comment_para">
+            <div class = "col-sm-12"><p>{{ comment.text|linebreaks }}</p></div>
+        </div>
+    </div>
+    <hr>
+                                               
+{% empty %}
+    <p>No comments here yet :(</p>
+</section>
+{% endfor %}  
+
+{% endblock %}

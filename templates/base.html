@@ -36,7 +36,7 @@
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href ="{% url 'activities' %}">View Activities</a></li>
-                    <li class="visible-xs"><a href="">Sign In</a></li>
+                    <li class="visible-xs"><a href="{% url 'login' %}">Sign In</a></li>
                      {% if user.is_authenticated %}
                      <li><a href="{% url 'issues_list' %}">View Tracker</a></li>{% else %}
                      {% endif %}
