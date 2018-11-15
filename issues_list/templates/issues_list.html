@@ -15,19 +15,21 @@
         <thead class = "table thead-dark bordered">
             <!--<div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>-->
              <tr class="text-center">
-                <td style="width:5%"></td>
-                <td style="width:5%">Upvote</td>
+                <td style="width:4%"></td>
+                <td style="width:4%">Upvote</td>
                 <td style="width:10%">Name</td>
                 <td style="width:15%">Content</td>
                 <td style="width:5%">Submitted by</td>
                 <td style="width:5%">Category</td>
                 <td style="width:10%">Created on</td>
-                <td style="width:5%">Upvotes</td>
+                <td style="width:4%">Upvotes</td>
                 <td style="width:5%">Status</td>
                 <td style="width:5%">Assigned to</td>
                 <td style="width:10%">Completed on</td>
                 <td style="width:15%">Progress</td>
-                <td style="width:5%"></td>
+                <td style="width:4%">Fees</td>
+                <td style="width:4%"></td>
+                 
              </tr>
         </thead>
         <tbody class ="bordered">
@@ -87,6 +89,7 @@
                     <td>{{ item.assigned_to }}</td>
                     <td>{{ item.completed_date }}</td> 
                     <td>{{ item.progress }}</td>
+                    <td>{{ item.fee }}</td>
                     <td class = "text-center">
                 {% if item.status == "Completed" %}
                          <form></form>

@@ -39,6 +39,7 @@ def create_an_item(request):
     else:
         form = ItemForm()
     return render(request, "itemform.html", {'form': form})
+    
 #get item where primary key = id
 def edit_an_item(request, id):
     """ Return an existing form for edit """
@@ -53,38 +54,27 @@ def edit_an_item(request, id):
         form = ItemForm(instance=item)
     return render(request, "editform.html", {'form': form})
     
-    #return the ticket detail view
-    
 def get_issue_detail(request,id):
+    """ Return the ticket issue detail view"""
     item = get_object_or_404(Item, pk=id)
     user = request.user
     upvotes = Votefor.objects.filter(item=item, user=user).count()
     comments = Comment.objects.all()
     return render(request, "issue_detail.html", {'item' : item, 'upvotes' : upvotes, 'comments' : comments})
     
-    #upvote an issue item
 def cast_an_upvote(request, id):
-    """Vote up a feature or bug"""
+    """ Free vote up a bug"""
     item = get_object_or_404(Item, id=id)
     user = request.user
     if Votefor.objects.filter(item=item, user_id=request.user.id).exists():
         messages.success(request, "Sorry you have already voted!")
         return redirect(get_issues_list)  
     else:
-        #at the moment this votes the feature need to set up the payments functionality and redirect there
-        if item.category == 'Feature':
-            item.upvotes += 1
-            item.save()
-            Votefor.objects.get_or_create(user=user, item=item)
-            messages.success(request, "Your Vote has been added to the feature!")
-            return redirect(get_issues_list)    
-            #free vote a bug
-        else:
-            item.upvotes += 1
-            item.save()
-            Votefor.objects.get_or_create(user=user, item=item)
-            messages.success(request, "Your Bug has been upvoted!")
-            return redirect(get_issues_list)    
+        item.upvotes += 1
+        item.save()
+        Votefor.objects.get_or_create(user=user, item=item)
+        messages.success(request, "Your Bug has been upvoted!")
+        return redirect(get_issues_list)    
             
 def add_comment_to_issue(request, id):
      """Add a comment to a ticket item"""

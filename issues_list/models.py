@@ -41,9 +41,9 @@ class Item(models.Model):
    # define names in admin panel
     def __str__(self):
         return self.name
-    # sort the data by upvotes decsending
+    # sort the data in the oder shown all descending
     class Meta:
-        ordering = ['-upvotes']
+        ordering = ['-fee', '-upvotes', '-status']
         
 class Votefor(models.Model):
     user = models.ForeignKey(User, related_name ='user_votes')

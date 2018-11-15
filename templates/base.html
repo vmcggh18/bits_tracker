@@ -60,7 +60,7 @@
                         <li>
                     {% if user.is_authenticated %}
                         <a href="{% url 'view_cart' %}">
-                            <i class="fa fa-shopping-cart"></i> Cart
+                            <i class="fa fa-shopping-cart"></i>Cart
                             {% if item_count > 0 %}
                             <label class="badge badge-warning">{{ item_count }}</label>
                             {% endif %}
