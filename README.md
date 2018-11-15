@@ -77,10 +77,14 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - The project uses **django_forms** to fire django forms in the settings.py and bootstrap tags in the html.
 - [bootstrap](https://getbootstrap.com/docs/3.3/getting-started/)
     - The project uses bootstrap to theme and style the html pages (buttons)
+- [fontawesome](https://fontawesome.com/v4.7.0/)
+    - The project uses fontawesome icons for shopping cart
+- [stripe](https://dashboard.stripe.com/)
+    - The project uses **stripe** API as the credit/debit card payment mechanism.
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **JQuery** to fire tooltips and to link up django forms to the stripe API.
 
-
+https://dashboard.stripe.com/
 ## Testing
 
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.

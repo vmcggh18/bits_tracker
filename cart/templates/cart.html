@@ -3,38 +3,41 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="row">
+<div class="row row-flex">
     {% for part in cart_items %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display cart_item text-center">
-        <div class="caption">
-            <h2>{{ part.item.name }}</h2>
-            <p>{{ part.item.content }}</p>
-            <p>Price per upvote: <span class="glyphicon glyphicon-euro text-center" aria-hidden="true"></span> {{ part.item.price }}</p>
-            <p>Total Fee for upvotes: <span class="glyphicon glyphicon-euro text-center" aria-hidden="true"></span> {{ part.fee }}</p>
-            <p>
-        <!--allow adjustment to upvotes-->
-                <form class="form-inline text-center" method="post" action="{% url 'adjust_cart' part.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Upvote</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">Upvote</div>
-                            <input name="upvote" type="number" value = "0" min="0" max="999" class="form-control">
-                            <div class="input-group-addon text-center">{{part.upvote}}</div>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="caption">
+                <h2>{{ part.item.name }}</h2>
+                <p class = "content_desc">{{ part.item.content|truncatewords:5 }}</p>
+                <p>Price per upvote: <span class="glyphicon glyphicon-euro text-center" aria-hidden="true"></span> {{ part.item.price }}</p>
+                <p>Total Fee for upvotes: <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ part.fee }}</p>
+                <p>
+            <!--allow adjustment to upvotes-->
+                    <form class="form-inline" method="post" action="{% url 'adjust_cart' part.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputAmount" class="sr-only">New Upvote</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">Upvote</div>
+                                <input name="upvote" type="number" value = "0" min="0" max="999" class="form-control">
+                                <div class="input-group-addon">{{part.upvote}}</div>
+                            </div>
                         </div>
-                    </div>
-                    <p></p>
-                    <button type="submit" class="btn btn-primary text-center"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                </form>
-            </p>
-           
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Amend</button>
+                    </form>
+                    <p>To delete upvote reset back to 0</p>
+                </p>
+            </div>
         </div>
     </div>
     {% endfor %}
 </div>
 <div class="row">
+    <p class = "text-center">Total upvotes in cart</p>
+    <p class = "text-center"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
     <div class="col-sm-2 text-center">
-        <a href="" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
     </div>
      <div class="col-sm-2 text-center">
         <p><a href="{% url 'issues_list' %}" class="btn btn-md btn-danger">Back To Tracker</a></p>

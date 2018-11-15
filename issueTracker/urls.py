@@ -20,6 +20,7 @@ from accounts.views import index,  get_about, get_activities_summary
 from issues_list.views import get_issues_list, get_issue_detail, create_an_item, edit_an_item, cast_an_upvote, add_comment_to_issue, get_feature_detail
 from cart import urls as urls_cart
 from search import urls as urls_search
+from checkout import urls as urls_checkout
 from django.views import static
 #from .settings import MEDIA_ROOT
 #from cart.views import add_to_cart
@@ -42,6 +43,7 @@ urlpatterns = [
      #URLS RELATING TO CART APP
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
+    url(r'^checkout/', include(urls_checkout)),
     #url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
      
 ]

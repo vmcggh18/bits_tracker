@@ -7,7 +7,7 @@ form {
     width: 50%;
 }
 .messages {
-    background-color: yellow;
+    background-color: beige;
 }
 /* footer text */
 .end-line {
@@ -16,7 +16,7 @@ form {
     padding-top: 20px;
 }
 /* Base html nav bar style */
-#navbar, .navbar-brand, .navbar-default, .container-fluid, body {
+#navbar, .navbar-brand, .navbar-default, .container-fluid {
     background-color:  #B0C4DE;
 }
 /* glyphicon styles */
@@ -164,4 +164,39 @@ form {
 /*cart_item panel styles*/
 .cart_item {
     padding: 0px 10px 0px 10px;
+}
+/* cart icon styles */
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+/* badge background styles */
+.label-warning[href],
+.badge-warning[href] {
+    background-color:  #c67605;
+}
+/* cart caption and panel styles*/
+caption p {
+    word-wrap: break-word;
+}
+.cart-feature {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.panel-default {
+    border-color: transparent;
+    padding: 0 10px;
+}
+
+.panel-body {
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.content_desc {
+    min-height: 40px;
 }
