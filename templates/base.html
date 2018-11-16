@@ -13,10 +13,14 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
      <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/crossfilter.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/dc.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/queue.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     {% block head_js %}
     {% endblock head_js %}
@@ -46,6 +50,9 @@
                      {% endif %}
                      {% if user.is_authenticated %}
                      <li><a href="{% url 'add' %}">Create an Item</a></li>{% else %}
+                     {% endif %}
+                     {% if user.is_authenticated %}
+                     <li><a href="{% url 'charts' %}">View Charts</a></li>{% else %}
                      {% endif %}
                 </ul>
                 <div class="navbar-header navbar-right hidden-xs">
@@ -86,8 +93,9 @@
             <p>Made by Code Institute Bootcamper the_weaver &#169 2018</p>
         </div>
     </footer>
-     
+     <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
 <script>
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });

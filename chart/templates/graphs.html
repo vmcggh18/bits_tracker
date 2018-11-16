@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_title %}Graphs{% endblock %}
+{% block page_heading %}Charts{% endblock %}
+{% block content %}
+<!--========== Chart Section pie and Scatter ==========-->
+    <section class="chart-section container-fluid">
+        <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4 text-center under-400"><h3>Fig.1 Bug Activities to Date</h3></div>
+              <div class="col-xs-12 col-sm-12 col-md-8  text-center wide-graph"><h3 class = "relocate-to-2 hide-2">Fig.2 Feature Activities to Date</h3></div>
+        </div>
+        <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="bug-chart" class="custom-chart"></div>
+              <div class="col-xs-12 col-sm-12 col-md-8 center-block" id="feature-chart" class="custom-chart"></div>
+        </div>
+        <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4 text-center under-400"><p class = "relocate-to-1 text-center">Fig.1 above shows status on bugs</p></div>
+              <div class="col-xs-12 col-sm-12 col-md-8 text-center wide-graph"><p class = "hide-2 text-center">Fig.2 above shows status on features.</p></div>
+        </div>
+    </section>
+
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+
+
+
+{% endblock %}

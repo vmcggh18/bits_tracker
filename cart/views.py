@@ -6,24 +6,6 @@ from django.contrib.auth.models import User
 from issues_list.views import get_issues_list, get_feature_detail
 
 # Create your views here.
-# def add_to_cart(request, id):
-#     """Add a quantity of the specified product to the cart"""
-#     if request.method == "POST":
-#         #create new form
-#         form = CartItemForm(request.POST, request.FILES)
-#         #django checks if form is valid and saves if so
-#         if form.is_valid():
-#             if request.user.is_authenticated():
-#                 form = form.save(commit=False)
-#                 form.user=request.user
-#                 form.save()
-#                 return redirect(get_feature_detail)
-#     #if not a post request return an empty form
-#     else:
-#         form = CartItemForm()
-#         return render(request, "cartform.html", {'form': form})
-
-# Create your views here.
 
 def view_cart(request):
     """A view that renders the cart contents page"""

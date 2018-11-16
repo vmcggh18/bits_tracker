@@ -118,7 +118,7 @@ form {
     background-color: Beige;
 }
 .features, .personnel, .the-players, .staffing {
-     background-color: DarkSalmon;
+     background-color: LightPink;
 }
 .media-object {
     background-color: white;
@@ -127,7 +127,7 @@ form {
     color: white;
 }
 .para-features {
-    color: DarkSlateGray ;
+    color: black ;
     font-size: 16px
 }
 /* === About page styles === */
@@ -140,10 +140,10 @@ form {
      background-color: Beige;
  }
 .add-ticket-bot {
-    background-color: DarkSalmon;
+    background-color: LightPink;
     padding: 0px;
 }
-/*==== Generral style on Issues detail page ===*/
+/*==== General style on Issues detail page ===*/
 .comment {
     margin: 20px 0px 20px 20px;
 }
@@ -152,7 +152,7 @@ form {
     background-color: beige;
 }
 .tracker-issue-detail {
-    background-color: DarkSalmon;
+    background-color: LightPink;
 /* issue list table styles */
 }
 /*table.table-bordered > tr > td {*/
@@ -199,4 +199,7 @@ caption p {
 
 .content_desc {
     min-height: 40px;
+}
+.chart-section {
+    background-color: lightPink;
 }
