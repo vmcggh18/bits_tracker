@@ -6,20 +6,40 @@
 <!--========== Chart Section pie and Scatter ==========-->
     <section class="chart-section container-fluid">
         <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-4 text-center under-400"><h3>Fig.1 Bug Activities to Date</h3></div>
-              <div class="col-xs-12 col-sm-12 col-md-8  text-center wide-graph"><h3 class = "relocate-to-2 hide-2">Fig.2 Feature Activities to Date</h3></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center"><h3>The charts below show the distribution on categories to date, the Status on those categories and the Upvotes recieved to date</h3>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="all_issues" class="custom-chart">
+            </div>
+             <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="stack_status" class="custom-chart">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="upvote_status" class="custom-chart">
+            </div>
         </div>
         <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="bug-chart" class="custom-chart"></div>
-              <div class="col-xs-12 col-sm-12 col-md-8 center-block" id="feature-chart" class="custom-chart"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center"><h3>The charts below show the total amount of days spent working on issues (Completed) and (Ongoing) and the duration of Pending issues.</h3>
+            </div>
         </div>
-        <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-4 text-center under-400"><p class = "relocate-to-1 text-center">Fig.1 above shows status on bugs</p></div>
-              <div class="col-xs-12 col-sm-12 col-md-8 text-center wide-graph"><p class = "hide-2 text-center">Fig.2 above shows status on features.</p></div>
+        <div class = "row">
+            <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="days_by_cat" class="custom-chart">
+            </div>
+             <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="days_by_cat_ongoing" class="custom-chart">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 center-block" id="days_pending" class="custom-chart">
+            </div>
         </div>
-    </section>
-
-<script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+        <div class = "row">
+            <div class = "col-sm-12 col-md-12 center-block">
+                <h3 class = "text-center">The chart below shows the Percentage of Fees received for Features and Progress by Status</h3>
+                <p class = text-center>(hover on slice for total fees in Euros)</p>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col-xs-12 col-sm-12 col-md-12 center-block" id="fee-pie-chart" class="custom-chart">
+            </div>
+        </div>
+         
 
 
 

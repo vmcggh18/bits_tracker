@@ -34,7 +34,8 @@ class Item(models.Model):
         ('John Smith', 'John Smith'),
     )
     assigned_to = models.CharField(max_length=30, choices=Assigned_to, blank=False, default="Not yet Assigned")
-    completed_date = models.DateTimeField(null=True, blank=True, auto_now=True)
+    assigned_date = models.DateTimeField(null=True, blank=True)
+    completed_date = models.DateTimeField(null=True, blank=True)
     progress = models.TextField(max_length=200, default='', help_text="Add progress comments to the status")
     fee = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     price= models.DecimalField(max_digits=6, decimal_places=2, default=50)

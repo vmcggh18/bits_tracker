@@ -9,19 +9,20 @@
     <title>{% block page_title %}Issue Tracker{% endblock %}</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
      <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
     <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/crossfilter.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
+  
     <script type="text/javascript" src="{% static 'js/dc.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/queue.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
+     <script type="text/javascript" src="{% static 'js/time_graph.js' %}"></script>
+  
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -38,7 +39,6 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
@@ -79,7 +79,6 @@
             </div>
         </div>
     </nav>
- 
     {% if messages %}
     <div class = "row messages">
         <div class = "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4">
@@ -93,7 +92,7 @@
             <p>Made by Code Institute Bootcamper the_weaver &#169 2018</p>
         </div>
     </footer>
-     <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
+    
 <script>
 
 $(document).ready(function(){
