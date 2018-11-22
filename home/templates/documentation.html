@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_title %}Issue Tracker{% endblock %}
+{% block page_heading %}Documents Page{% endblock %}
+{% block content %}
+<!----------------------bits image -------------------->
+	 <div class=" row background-info">
+	     <div class="col-xs-12 col-sm-4 logo">
+			<figure class="beetle"> 
+			        <img  src="{% static 'images/bitsImage.png' %}" style="background_image" class="img-responsive img-logo center-block" alt="BITS Company Image logo" height = 50% width = 50%></img>
+				<div class="text-logo text-center">
+				    <h1>B I T S</h1>
+				</div>
+			</figure>
+		</div>
+<!-------------narrative about BITS----------------------->
+			<article class="description">
+				 <div class= "col-xs-12 col-sm-8 logo about-bits">
+					<h2>About BITS</h2>
+					
+					
+				</div>	   
+			</article>
+
+
+
+{% endblock %}

@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from home.views import index
+from home import urls as urls_home
 from accounts import urls as urls_accounts
-from accounts.views import index,  get_about, get_activities_summary
 from issues_list.views import get_issues_list, get_issue_detail, create_an_item, edit_an_item, cast_an_upvote, add_comment_to_issue, get_feature_detail
 from cart import urls as urls_cart
 from search import urls as urls_search
@@ -31,8 +32,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="index"),
     url(r'^accounts/', include(urls_accounts)),
-    url(r'^about/', get_about, name="about"),
-    url(r'^activities/', get_activities_summary, name="activities"),
+    url(r'^home/', include(urls_home)),
     #URLS RELATING TO ISSUES_LIST APP
     url(r'^issues_list/$', get_issues_list, name='issues_list'),
     url(r'^issue_detail/(?P<id>\d+)/$', get_issue_detail, name='issue_detail'),
@@ -41,7 +41,7 @@ urlpatterns = [
     url(r'^issues_list/upvote/(?P<id>\d+)/$', cast_an_upvote, name='upvote'),
     url(r'^issue_comment/(?P<id>\d+)/$', add_comment_to_issue, name='issue_comment'),
     url(r'^feature_detail/(?P<id>\d+)/$', get_feature_detail, name='feature_detail'),
-     #URLS RELATING TO CART APP
+
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
     url(r'^checkout/', include(urls_checkout)),

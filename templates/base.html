@@ -54,6 +54,7 @@
                      {% if user.is_authenticated %}
                      <li><a href="{% url 'charts' %}">View Charts</a></li>{% else %}
                      {% endif %}
+                      <li><a href="{% url 'documentation' %}">Docs</a></li>
                 </ul>
                 <div class="navbar-header navbar-right hidden-xs">
                     <ul class="nav navbar-nav">
