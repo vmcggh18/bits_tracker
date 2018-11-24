@@ -18,7 +18,7 @@ from django.contrib import admin
 from home.views import index
 from home import urls as urls_home
 from accounts import urls as urls_accounts
-from issues_list.views import get_issues_list, get_issue_detail, create_an_item, edit_an_item, cast_an_upvote, add_comment_to_issue, get_feature_detail
+from issues_list.views import get_issues_list, get_issue_detail, create_an_item, edit_an_item, cast_an_upvote, add_comment_to_issue
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
@@ -40,7 +40,7 @@ urlpatterns = [
     url(r'^issues_list/edit/(?P<id>\d+)/$', edit_an_item, name='edit'),
     url(r'^issues_list/upvote/(?P<id>\d+)/$', cast_an_upvote, name='upvote'),
     url(r'^issue_comment/(?P<id>\d+)/$', add_comment_to_issue, name='issue_comment'),
-    url(r'^feature_detail/(?P<id>\d+)/$', get_feature_detail, name='feature_detail'),
+    #url(r'^feature_detail/(?P<id>\d+)/$', get_feature_detail, name='feature_detail'),
 
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),

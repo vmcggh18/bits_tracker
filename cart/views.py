@@ -3,7 +3,7 @@ from issues_list.models import Item
 from issues_list.forms import ItemForm
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
-from issues_list.views import get_issues_list, get_feature_detail
+from issues_list.views import get_issues_list
 
 # Create your views here.
 

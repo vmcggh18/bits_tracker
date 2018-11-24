@@ -16,20 +16,18 @@
             <!--<div class = "add-ticket-top"><a href="add"><button class ="btn btn-default"> Add a new item</button></a></div>-->
              <tr class="text-center">
                 <td style="width:4%"></td>
-                <td style="width:4%">Upvote</td>
+                <td style="width:5%">Upvote</td>
                 <td style="width:10%">Name</td>
                 <td style="width:15%">Content</td>
-                <td style="width:5%">Submitted by</td>
+                <td style="width:8%">Submitted by</td>
                 <td style="width:5%">Category</td>
                 <td style="width:10%">Created on</td>
-                <td style="width:4%">Upvotes</td>
+                <td style="width:5%">Upvotes</td>
                 <td style="width:5%">Status</td>
-                <td style="width:5%">Assigned to</td>
-                <td style="width:10%">Completed on</td>
+                <td style="width:8%">Assigned to</td>
                 <td style="width:15%">Progress</td>
-                <td style="width:4%">Fees</td>
-                <td style="width:4%"></td>
-                 
+                <td style="width:5%">Fees</td>
+                <td style="width:5%"></td>
              </tr>
         </thead>
         <tbody class ="bordered">
@@ -66,39 +64,26 @@
                             <a href ="{% url 'upvote' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
                             <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"></span></a>
                         {% else %}
-                            <a href ="{% url 'feature_detail' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
+                            <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
                             <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"></span></a>
                         {% endif %}
             {% endif %}
                     </td>
                     <td>{{ item.name }}</td>
-             {% if item.status == "Completed" %}
-                     <td>{{ item.content | truncatewords:10 }}</td>
-            {% else %}
-                        {% if item.category == "Bug" %}
-                    <td class = "text-center"><a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click here to see full detail">{{ item.content | truncatewords:10 }}</a></td>
-                        {% else %}
-                    <td class = "text-center"><a href ="{% url 'feature_detail' item.id %}" data-toggle="tooltip" title="Click here to see full detail">{{ item.content | truncatewords:10 }}</a></td>
-                        {% endif %}
-             {% endif %}
+                    <td class = "text-center"><a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click here to see full detail">{{ item.content | truncatewords:5 }}</a></td>
                     <td>{{ item.user }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.created_date }}</td>
                     <td>{{ item.upvotes }}</td>
                     <td>{{ item.status }}</td>
                     <td>{{ item.assigned_to }}</td>
-                    <td>{{ item.assigned_date }}</td> 
-                    <td>{{ item.progress }}</td>
+                    <td>{{ item.progress | truncatewords:5 }}</td>
                     <td>{{ item.fee }}</td>
                     <td class = "text-center">
                 {% if item.status == "Completed" %}
                          <form></form>
                 {% else %}
-                         {% if item.category == "Bug" %}
                             <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!">{{ comments.count }}<span class="glyphicon glyphicon-comment text-secondary"  aria-hidden ="true"></span></a></a>
-                         {% else %}
-                            <a href ="{% url 'feature_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!">{{ comments.count }}<span class="glyphicon glyphicon-comment text-secondary" aria-hidden ="true"></span></a></a>
-                         {% endif %}
                  {% endif %}
                     </td>
             </tr>

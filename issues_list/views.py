@@ -99,13 +99,13 @@ def add_comment_to_issue(request, id):
         form = CommentForm()
      return render(request, "issue_commentform.html", {'form': form})
      
-def get_feature_detail(request,id):
-    """ Get the feature detail """
-    item = get_object_or_404(Item, pk=id)
-    user = request.user
-    upvotes = Votefor.objects.filter(item=item, user=user).count()
-    comments = Comment.objects.all()
-    return render(request, "feature_detail.html", {'item' : item, 'upvotes' : upvotes, 'comments' : comments})
+# def get_feature_detail(request,id):
+#     """ Get the feature detail """
+#     item = get_object_or_404(Item, pk=id)
+#     user = request.user
+#     upvotes = Votefor.objects.filter(item=item, user=user).count()
+#     comments = Comment.objects.all()
+#     return render(request, "feature_detail.html", {'item' : item, 'upvotes' : upvotes, 'comments' : comments})
 
 
 

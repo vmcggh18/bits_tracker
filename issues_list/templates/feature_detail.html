@@ -13,10 +13,10 @@
         </div>
     </div>
 
-   Default panel contents 
+   <!--Default panel contents -->
   <div class="panel-heading"><h4>Content</h4></div>
         <p class = "text-primary">{{item.content}}</p><br>
-   Table 
+   <!--Table -->
   <table class="table table-bordered table-responsive">
     <thead class = "table thead-dark">
         <tr class="text-center">
@@ -31,7 +31,11 @@
             <td class = "text-primary">{{ item.category }}</td>  
             <td class = "text-primary">{{ item.status }}</td>
             <td class = "text-primary">{{ item.upvotes }}</td>
-            <td class = "text-primary">{{ part.total }}</td>
+             {% if item.category == "Feature" %}
+            <td class = "text-primary">{{ item.fee }}</td>
+             {% else %}
+             <td class = "text-primary">{{ 0 }}</td>
+             {% endif %}
         </tr>
     </table><br>
     <hr>
