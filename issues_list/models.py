@@ -25,18 +25,19 @@ class Item(models.Model):
     )
     status = models.CharField(max_length=20, choices=Status, blank=False, default = False) 
     Assigned_to = (
-        ('Not yet assigned', 'Not yet assigned'),
+        ('Not yet', 'Not yet'),
         ('Admin1', 'Admin1'),
+        ('Admin2', 'Admin2'),
         ('The Prof', 'The Prof'),
         ('Jane Doe', 'Jane Doe'),
         ('Jane Smith', 'Jane Smith'),
         ('John Doe', 'John Doe'),
         ('John Smith', 'John Smith'),
     )
-    assigned_to = models.CharField(max_length=30, choices=Assigned_to, blank=False, default="Not yet Assigned")
-    assigned_date = models.DateTimeField(null=True, blank=True)
-    completed_date = models.DateTimeField(null=True, blank=True)
-    progress = models.TextField(max_length=200, default='', help_text="Add progress comments to the status")
+    assigned_to = models.CharField(max_length=30, choices=Assigned_to, blank=False, default="Not yet")
+    assigned_date = models.DateTimeField(null=True, blank=True, default=timezone.now, help_text="Enter as d-m-Y H:M (example 10-11-2018 11:30) (secs not required)")
+    completed_date = models.DateTimeField(null=True, blank=True, default=timezone.now, help_text="Enter as d-m-Y H:M (example 10-11-2018 11:30) (secs not required)")
+    progress = models.TextField(max_length=200, default='Queued', help_text="Add progress note relative to the status (eg In Development)")
     fee = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     price= models.DecimalField(max_digits=6, decimal_places=2, default=50)
    # define names in admin panel

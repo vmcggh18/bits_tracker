@@ -1,6 +1,6 @@
 from django.shortcuts import render,  HttpResponse, redirect, reverse, get_object_or_404
 from .models import Item, Votefor, Comment
-from .forms import ItemForm, VoteforForm, CommentForm
+from .forms import ItemForm, ItemEditForm, VoteforForm, CommentForm
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -45,13 +45,13 @@ def edit_an_item(request, id):
     """ Return an existing form for edit """
     item = get_object_or_404(Item, pk=id)
     if request.method == "POST":
-        form = ItemForm(request.POST, instance=item)
+        form = ItemEditForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
             return redirect(get_issues_list)
     else:
         #item is the instance that we want to construct the object from
-        form = ItemForm(instance=item)
+        form = ItemEditForm(instance=item)
     return render(request, "editform.html", {'form': form})
     
 def get_issue_detail(request,id):
