@@ -81,31 +81,18 @@ def add_comment_to_issue(request, id):
      item= get_object_or_404(Item, pk=id)
      form = CommentForm(request.POST)
      if request.method == "POST":
-         if item.category =="Bug":
-            if form.is_valid():
-                form = form.save(commit=False)
-                form.author = request.user
-                form.item = item
-                form.save()
-                return redirect(get_issue_detail, id)
-         else:
-            if form.is_valid():
-                form = form.save(commit=False)
-                form.author = request.user
-                form.item = item
-                form.save()
-                return redirect(get_feature_detail, id)
+         #if item.category =="Bug":
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.author = request.user
+            form.item = item
+            form.save()
+            return redirect(get_issue_detail, id)
      else:
         form = CommentForm()
      return render(request, "issue_commentform.html", {'form': form})
      
-# def get_feature_detail(request,id):
-#     """ Get the feature detail """
-#     item = get_object_or_404(Item, pk=id)
-#     user = request.user
-#     upvotes = Votefor.objects.filter(item=item, user=user).count()
-#     comments = Comment.objects.all()
-#     return render(request, "feature_detail.html", {'item' : item, 'upvotes' : upvotes, 'comments' : comments})
+
 
 
 

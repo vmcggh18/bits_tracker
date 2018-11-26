@@ -65,6 +65,12 @@
                 <div class="navbar-header navbar-right hidden-xs">
                     <ul class="nav navbar-nav">
                      {% if user.is_authenticated %}
+                     <li><a href="{% url 'get_posts' %}">View Blog</a></li>{% else %}
+                     {% endif %}
+                     {% if user.is_authenticated %}
+                     <li><a href="{% url 'new_post' %}">New Blog</a></li>{% else %}
+                     {% endif %}
+                     {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                      {% else %}
