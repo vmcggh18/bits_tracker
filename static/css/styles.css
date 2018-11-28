@@ -203,3 +203,11 @@ caption p {
 .chart-section {
     background-color: white;
 }
+/* styles below not working */
+.row row-eq-height {
+    display: table; /* Make the container element behave like a table */
+    width: 100%; /* Set full-width to expand the whole page */
+}
+.col-about {
+    display: table-cell; /* Make elements inside the container behave like table cells */
+}

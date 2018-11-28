@@ -11,8 +11,6 @@ class ItemForm(forms.ModelForm):
         ordering = ['fee', '-upvotes', 'status']
         
 class ItemEditForm(forms.ModelForm):
-    assigned_date =  forms.DateTimeField(input_formats=['%Y-%m-%d %H:%M:%S',], help_text="Enter as Y-m-d H:M (example 2018-11-10 11:30:00)")
-    completed_date =  forms.DateTimeField(input_formats=['%Y-%m-%d %H:%M:%S',], help_text="Enter as Y-m-d H:M (example 2018-11-10 11:30:00)")
     
     class Meta:
         model = Item

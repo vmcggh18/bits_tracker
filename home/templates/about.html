@@ -4,36 +4,58 @@
 {% block page_heading %}About Page{% endblock %}
 {% block content %}
 <!----------------------bits image -------------------->
-	 <div class=" row background-info">
-	     <div class="col-xs-12 col-sm-4 logo">
-			<figure class="beetle"> 
-			        <img  src="{% static 'images/bitsImage.png' %}" style="background_image" class="img-responsive img-logo center-block" alt="BITS Company Image logo" height = 50% width = 50%></img>
-				<div class="text-logo text-center">
-				    <h1>B I T S</h1>
-				</div>
-			</figure>
-		</div>
+<div class="row row-eq-height background-info ">
+    <div class="col-xs-12 col-sm-4 logo col-about">
+		<figure class="beetle"> 
+		        <img  src="{% static 'images/bitsImage.png' %}" style="background_image" class="img-responsive img-logo center-block" alt="BITS Company Image logo" height = 50% width = 50%></img>
+			<div class="text-logo text-center">
+			    <h1>B I T S</h1>
+			</div>
+		</figure>
+	</div>
 <!-------------narrative about BITS----------------------->
-			<article class="description">
-				 <div class= "col-xs-12 col-sm-8 logo about-bits">
-					<h2>About BITS</h2>
-					
-							<p class="narrative1">Bug Issue Tracker Solutions provides you with a central place to submit and comment on bugs and features. The focus is on accountability and progress, ensuring that not only does the work get done, but it gets done correctly.</p>
-							<p class="narrative1">The user community decides the priority through upvotes. The user community can also participate in the review process through commenting, ensuring that issues are dealt with correctly. In effect the user community acts as a second set of eyes.</p> 
-							<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication.</p>
-							<p "narrative1">An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively. </p>
-							<p "narrative1">For example:
-							    <ul class="list-style">
-                                      <li>specific people with specific expertise handle specific issues</li>
-                                      <li>issue are dealt with by both individuals and teams</li>
-                                      <li>upvotes determine which issues to prioritise</li>
-                                      <li>issues are communicated throughout the team through regular meetings, log checks, status updates emails, and so on</li>
-                                  </ul>
-							</p>
-								<p "narrative1">This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.</p>
-				</div>	   
-			</article>
+	<article class="description">
+		<div class= "col-xs-12 col-sm-8 logo about-bits col-about">
+				<h3>About BITS</h3>
+				    <h4>For collaborative issue tracking.</h4>
+				    <p class="narrative1">Bug Issue Tracker Solutions provides an easy-to-use web-based application tool to help individuals and businesses track issues and find lasting solutions to their needs. It is driven by a vibrant user community ensuring collobaration on all levels.</p>
+				    <p class="narrative1">Bug Issue Tracker Solutions provides you with a central place to submit and comment on bugs and features. The focus is on accountability and progress, ensuring that not only does the work get done, but it gets done correctly.</p>
+					<p class="narrative1">The user community decides the priority through upvotes. The user community can also participate in the review process through commenting, ensuring that issues are dealt with correctly. In effect the user community acts as a second set of eyes.</p> 
+					<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication. This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.</p>
 		</div>
+	</article>
+</div>
+	<article>		
+		<div class = "row">
+			<div class = "col-sm-12">
+				<h4>Key features:</h4>
+				    <h5>Web-based Architecture</h5>
+					    <p class="narrative1">Uses  Django, a high-level Python Web framework that ensures speed, security and ease of use.  All features and functionality are available to the user with a Web browser. Cloud based with mothing to install.</p>
+					<h5>Standard Database Support</h5>
+					    <p class="narrative1">Uses   postgresql, a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.</p>
+					<h5>Adaptable</h5>
+					    <p class="narrative1">Can cover a multiple of projects and involve multiple users. Multiple issues can be created and tracked and  allows management at a central location.</p>
+					<h5>Cost effective: </h5>
+						<p class="narrative1">No overheads or implementation costs. Bugs dealt with free. Features developed for a nominal fee</p>
+						<h5>Transparency and accountability:</h5>
+						<p class="narrative1">Use of charts and graphs to to visually display current and past project statistics as well as trends. Enables quick identification of trouble spots while also providing statistics to evaluate performance and aid in future planning.</p>
+					<h5>Knowledge sharing</h5>
+						<p class="narrative1">Participate in a multidisciplinary environment where knowledge is shared. Directly comment on issues or use the blog post to discuss wide ranging issues. Facilitates sharing of information & knowledge. Reduce the need for meetings that require everyone to be at the same place and same time.</p>
+					<h5>Management Framework</h5>
+						<p class="narrative1">>An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively.</p>
+						<p "narrative1">For example:
+					    <ul class="list-style">
+                              <li>specific people with specific expertise handle specific issues</li>
+                              <li>issue are dealt with by both individuals and teams</li>
+                              <li>upvotes determine which issues to prioritise</li>
+                              <li>issues are communicated throughout the team through regular meetings, log checks, status updates emails, and so on</li>
+                          </ul>
+					</p>
+						
+			</div>
+		</div>	   
+	</article>
+		
 
 <div class="row the-players">
     <h2 class = "text-center">Meet the team</h2>

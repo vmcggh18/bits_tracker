@@ -73,10 +73,10 @@ function stat_by_cat(ndx) {
     var cat_dim = ndx.dimension(dc.pluck('status'));
             function totBug(Bug) {
                 return function (d) {
-                    count = 0;
+                    d.count = 0;
                    if (d.category === "Bug") {
-                     count++;
-                     return count;
+                     d.count++;
+                     return d.count;
                  } else {
                      return 0;
                  } 
@@ -85,10 +85,10 @@ function stat_by_cat(ndx) {
     var    totalBug = cat_dim.group().reduceSum(totBug('Bug'));
         function totFeature(Feature) {
             return function (d) {
-                count = 0;
+                d.count = 0;
                if (d.category === "Feature") {
-                 count++;
-                 return count;
+                 d.count++;
+                 return d.count;
              } else {
                  return 0;
              } 
@@ -246,3 +246,64 @@ function show_pie_fees(ndx) {
         });
     });
 }  
+ queue()
+        .defer(d3.json, "/chart/weekly/")
+        .await(makeGraphs);
+     
+        function makeGraphs(error, weeklyData) {
+            var ndx = crossfilter(weeklyData);
+            //console.log(Data);
+           
+             weeklyData.forEach(function(d) {
+                 d.upvotes = +d.upvotes;
+           
+             });
+             
+ show_weekly_act(ndx);
+    dc.renderAll();
+  
+} 
+function show_weekly_act(ndx) {
+    var cat_dim = ndx.dimension(dc.pluck('category'));
+        function allStatus(status) {
+             return function (d) {
+                 d.count = 0;
+                 if (d.status === status) {
+                     d.count++;
+                     return d.count;
+              }  else {
+                     return 0;
+              } 
+             };
+         }   
+    var totalComp = cat_dim.group().reduceSum(allStatus('Completed'));    
+         dc.pieChart("#completed-weekly-chart")
+            .height(330)
+            .radius(150)
+            .transitionDuration(1500)
+            .dimension(cat_dim)
+            .group(totalComp)
+            //.legend(dc.legend().x(20).y(20).itemHeight(13).gap(5))
+            .renderlet(function(chart){
+            chart.selectAll('text.pie-slice').text( function(d) {
+            return 'Completed' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+        });
+    });    
+         
+    var totalOng = cat_dim.group().reduceSum(allStatus('Ongoing'));          
+         dc.pieChart("#ongoing-weekly-chart")
+            .height(330)
+            .radius(150)
+            .transitionDuration(1500)
+            .dimension(cat_dim)
+            .group(totalOng)
+            //.legend(dc.legend().x(20).y(20).itemHeight(13).gap(5))
+            .renderlet(function(chart){
+            chart.selectAll('text.pie-slice').text( function(d) {
+            return 'Ongoing' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+        });
+    });     
+         
+         
+         
+}

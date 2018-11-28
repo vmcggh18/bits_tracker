@@ -27,3 +27,10 @@ def get_time_spent(request):
     data = list(Item.objects.values('status', 'category', 'created_date','completed_date', 'assigned_date', 'upvotes', 'fee'))
     return JsonResponse(data, safe=False)
     
+def get_weekly_activities(request):
+    """ Get activities on ongoing and completed bugs and features over the last 7 days """
+    weekly = datetime.today()-timedelta(days=7)
+    weeklyData = list((Item.objects.filter(assigned_date__gte=weekly)).values('status', 'category', 'completed_date', 'assigned_date', 'upvotes'))
+    return JsonResponse(weeklyData, safe=False)
+
+   
