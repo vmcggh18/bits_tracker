@@ -4,45 +4,48 @@
 {% block page_heading %}About Page{% endblock %}
 {% block content %}
 <!----------------------bits image -------------------->
-<div class="row row-eq-height background-info ">
-    <div class="col-xs-12 col-sm-4 logo col-about">
-		<figure class="beetle"> 
-		        <img  src="{% static 'images/bitsImage.png' %}" style="background_image" class="img-responsive img-logo center-block" alt="BITS Company Image logo" height = 50% width = 50%></img>
-			<div class="text-logo text-center">
-			    <h1>B I T S</h1>
-			</div>
-		</figure>
-	</div>
-<!-------------narrative about BITS----------------------->
-	<article class="description">
-		<div class= "col-xs-12 col-sm-8 logo about-bits col-about">
-				<h3>About BITS</h3>
-				    <h4>For collaborative issue tracking.</h4>
-				    <p class="narrative1">Bug Issue Tracker Solutions provides an easy-to-use web-based application tool to help individuals and businesses track issues and find lasting solutions to their needs. It is driven by a vibrant user community ensuring collobaration on all levels.</p>
-				    <p class="narrative1">Bug Issue Tracker Solutions provides you with a central place to submit and comment on bugs and features. The focus is on accountability and progress, ensuring that not only does the work get done, but it gets done correctly.</p>
-					<p class="narrative1">The user community decides the priority through upvotes. The user community can also participate in the review process through commenting, ensuring that issues are dealt with correctly. In effect the user community acts as a second set of eyes.</p> 
-					<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication. This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.</p>
-		</div>
-	</article>
-</div>
-	<article>		
+<section class = "container-fluid about-section">
+    <div class="background-info">
+        <div class="col-xs-12 col-sm-4 logo col-about">
+    		<figure class="beetle"> 
+    		        <img  src="{% static 'images/bitsImage.png' %}" style="background_image" class="img-responsive img-logo center-block" alt="BITS Company Image logo" height = 50% width = 50%></img>
+    			<div class="text-logo text-center">
+    			    <h1>B I T S</h1>
+    			</div>
+    		</figure>
+    	</div>
+    <!-------------narrative about BITS----------------------->
+    	<article class="description">
+    		<div class= "col-xs-12 col-sm-8 logo about-bits col-about">
+    				<h3>About BITS</h3>
+    				    <h4>For collaborative issue tracking.</h4>
+    				    <p class="narrative1">Bug Issue Tracker Solutions provides an easy-to-use web-based application tool to help individuals and businesses track issues and find lasting solutions to their needs. It is driven by a vibrant user community ensuring collobaration on all levels.</p>
+    				    <p class="narrative1">Bug Issue Tracker Solutions provides you with a central place to submit and comment on bugs and features. The focus is on accountability and progress, ensuring that not only does the work get done, but it gets done correctly.</p>
+    					<p class="narrative1">The user community decides the priority through upvotes. The user community can also participate in the review process through commenting, ensuring that issues are dealt with correctly. In effect the user community acts as a second set of eyes.</p> 
+    					<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication. This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.</p>
+    		</div>
+    	</article>
+    </div>
+</section>
+<section class = "container-fluid feature-section">
+	<article class = "bits-detail">		
 		<div class = "row">
 			<div class = "col-sm-12">
 				<h4>Key features:</h4>
-				    <h5>Web-based Architecture</h5>
+				    <h5 class ="shadow">Web-based Architecture</h5>
 					    <p class="narrative1">Uses  Django, a high-level Python Web framework that ensures speed, security and ease of use.  All features and functionality are available to the user with a Web browser. Cloud based with mothing to install.</p>
-					<h5>Standard Database Support</h5>
+					<h5 class ="shadow">Standard Database Support</h5>
 					    <p class="narrative1">Uses   postgresql, a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.</p>
-					<h5>Adaptable</h5>
+					<h5 class ="shadow">Adaptable</h5>
 					    <p class="narrative1">Can cover a multiple of projects and involve multiple users. Multiple issues can be created and tracked and  allows management at a central location.</p>
-					<h5>Cost effective: </h5>
+					<h5 class ="shadow">Cost effective: </h5>
 						<p class="narrative1">No overheads or implementation costs. Bugs dealt with free. Features developed for a nominal fee</p>
-						<h5>Transparency and accountability:</h5>
+						<h5 class ="shadow">Transparency and accountability:</h5>
 						<p class="narrative1">Use of charts and graphs to to visually display current and past project statistics as well as trends. Enables quick identification of trouble spots while also providing statistics to evaluate performance and aid in future planning.</p>
-					<h5>Knowledge sharing</h5>
+					<h5 class ="shadow">Knowledge sharing</h5>
 						<p class="narrative1">Participate in a multidisciplinary environment where knowledge is shared. Directly comment on issues or use the blog post to discuss wide ranging issues. Facilitates sharing of information & knowledge. Reduce the need for meetings that require everyone to be at the same place and same time.</p>
-					<h5>Management Framework</h5>
-						<p class="narrative1">>An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively.</p>
+					<h5 class ="shadow">Management Framework</h5>
+						<p class="narrative1">An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively.</p>
 						<p "narrative1">For example:
 					    <ul class="list-style">
                               <li>specific people with specific expertise handle specific issues</li>
@@ -55,71 +58,71 @@
 			</div>
 		</div>	   
 	</article>
-		
+</section>		
 
 <div class="row the-players">
     <h2 class = "text-center">Meet the team</h2>
 </div>
-                    <div class="row staffing">
-                        <div class="col-xs-12 col-sm-6 media">
-                            <div class="media-left">
-                                <img src="{% static 'images/prof.png' %}" class="img-circle media-object" alt="Staff 1 Prof image" height=100 width=100>
-                            </div>
-                            <div class="media-body personnel">
-                                <blockquote class="quote">
-                                    <h3>The professor.</h3>
-                                    <p>So called because of his wide range expertise in legal and financial matters. Also an expertise in many software technologies.</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class=" col-xs-12 col-sm-6 media">
-                            <div class="media-left">
-                               <img src="{% static 'images/jDoe.png' %}" class="img-circle media-object" alt="Staff 2 Jane Doe image" height=100 width=100>
-                            </div>
-                            <div class="media-body personnel">
-                                <blockquote class="quote">
-                                   <h3>Jane Doe.</h3>
-                                   <p>Our expert on human resources and company management.</p> 
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row staffing">
-                        <div class="col-xs-12 col-sm-6 media">
-                            <div class="media-left">
-                                <img src="{% static 'images/jSmith.png' %}" class="img-circle media-object" alt="Staff 3 Jane Smith image" height=100 width=100>
-                            </div>
-                            <div class="media-body personnel">
-                                <blockquote class="quote">
-                                    <h3>Jane Smith.</h3>
-                                    <p>Our expert in all medical and pharaceutical matters.</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 media">
-                            <div class="media-left">
-                                <img src="{% static 'images/johnD.png' %}" class="img-circle media-object" alt="Staff 4 John Doe image" height=100 width=100>
-                            </div>
-                            <div class="media-body personnel">
-                                <blockquote class="quote">
-                                    <h3>John Doe.</h3> 
-                                    <p>Our expert in engineering and technical matters.</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row staffing">
-                        <div class="col-xs-12 col-sm-6 media">
-                            <div class="media-left">
-                                <img src="{% static 'images/JohnS.png' %}" class="img-circle media-object" alt="Staff 5 John Smith image" height=100 width=100>
-                            </div>
-                            <div class="media-body personnel">
-                                <blockquote class="quote">
-                                    <h3>John Smith.</h3> 
-                                    <p>Our expert in full stack development.</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
+        <div class="row staffing">
+            <div class="col-xs-12 col-sm-6 media">
+                <div class="media-left">
+                    <img src="{% static 'images/prof.png' %}" class="img-circle media-object" alt="Staff 1 Prof image" height=100 width=100>
+                </div>
+                <div class="media-body personnel">
+                    <blockquote class="quote">
+                        <h3>The professor.</h3>
+                        <p>So called because of his wide range expertise in legal and financial matters. Also an expertise in many software technologies.</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class=" col-xs-12 col-sm-6 media">
+                <div class="media-left">
+                   <img src="{% static 'images/jDoe.png' %}" class="img-circle media-object" alt="Staff 2 Jane Doe image" height=100 width=100>
+                </div>
+                <div class="media-body personnel">
+                    <blockquote class="quote">
+                       <h3>Jane Doe.</h3>
+                       <p>Our expert on human resources and company management.</p> 
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="row staffing">
+            <div class="col-xs-12 col-sm-6 media">
+                <div class="media-left">
+                    <img src="{% static 'images/jSmith.png' %}" class="img-circle media-object" alt="Staff 3 Jane Smith image" height=100 width=100>
+                </div>
+                <div class="media-body personnel">
+                    <blockquote class="quote">
+                        <h3>Jane Smith.</h3>
+                        <p>Our expert in all medical and pharaceutical matters.</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 media">
+                <div class="media-left">
+                    <img src="{% static 'images/johnD.png' %}" class="img-circle media-object" alt="Staff 4 John Doe image" height=100 width=100>
+                </div>
+                <div class="media-body personnel">
+                    <blockquote class="quote">
+                        <h3>John Doe.</h3> 
+                        <p>Our expert in engineering and technical matters.</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="row staffing">
+            <div class="col-xs-12 col-sm-6 media">
+                <div class="media-left">
+                    <img src="{% static 'images/JohnS.png' %}" class="img-circle media-object" alt="Staff 5 John Smith image" height=100 width=100>
+                </div>
+                <div class="media-body personnel">
+                    <blockquote class="quote">
+                        <h3>John Smith.</h3> 
+                        <p>Our expert in full stack development.</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
 
 {% endblock %}

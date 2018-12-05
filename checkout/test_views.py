@@ -5,7 +5,7 @@ from .forms import MakePaymentForm, OrderForm
 
 class TestViews(TestCase):
     def test_payment_made(self):
-        page = self.client.get("/issues_list/")
+        page = self.client.get("/issues_list/issues_list/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "issues_list.html")
   

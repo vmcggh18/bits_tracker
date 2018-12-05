@@ -1,7 +1,8 @@
 
 body {
-    margin:auto;
-    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    background-color:  #dfe3ee;
 }/* General style for forms */
 form {
     width: 50%;
@@ -11,13 +12,21 @@ form {
 }
 /* footer text */
 .end-line {
-    background-color:  #B0C4DE;
-    color: black;
+    background-color: #3b5998;
+    color: white;
     padding-top: 20px;
 }
 /* Base html nav bar style */
-#navbar, .navbar-brand, .navbar-default, .container-fluid {
+.navbar-brand, .navbar-collapse, .container-fluid, .navbar-default{
     background-color:  #B0C4DE;
+    margin: 0;
+    padding: 0;
+}
+.navbar>.container-fluid .navbar-brand {
+    margin-left: 0px;
+}
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    margin-right: 5px;
 }
 /* glyphicon styles */
 .glyphicon-edit, .glyphicon-align-justify {
@@ -115,16 +124,16 @@ form {
 }
 .background-info, .our-promise {
    
-    background-color: Beige;
+    background-color: #f7f7f7;
 }
 .features, .personnel, .the-players, .staffing {
-     background-color: LightPink;
+     background-color: #dfe3ee;
 }
 .media-object {
     background-color: white;
 }
 .glyphicon-gift, .current-features, .glyphicon-credit-card, .planned-features, .feature-header {
-    color: white;
+    color: Cadetblue;
 }
 .para-features {
     color: black ;
@@ -135,32 +144,42 @@ form {
      display: block;
      margin: auto;
  }
- /*==== General style on Issues List page ===*/
- .tracker-header, .statistics-section, .add-ticket-top {
-     background-color: Beige;
+.col-about, .bits-detail {
+    background-color: #f7f7f7; 
  }
-.add-ticket-bot {
-    background-color: LightPink;
-    padding: 0px;
+ /*Activities page general styles */
+ .bug-stats, .feat-stats {
+    background-color: #f7f7f7;  
+ }
+.activities-chart-section {
+     background-color: #dfe3ee;
+ }
+.feature-section, .about-section {
+    padding: 10px;
+     margin-left: 0px;
+     background-color: #f7f7f7;  
+ }
+ .shadow {
+   text-shadow: 2px 2px lightblue;   
+ }
+ /*==== General style on Issues List page ===*/
+ .tracker-header {
+     background-color: #f7f7f7;  
 }
+/* issue list table styles */
+.bordered thead > tr > td, tbody > tr > td{
+  border:2px solid Gray;
+}
+
 /*==== General style on Issues detail page ===*/
 .comment {
     margin: 20px 0px 20px 20px;
 }
 /* section background color styles */
 .issue-comment-section {
-    background-color: beige;
+    background-color: #f7f7f7;
 }
-.tracker-issue-detail {
-    background-color: LightPink;
-/* issue list table styles */
-}
-/*table.table-bordered > tr > td {*/
-/*  border:3px ridge Gray;*/
-/*}*/
-.bordered thead > tr > td, tbody > tr > td{
-  border:2px solid Gray;
-}
+
 /*cart_item panel styles*/
 .cart_item {
     padding: 0px 10px 0px 10px;
@@ -203,11 +222,119 @@ caption p {
 .chart-section {
     background-color: white;
 }
-/* styles below not working */
-.row row-eq-height {
-    display: table; /* Make the container element behave like a table */
-    width: 100%; /* Set full-width to expand the whole page */
+
+/* documentation page styles */
+/* documents page header styles*/
+#wrapper-header {
+    display: flex;
+    background-color:  #dfe3ee;
+    max-width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
 }
-.col-about {
-    display: table-cell; /* Make elements inside the container behave like table cells */
+#aside-logo {
+    width: 30%;
 }
+.logo-img {
+    background-color: #dfe3ee; 
+    width: 100%;
+	margin: auto;
+}
+.logo-img img {
+  display: block;
+   width: 100%;
+   max-width: 150px; /*actual image width*/
+   height: auto; /* maintain aspect ratio*/
+   margin: auto; /*optional centering of image*/
+}
+.logo-text {
+    background-color: #dfe3ee;
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+#main-header {
+    /*flex-grow: 1;*/
+    width: 70%;
+}
+/* documents page contents styles*/
+#content-wrapper {
+    display:flex;
+    /*background-color: */
+    align-items: stretch;
+    margin: 0;
+    max-width: 100%;
+    padding: 0px;
+}
+#contents-nav {
+    width: 30%;
+    padding: 0px;
+}
+#side {
+    padding: 0px;
+}
+.side-nav {
+    background-color: #dfe3ee;;
+    width: 100%;
+}
+.contents {
+    margin: 0;
+}
+#main-content {
+    /*width: 70%;*/
+    flex-grow: 1;
+     background-color: #f7f7f7;
+}
+
+.side-nav a {
+    text-decoration: none;
+    color: #3b5998;;
+}
+.side-nav a:hover {
+    text-decoration: underline;
+    color: cadetblue;
+}
+.side-nav li {
+    padding: 10px 0px 10px;
+}
+.side-nav ul {
+    list-style: none;
+    margin: 0;
+}
+
+/* stack image logo on header text in docs on smaller screens*/
+@media all and (max-width: 800px) {
+
+    #wrapper-header {
+        flex-flow:column;
+    }
+
+    /* Make the sidebar take the entire width of the screen */
+
+    #aside-logo {
+        width:auto;
+    }
+
+}
+
+/* stack contents nav-bar on contents text in docs on smaller screens*/
+@media all and (max-width: 800px) {
+
+    #content-wrapper {
+        flex-flow:column;
+    }
+
+    /* Make the sidebar take the entire width of the screen */
+
+    #contents-nav {
+        width:auto;
+    }
+
+}
+
+/*@media screen and (max-height: 450px) {*/
+/*  .side-nav {padding-top: 15px;}*/
+/*  .side-nav a {font-size: 18px;}*/
+/*}*/

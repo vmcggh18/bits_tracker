@@ -7,28 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--placeholder for page titles-->
     <title>{% block page_title %}Issue Tracker{% endblock %}</title>
+    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
+    <!--optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!--docs template font styles-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <!--docs stylesheets-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/docstyle.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/prettify.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+    
 	<!--custom stylesheet-->
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <!--graph related script files-->
+    
     <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/crossfilter.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/dc.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/queue.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/time_graph.js' %}"></script>
-  
+    
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -36,18 +36,18 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="/" class="navbar-brand"><img class = "text-center" src="{% static 'images/bitsImage1.png' %}">BITS</img>
-                </a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+            <a href="/" class="navbar-brand"><img class = "text-center" src="{% static 'images/bitsImage1.png' %}">BITS</img>
+                </a>
             </div>
-            <div class="navbar-collapse collapse" id="navbar">
+            <div class="navbar-collapse collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li class = "active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href ="{% url 'activities' %}">View Activities</a></li>
                     <li class="visible-xs"><a href="{% url 'login' %}">Sign In</a></li>
@@ -92,6 +92,7 @@
             </div>
         </div>
     </nav>
+    
     {% if messages %}
     <div class = "row messages">
         <div class = "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4">
@@ -105,16 +106,13 @@
             <p>Made by Code Institute Bootcamper the_weaver &#169 2018</p>
         </div>
     </footer>
-    
+ 
 <script>
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
-<!--docs template scripts-->
-	<script src="{% static 'js/jquery.min.js' %}"></script>
-	<script src="{% static 'js/prettify.min.js' %}"></script>
-	<script src="{% static 'js/scripts.min.js' %}"></script>
+
 </body>
 </html>

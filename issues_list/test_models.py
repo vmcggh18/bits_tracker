@@ -20,3 +20,7 @@ class TestItemModel(TestCase):
         # test that the instance is same name as the name that we gave the object i.e item = item
         item = Item(name="Create a Test")
         self.assertEqual("Create a Test", str(item))
+        
+    def test_str(self):
+        test_name = Item(name='An Issue')
+        self. assertEqual(str(test_name), 'An Issue')

@@ -18,15 +18,15 @@ from django.contrib import admin
 from home.views import index
 from home import urls as urls_home
 from accounts import urls as urls_accounts
-from issues_list.views import get_issues_list, get_issue_detail, create_an_item, edit_an_item, cast_an_upvote, add_comment_to_issue
+from issues_list import urls as urls_issues_list
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
 from chart import urls as urls_chart
 from blog import urls as urls_blog
 from django.views import static
-#from .settings import MEDIA_ROOT
-#from cart.views import add_to_cart
+from .settings import MEDIA_ROOT
+
 
 """ In url patterns define url path, view and name """
 urlpatterns = [
@@ -34,21 +34,13 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^home/', include(urls_home)),
-    #URLS RELATING TO ISSUES_LIST APP
-    url(r'^issues_list/$', get_issues_list, name='issues_list'),
-    url(r'^issue_detail/(?P<id>\d+)/$', get_issue_detail, name='issue_detail'),
-    url(r'^issues_list/add$', create_an_item, name = 'add'),
-    url(r'^issues_list/edit/(?P<id>\d+)/$', edit_an_item, name='edit'),
-    url(r'^issues_list/upvote/(?P<id>\d+)/$', cast_an_upvote, name='upvote'),
-    url(r'^issue_comment/(?P<id>\d+)/$', add_comment_to_issue, name='issue_comment'),
-    #url(r'^feature_detail/(?P<id>\d+)/$', get_feature_detail, name='feature_detail'),
-
+    url(r'^issues_list/', include(urls_issues_list)),
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^chart/', include(urls_chart)),
     url(r'^blog/', include(urls_blog)),
-    #url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
      
 ]
 

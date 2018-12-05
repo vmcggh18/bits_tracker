@@ -4,13 +4,13 @@
 {% block content %}
 <section class ="statistics-section container-fluid">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 bug-stats">
         <!--bug statistics-->
-            <div class = "row">
-                <h2 class="bug-header text-center">Bugs</h2>
+            <div class = "row bug-header">
+                <h2 class="text-center">Bugs</h2>
             </div>
                 <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                         <span class="sr-only">50% of our time (success)
                       </div>
                 </div>
@@ -33,12 +33,12 @@
             {% endif %}
         </div>
     <!--feature statistics-->
-        <div class="col-sm-6">
+        <div class="col-sm-6 feat-stats">
             <div class = "row">
                 <h2 class="feature-head text-center">Features</h2>
             </div>
                  <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                         <span class="sr-only">50% of our time (info)
                       </div>
                   </div>
@@ -62,7 +62,7 @@
     </div>
 </section>
 <!--========== Chart Section pie and Scatter ==========-->
-<section class="chart-section container-fluid">
+<section class="activities-chart-section container-fluid">
         <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 text-center"><h3>Charts below show Activities to Date on bugs and features</h3>
                   <p class = text-center>(hover on slice for total number)</p>

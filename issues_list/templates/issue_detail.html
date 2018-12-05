@@ -51,7 +51,7 @@
         <form></form>
         {% else %}
         <div class="col-sm-4 text-center">
-            <form class = "text-center" method="GET" action="/issue_comment/{{ item.id }}">
+            <form class = "text-center" method="GET" action="/issues_list/issue_comment/{{ item.id }}">
                  <button type="submit" class = "btn btn-md btn btn-warning" data-toggle="tooltip" title="Click on icon to view comment!">
                    <span class="glyphicon glyphicon-comment text-white" aria-hidden ="true"></span>  Comment!
                 </button>  
@@ -71,11 +71,12 @@
                <form method="post" action="{% url 'add_to_cart' item.id %}">
                 {% csrf_token %}
                 <div class="input-group">
-                    <input name='upvote' type="number" min="1" max="999" class="form-control" placeholder="Upvote quantity">
+                    <input name='upvote' type="number" min="1" max="999" value ="0" class="form-control" placeholder="Upvote quantity">
                     <span class="input-group-btn">
                             <button class="btn btn-success" type="submit">Upvote</button>
                           </span>
                 </div>
+                <p>Cycle through the number selector to upvote. You can have as many upvotes as you want but each upvote costs 50 euros</p>
             </form>
             {% endif %}
         {% endif %}
