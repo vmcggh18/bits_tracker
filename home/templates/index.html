@@ -11,8 +11,8 @@
                     <h1 class ="brand-name" id="brand-name">Bug Issue Tracker Solutions</h1>
                     <h2 class = "brand-text">For all your buggin' problems</h2>
                     <hr class='block-divider block-divider--orange'>
-                    <p class="lead text-uppercase">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <strong><mark>All bugs fixed for free!</mark></strong></p><br>
-                     <p class="lead text-uppercase"><strong><mark>For a Reasonable Fee!</mark></strong> We also develop features <br></p><br>
+                    <p class="lead text-uppercase">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <mark>All bugs fixed for free!</mark></p><br>
+                     <p class="lead text-uppercase"><mark>For a Reasonable Fee!</mark> We also develop features <br></p><br>
                       {% if user.is_authenticated %}
                       <p><a href="{% url 'issues_list' %}"><button class="btn btn-lg btn--cta btn--red">View Tracker</button></a></p>
                       <p class = "lead"><medium>Feel free to create and comment on bugs and features</medium></p>
@@ -86,7 +86,7 @@
                 <h3 class="planned-features"><span class="glyphicon glyphicon-credit-card hidden-xs"></span> Planned</h3>
                      <ul class="list-style para-features">
                           <li>advanced notification:Provide notifications on projects, issues assigned, status changes, due dates.</li>
-                          <li>issue identification to prevent repeated actions lilke personnel assignement, notifications and attachments</li>
+                          <li>issue identification to prevent repeated actions like personnel assignement, notifications and attachments</li>
                           <li>instant reporting allowing the creation of executive-ready status reports with the push of a button. Reports as a PDF, Word or Excel file.</li>
                           <li>email support When you have complex questions, you can get detailed answers via our email support system</li>
                       </ul>

@@ -44,18 +44,14 @@
     <hr>
     <div class="row">  
         <div class="col-sm-4 text-center">
-            <p><a href="{% url 'issues_list' %}" class="btn btn-md btn-danger">Back To Tracker</a></p>
+            <p><a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-danger">Back To Tracker</a></p>
         </div>
     <div class = "text-center">
         {% if item.status == "Completed" %}
         <form></form>
         {% else %}
         <div class="col-sm-4 text-center">
-            <form class = "text-center" method="GET" action="/issues_list/issue_comment/{{ item.id }}">
-                 <button type="submit" class = "btn btn-md btn btn-warning" data-toggle="tooltip" title="Click on icon to view comment!">
-                   <span class="glyphicon glyphicon-comment text-white" aria-hidden ="true"></span>  Comment!
-                </button>  
-            </form>
+           <p><a href="{% url 'issue_comment' item.id %}" class="btn btn-sm btn btn-warning">Add Comment</a></p>
         </div>
         {% endif %}
     </div>

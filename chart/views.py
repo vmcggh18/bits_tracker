@@ -32,5 +32,9 @@ def get_weekly_activities(request):
     weekly = datetime.today()-timedelta(days=7)
     weeklyData = list((Item.objects.filter(assigned_date__gte=weekly)).values('status', 'category', 'completed_date', 'assigned_date', 'upvotes'))
     return JsonResponse(weeklyData, safe=False)
-
+def get_monthly_activities(request):
+    """ Get activities on ongoing and completed bugs and features over the last 31 days """
+    monthly = datetime.today()-timedelta(days=31)
+    monthlyData = list((Item.objects.filter(assigned_date__gte=monthly)).values('status', 'category', 'completed_date', 'assigned_date', 'upvotes'))
+    return JsonResponse(monthlyData, safe=False)
    

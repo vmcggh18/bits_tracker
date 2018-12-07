@@ -1,32 +1,31 @@
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+/*====General styles across all pages=======*/
 body {
     margin: 0px;
     padding: 0px;
     background-color:  #dfe3ee;
-}/* General style for forms */
+}
+.container-fluid {
+    margin: 0px;
+    padding: 0px;
+}
+/* General style for forms */
 form {
     width: 50%;
 }
+/* General text styles for */
+h1, h2, h3, h4, h5 {
+    font-family: "Exo", sans-serif;
+	font-weight: 500;
+}
+p {
+    font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
 .messages {
-    background-color: beige;
-}
-/* footer text */
-.end-line {
-    background-color: #3b5998;
-    color: white;
-    padding-top: 20px;
-}
-/* Base html nav bar style */
-.navbar-brand, .navbar-collapse, .container-fluid, .navbar-default{
-    background-color:  #B0C4DE;
-    margin: 0;
-    padding: 0;
-}
-.navbar>.container-fluid .navbar-brand {
-    margin-left: 0px;
-}
-.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
-    margin-right: 5px;
+    background-color: #f7f7f7;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 /* glyphicon styles */
 .glyphicon-edit, .glyphicon-align-justify {
@@ -38,9 +37,83 @@ form {
 .glyphicon-thumbs-up {
     color: blue;
 }
+/* General styles for buttons */
+.btn--cta {
+    font-weight: bold;
+    border-radius: 23px;
+    width: 160px;
+}
+.btn--red {
+    color: white;
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
+.btn--red:hover,
+.btn--red:active,
+.btn--red:focus,
+.btn--red:active:focus {
+    background-color: #df4929;
+    border-color: #df4929;
+    color: white;
+}
+.btn-sm {
+    border-radius: 25px;
+}
+.btn-secondary {
+    background-color: cadetblue;
+    color: white;
+}
+/* footer text */
+.end-line {
+    background-color: #3b5998;
+    color: white;
+    padding-top: 20px;
+}
+/*=== Base navbar stuyles ===*/
+.navbar {
+    border: none;
+    margin: 0px;
+}
+.navbar-header {
+     margin: 0px;
+     background-color: #B0C4DE;
+}
+.navbar-default .navbar-toggle {
+    border: none;
+}
+.navbar-default .navbar-collapse {
+    background-color: #B0C4DE;
+    border: none;
+    padding: none;
+}
+.navbar-brand, .navbar-collapse, .navbar-header .container-fluid, .navbar-fixed{
+    background-color:  #B0C4DE;
+    color: black;
+}
+.navbar-brand {
+    position: relative;
+    background: url"{% static 'images/logoImg.jpg' %}" no-repeat scroll center center / contain;
+}
+.navbar-default .navbar-nav>.active>a {
+     background-color: #8b9dc3;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    background-color: #E8E8E8;
+    color: #3b5998;
+}
+.navbar .navbar-nav>li>a {
+    margin: 0px;
+    text-shadow: none;
+    color: black;
+
+}
+.navbar-toggle .collapsed {
+    background-color: black;
+}
+
+
 /* ==== Index page styles ==== */
 .callout-container {
-    height: 100vh;
     background: url('../images/bitsbgArms.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -60,7 +133,6 @@ form {
     background-color: rgba(0, 0, 0, 0.5);
 }
 /* Jumbotron */
-
 .jumbotron {
     background-color: transparent;
 }
@@ -71,51 +143,25 @@ form {
     margin-bottom: 30px;
 }
 .jumbotron .lead {
-    /*color: GoldenRod;*/
     color: #5bc0de;
+    font-weight: 500;
     margin: 25px 0;
 }
-
 /* Block dividers */
-
 .block-divider {
     width: 75px;
     height: 5px;
     border: 0;
     background-color: #444;
 }
-
 .block-divider--orange {
     background-color: #f05f40;
 }
 .block-divider--white {
     background-color: white;
 }
-
 .block-divider--short {
     width: 35px;
-}
-/* Buttons */
-
-.btn--cta {
-    font-weight: bold;
-    border-radius: 23px;
-    width: 160px;
-}
-
-.btn--red {
-    color: white;
-    background-color: #f05f40;
-    border-color: #f05f40;
-}
-
-.btn--red:hover,
-.btn--red:active,
-.btn--red:focus,
-.btn--red:active:focus {
-    background-color: #df4929;
-    border-color: #df4929;
-    color: white;
 }
 /* Existing and planned Features section styles */
 /* section header text */
@@ -123,7 +169,6 @@ form {
     color: black;
 }
 .background-info, .our-promise {
-   
     background-color: #f7f7f7;
 }
 .features, .personnel, .the-players, .staffing {
@@ -170,7 +215,6 @@ form {
 .bordered thead > tr > td, tbody > tr > td{
   border:2px solid Gray;
 }
-
 /*==== General style on Issues detail page ===*/
 .comment {
     margin: 20px 0px 20px 20px;
@@ -179,7 +223,6 @@ form {
 .issue-comment-section {
     background-color: #f7f7f7;
 }
-
 /*cart_item panel styles*/
 .cart_item {
     padding: 0px 10px 0px 10px;
@@ -210,19 +253,16 @@ caption p {
     border-color: transparent;
     padding: 0 10px;
 }
-
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
 }
-
 .content_desc {
     min-height: 40px;
 }
 .chart-section {
-    background-color: white;
+    background-color: #f7f7f7;
 }
-
 /* documentation page styles */
 /* documents page header styles*/
 #wrapper-header {
@@ -262,7 +302,7 @@ caption p {
 /* documents page contents styles*/
 #content-wrapper {
     display:flex;
-    /*background-color: */
+    background-color: #dfe3ee; 
     align-items: stretch;
     margin: 0;
     max-width: 100%;
@@ -302,6 +342,15 @@ caption p {
 .side-nav ul {
     list-style: none;
     margin: 0;
+}
+/*blog post */
+.blog-post {
+    background-color: #f7f7f7;
+}
+.img-blogpost{
+    height: 100px;
+    width: auto;
+    background-color: white;
 }
 
 /* stack image logo on header text in docs on smaller screens*/

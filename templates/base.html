@@ -8,49 +8,45 @@
     <!--placeholder for page titles-->
     <title>{% block page_title %}Issue Tracker{% endblock %}</title>
     
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!--optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    
+    <!-- Latest minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
 	<!--custom stylesheet-->
-
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
-    <!-- Latest compiled and minified JavaScript -->
+    
+     
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
+     <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--graph related script files-->
-    
     <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/crossfilter.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/dc.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/queue.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/time_graph.js' %}"></script>
-    
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <!-- Fixed masthead -->
+    <nav class="navbar navbar-masthead navbar-default sticky-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            <a href="/" class="navbar-brand"><img class = "text-center" src="{% static 'images/bitsImage1.png' %}">BITS</img>
-                </a>
+                    <a href="/" class="navbar-brand"><img class = "logoimg text-center" src="{% static 'images/logoImg.jpg' %}"></img>
+                    </a>
             </div>
-            <div class="navbar-collapse collapse" id="navbar-collapse-1">
-                <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="navbar">
+                 <ul class="nav navbar-nav">
                     <li class = "active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href ="{% url 'activities' %}">View Activities</a></li>
-                    <li class="visible-xs"><a href="{% url 'login' %}">Sign In</a></li>
                      {% if user.is_authenticated %}
                      <li><a href="{% url 'issues_list' %}">View Tracker</a></li>{% else %}
                      {% endif %}
@@ -60,41 +56,39 @@
                      {% if user.is_authenticated %}
                      <li><a href="{% url 'charts' %}">View Charts</a></li>{% else %}
                      {% endif %}
-                      <li><a href="{% url 'documentation' %}">Docs</a></li>
+                     <li><a href="{% url 'documentation' %}">Docs</a></li>
                 </ul>
-                <div class="navbar-header navbar-right hidden-xs">
-                    <ul class="nav navbar-nav">
-                     {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
                      <li><a href="{% url 'get_posts' %}">View Blog</a></li>{% else %}
                      {% endif %}
                      {% if user.is_authenticated %}
                      <li><a href="{% url 'new_post' %}">New Blog</a></li>{% else %}
                      {% endif %}
                      {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
                      {% else %}
-                        <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'registration' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
+                        <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
                     {% endif %}    
                         <li>
                     {% if user.is_authenticated %}
                         <a href="{% url 'view_cart' %}">
-                            <i class="fa fa-shopping-cart"></i>Cart
+                            <i class="fa fa-shopping-cart"></i> Cart
                             {% if item_count > 0 %}
                             <label class="badge badge-warning">{{ item_count }}</label>
                             {% endif %}
                     {% endif %}
                         </a>
                     </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                </ul>
+            </div>   
+        </div>       
     </nav>
     
     {% if messages %}
-    <div class = "row messages">
+    <div class = "row messages text-primary">
         <div class = "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4">
         {% for message in messages %} {{ message }} {% endfor %}
         </div>
@@ -106,12 +100,11 @@
             <p>Made by Code Institute Bootcamper the_weaver &#169 2018</p>
         </div>
     </footer>
- 
+    
 <script>
-
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
 </script>
 
 </body>

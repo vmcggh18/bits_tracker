@@ -16,26 +16,29 @@ function deriveGraphs(error, data) {
         d.assigned_date = new Date(d.assigned_date);
         d.today = new Date(strtoday);
         
-        //calculate time intervals for use in duration calcs for pending and completed issues
+    //calculate time intervals for use in duration calcs for pending and completed issues
+    // currently only days used others msay be used with future development
         d.pending_dur_days = ((d.today - d.created_date)/(1000*60*60*24)); //day
-        d.completed_dur_mins = ((d.completed_date - d.assigned_date)/(1000*60)); //minutes
-        d.completed_dur_hours = ((d.completed_date - d.assigned_date)/(1000*60*60));//hours
+        // d.completed_dur_mins = ((d.completed_date - d.assigned_date)/(1000*60)); //minutes
+        // d.completed_dur_hours = ((d.completed_date - d.assigned_date)/(1000*60*60));//hours
         d.completed_dur_days = ((d.completed_date - d.assigned_date)/(1000*60*60*24)); //day
         //assume 7.02 days in a week (4 year period)
-        d.completed_dur_weeks = ((d.completed_date - d.assigned_date)/(1000*3600*24*7));//weeks
+        //d.completed_dur_weeks = ((d.completed_date - d.assigned_date)/(1000*3600*24*7));//weeks
         //assume 30.44 days in a month (4 year period)
-        d.completed_dur_months = ((d.completed_date - d.assigned_date)/(1000*3600*24*7*30.44));//months
+        //d.completed_dur_months = ((d.completed_date - d.assigned_date)/(1000*3600*24*7*30.44));//months
         
-        //calculate time intervals for use in duration calcs for ongoing issues
-        d.ongoing_dur_mins = ((d.today - d.assigned_date)/(1000*60)); //minutes
-        d.ongoing_dur_hours = ((d.today - d.assigned_date)/(1000*60*60));//hours
+    //calculate time intervals for use in duration calcs for ongoing issues
+    // currently only days used others msay be used with future development
+        // d.ongoing_dur_mins = ((d.today - d.assigned_date)/(1000*60)); //minutes
+        // d.ongoing_dur_hours = ((d.today - d.assigned_date)/(1000*60*60));//hours
         d.ongoing_dur_days = ((d.today - d.assigned_date)/(1000*60*60*24)); //day
         //assume 7.02 days in a week (4 year period)
-        d.ongoing_dur_weeks = ((d.today - d.assigned_date)/(1000*3600*24*7));//weeks
+        //d.ongoing_dur_weeks = ((d.today - d.assigned_date)/(1000*3600*24*7));//weeks
         //assume 30.44 days in a month (4 year period)
-        d.ongoing_dur_months = ((d.today - d.assigned_date)/(1000*3600*24*7*30.44));//month
-       
+        //d.ongoing_dur_months = ((d.today - d.assigned_date)/(1000*3600*24*7*30.44));//month
     });
+    //for testing purposes print returned data to console
+    console.log(data);
 
  // call graphing functions to render charts       
     dist_to_date(ndx);
@@ -49,10 +52,10 @@ function deriveGraphs(error, data) {
   
 }
 
-function dist_to_date(ndx) {
+ function dist_to_date(ndx) {
     var dim = ndx.dimension(dc.pluck('category'));
     var group = dim.group();
-// bar chart showing total bugs and features to date
+//bar chart showing total bugs and features to date
     dc.barChart("#all_issues")
         .width(300)
         .height(400)
@@ -66,7 +69,6 @@ function dist_to_date(ndx) {
         .xAxisLabel("Category")
         .yAxisLabel("Quantity")
         .yAxis().ticks(10);
-    
 }
 //bar chart showing status of bugs and features
 function stat_by_cat(ndx) {
@@ -74,7 +76,7 @@ function stat_by_cat(ndx) {
             function totBug(Bug) {
                 return function (d) {
                     d.count = 0;
-                   if (d.category === "Bug") {
+                  if (d.category === "Bug") {
                      d.count++;
                      return d.count;
                  } else {
@@ -86,7 +88,7 @@ function stat_by_cat(ndx) {
         function totFeature(Feature) {
             return function (d) {
                 d.count = 0;
-               if (d.category === "Feature") {
+              if (d.category === "Feature") {
                  d.count++;
                  return d.count;
              } else {
@@ -240,9 +242,9 @@ function show_pie_fees(ndx) {
         .dimension(dim)
         .group(feesGroup)
         .legend(dc.legend().x(100).y(0).itemHeight(13).gap(5))
-        .renderlet(function(chart){
-    chart.selectAll('text.pie-slice').text( function(d) {
-    return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+         .on("renderlet", function(chart) {
+            chart.selectAll('text.pie-slice').text( function(d) {
+            return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });
 }  
@@ -258,6 +260,8 @@ function show_pie_fees(ndx) {
                  d.upvotes = +d.upvotes;
            
              });
+        //for testing purposes print returned data to console
+             console.log(weeklyData);
              
  show_weekly_act(ndx);
     dc.renderAll();
@@ -283,10 +287,9 @@ function show_weekly_act(ndx) {
             .transitionDuration(1500)
             .dimension(cat_dim)
             .group(totalComp)
-            //.legend(dc.legend().x(20).y(20).itemHeight(13).gap(5))
-            .renderlet(function(chart){
-            chart.selectAll('text.pie-slice').text( function(d) {
-            return 'Completed' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+             .on("renderlet", function(chart) {
+                chart.selectAll('text.pie-slice').text( function(d) {
+                return 'Completed' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });    
          
@@ -297,8 +300,68 @@ function show_weekly_act(ndx) {
             .transitionDuration(1500)
             .dimension(cat_dim)
             .group(totalOng)
-            //.legend(dc.legend().x(20).y(20).itemHeight(13).gap(5))
-            .renderlet(function(chart){
+            .on("renderlet", function(chart) {
+            chart.selectAll('text.pie-slice').text( function(d) {
+            return 'Ongoing' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+        });
+    });     
+         
+         
+         
+}
+queue()
+        .defer(d3.json, "/chart/monthly/")
+        .await(drawGraphs);
+     
+        function drawGraphs(error, monthlyData) {
+            var ndx = crossfilter(monthlyData);
+            //console.log(Data);
+           
+             monthlyData.forEach(function(d) {
+                 d.upvotes = +d.upvotes;
+           
+             });
+        //for testing purposes print returned data to console
+             console.log(monthlyData);
+             
+ show_monthly_act(ndx);
+    dc.renderAll();
+  
+} 
+function show_monthly_act(ndx) {
+    var cat_dim = ndx.dimension(dc.pluck('category'));
+        function allStatus(status) {
+             return function (d) {
+                 d.count = 0;
+                 if (d.status === status) {
+                     d.count++;
+                     return d.count;
+              }  else {
+                     return 0;
+              } 
+             };
+         }   
+    var totalComp = cat_dim.group().reduceSum(allStatus('Completed'));    
+         dc.pieChart("#completed-monthly-chart")
+            .height(330)
+            .radius(150)
+            .transitionDuration(1500)
+            .dimension(cat_dim)
+            .group(totalComp)
+             .on("renderlet", function(chart) {
+                chart.selectAll('text.pie-slice').text( function(d) {
+                return 'Completed' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+        });
+    });    
+         
+    var totalOng = cat_dim.group().reduceSum(allStatus('Ongoing'));          
+         dc.pieChart("#ongoing-monthly-chart")
+            .height(330)
+            .radius(150)
+            .transitionDuration(1500)
+            .dimension(cat_dim)
+            .group(totalOng)
+            .on("renderlet", function(chart) {
             chart.selectAll('text.pie-slice').text( function(d) {
             return 'Ongoing' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });

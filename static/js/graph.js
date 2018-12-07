@@ -5,10 +5,12 @@ queue()
    function deriveGraphs(error, data) {
         var ndx = crossfilter(data);
         data.forEach(function (d) {
-
+           
     });
-    
-     //call functions to render graphs
+    //for testing purposes print returned data to console
+     console.log(data);
+
+     //call function to render graph
     show_pie_status(ndx);
     dc.renderAll();
   
@@ -27,13 +29,12 @@ function show_pie_status(ndx) {
                 .transitionDuration(1500)
                 .dimension(dim)
                 .group(group)
-                .legend(dc.legend().x(100).y(0).itemHeight(13).gap(5))
-                .renderlet(function(chart){
-        chart.selectAll('text.pie-slice').text( function(d) {
-        return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+                .on("renderlet", function(chart) {
+                    chart.selectAll('text.pie-slice').text( function(d) {
+                    return 'Bugs' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });
-}  
+} 
 queue()
 .defer(d3.json, "/chart/features/")
    .await(makeGraphs);
@@ -43,7 +44,10 @@ queue()
         data.forEach(function (d) {
     
     });
-     //call functions to render graphs
+     //for testing purposes print returned data to console
+    console.log(data);
+
+     //call function to render graph
     show_feat_status(ndx);
     dc.renderAll();
   
@@ -62,10 +66,9 @@ function show_feat_status(ndx) {
                 .transitionDuration(1500)
                 .dimension(dim)
                 .group(Group)
-                .legend(dc.legend().x(100).y(0).itemHeight(13).gap(5))
-                .renderlet(function(chart){
-        chart.selectAll('text.pie-slice').text( function(d) {
-        return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+                .on("renderlet", function(chart) {
+                    chart.selectAll('text.pie-slice').text( function(d) {
+                    return 'Features' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });
 }
@@ -78,7 +81,10 @@ queue()
         data.forEach(function (d) {
     
     });
-     //call functions to render graphs
+     //for testing purposes print returned data to console
+    console.log(data);
+
+     //call function to render graph
     show_bug_feat_ratio(ndx);
     dc.renderAll();
   
@@ -97,10 +103,9 @@ function show_bug_feat_ratio(ndx) {
                 .transitionDuration(1500)
                 .dimension(dim)
                 .group(group)
-                .legend(dc.legend().x(100).y(0).itemHeight(13).gap(5))
-                .renderlet(function(chart){
-        chart.selectAll('text.pie-slice').text( function(d) {
-        return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+                .on("renderlet", function(chart) {
+                    chart.selectAll('text.pie-slice').text( function(d) {
+                    return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });
 }
