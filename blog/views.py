@@ -72,3 +72,13 @@ def add_comment_to_post(request, pk):
      else:
         form = BlogCommentForm()
      return render(request, "blogcommentform.html", {'form': form})
+     
+def blogcomment_approve(request, pk):
+    comment = get_object_or_404(PostComment, pk=pk)
+    comment.approve()
+    return redirect('post_detail', pk=comment.post.pk)  
+    
+def blogcomment_remove(request, pk):
+    comment = get_object_or_404(PostComment, pk=pk)
+    comment.delete()
+    return redirect('post_detail', pk=comment.post.pk)

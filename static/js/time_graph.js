@@ -237,7 +237,7 @@ function upvote_by_cat(ndx) {
 function show_pie_fees(ndx) {
     var statusColors = d3.scale.ordinal()
         .domain(["Completed", "Ongoing", "Pending"])
-        .range(["#5cb85c", "Beige", "Pink"]);
+        .range(["#8FBC8F", "#FAFAD2", "#FFB6C1"]);
     var dim = ndx.dimension(dc.pluck('status'));
     function feature_fees() {
                 return function (d) {

@@ -87,12 +87,14 @@
  {% endif %}
 <p class = "form-detail">Total Number of Comments  {{ item.comments.count }}</p>
 {% for comment in item.comments.all %}
-        {% if user.is_staff or comment.approved_comment %}
+        {% if user.is_authenticated or comment.approved_comment %}
     <div class= "row comment">
         <div class ="row">
-             {% if not comment.approved_comment %}
+            {% if user.is_staff %}
+                {% if not comment.approved_comment %}
                 <a class="btn btn-default" href="{% url 'comment_remove' id=comment.id %}"><span class="glyphicon glyphicon-remove"></span></a>
                 <a class="btn btn-default" href="{% url 'comment_approve' id=comment.id %}"><span class="glyphicon glyphicon-ok"></span></a>
+                {% endif %}
             {% endif %}
             <div class="col-sm-2 pub_date"><h5 class="text-right">Original issue by::</h5></div>
             <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ item.user }}</h5></div>

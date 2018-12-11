@@ -19,7 +19,7 @@ queue()
 function show_pie_status(ndx) {
     var statusColors = d3.scale.ordinal()
         .domain(["Completed", "Ongoing", "Pending"])
-        .range(["#5cb85c", "Beige", "Pink"]);
+        .range(["#8FBC8F", "#FAFAD2", "#FFB6C1"]);
     var dim = ndx.dimension(dc.pluck('status'));
     var group = dim.group();
         dc.pieChart("#bug-chart")
@@ -56,7 +56,7 @@ queue()
 function show_feat_status(ndx) {
     var statusColors = d3.scale.ordinal()
         .domain(["Completed", "Ongoing", "Pending"])
-        .range(["#5cb85c", "Beige", "Pink"]);
+        .range(["#8FBC8F", "#FAFAD2", "#FFB6C1"]);
     var dim = ndx.dimension(dc.pluck('status'));
     var Group = dim.group();
         dc.pieChart("#feature-chart")

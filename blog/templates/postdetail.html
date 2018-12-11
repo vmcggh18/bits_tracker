@@ -33,17 +33,25 @@
 <div class = "col-sm-offset-1">Total Number of Comments  {{ post.comments.count }}</div>
 </div>
 {% for comment in post.comments.all %}
-    <div class= "row blog-comment">
-        <div class ="row">
-            <div class="col-sm-2 pub_date"><h5 class="text-right">Comment Published Date:</h5></div>
-            <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ comment.created_date }}</h5></div>
-            <div class="col-sm-2 text-right"><h5>Published by: </h5></div>
-            <div class = "col-sm-2 text-left"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></div>
+    {% if user.is_authenticated or comment.approved_postcomment %}
+        <div class= "row blog-comment">
+            <div class ="row">
+                {% if user.is_staff %}
+                    {% if not comment.approved_postcomment %}
+                    <a class="btn btn-default" href="{% url 'blogcomment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-default" href="{% url 'blogcomment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                    {% endif %}
+                {% endif %}
+                <div class="col-sm-2 pub_date"><h5 class="text-right">Comment Published Date:</h5></div>
+                <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ comment.created_date }}</h5></div>
+                <div class="col-sm-2 text-right"><h5>Published by: </h5></div>
+                <div class = "col-sm-2 text-left"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></div>
+            </div>
+            <div class = "row item_comment_para">
+                <div class = "col-sm-12 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>
+            </div>
         </div>
-        <div class = "row item_comment_para">
-            <div class = "col-sm-12 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>
-        </div>
-    </div>
+    {% endif %}
     <hr>
 {% empty %}
     <p>No comments here yet :(</p>

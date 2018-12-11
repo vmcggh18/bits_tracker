@@ -17,6 +17,9 @@ class Post(models.Model):
     views = models.IntegerField(default=0)
     tag = models.CharField(max_length=30, blank=True, null=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)
+    
+    def approved_postcomments(self):
+        return self.comments.filter(approved_postcomment=True)
 
     def __str__(self):
         return self.title
@@ -29,7 +32,7 @@ class PostComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     text = models.TextField(max_length=200, blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
-    approved_comment =  models.BooleanField(default=False)
+    approved_postcomment =  models.BooleanField(default=False)
     
     def approve(self):
         self.approved_postcomment = True
