@@ -5,17 +5,18 @@
 <div class = "row tracker-header text-center"><h1>Issues Tracker List</h1></div>
     <div class="container">
         <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
+            <form class = "search-form" action="{% url 'search' %}" method="get">
+                <input class="search" type="text" name="q">
                 <button type="submit">Search by name</button>
             </form>
         </div>
     </div>
-<table id ="table_id" class = "table-responsive table table-condensed">
+    <div class = "table-responsive">
+    <table id ="table_id" class = "table table-condensed">
         <thead class = "table thead-dark bordered">
-             <tr class="text-center">
+            <tr class="text-center">
                 <td style="width:4%"></td>
-                <td style="width:5%">Upvote</td>
+                <td style="width:5%"></td>
                 <td style="width:10%">Name</td>
                 <td style="width:15%">Content</td>
                 <td style="width:8%">Submitted by</td>
@@ -26,11 +27,11 @@
                 <td style="width:8%">Assigned to</td>
                 <td style="width:15%">Progress</td>
                 <td style="width:5%">Fees</td>
-                <td style="width:5%"></td>
-             </tr>
+                <td style="width:5%">Comments</td>
+            </tr>
         </thead>
         <tbody class ="bordered">
-    {% for item in items %}
+        {% for item in items %}
             <!--provide bacground color to represent status-->
                 {% if item.status == "Completed" %}
             <tr class = "text-center success">
@@ -53,19 +54,19 @@
                       {% endif %}
                     </td>
                 {% else %}
-                <td></td>
+                    <td></td>
                 {% endif %}
                     <td>
             {% if item.status == "Completed" %}
                     <form></form>
             {% else %}
-                        {% if item.category == "Bug" %}
-                            <a href ="{% url 'upvote' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
-                            <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"></span></a>
-                        {% else %}
-                            <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
-                            <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"></span></a>
-                        {% endif %}
+                {% if item.category == "Bug" %}
+                    <a href ="{% url 'upvote' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
+                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"></span></a>
+                {% else %}
+                    <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to upvote!">
+                    <span class="glyphicon glyphicon-thumbs-up text-secondary" aria-hidden ="true"></span></a>
+                {% endif %}
             {% endif %}
                     </td>
                     <td>{{ item.name }}</td>
@@ -79,16 +80,17 @@
                     <td>{{ item.progress | truncatewords:5 }}</td>
                     <td>{{ item.fee }}</td>
                     <td class = "text-center">
-                {% if item.status == "Completed" %}
-                         <form></form>
-                {% else %}
-                            <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!">{{ comments.count }}<span class="glyphicon glyphicon-comment text-secondary"  aria-hidden ="true"></span></a></a>
+            {% if item.status == "Completed" %}
+                     <form></form>
+            {% else %}
+                    <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!">{{ item.comments.count }} <span class="glyphicon glyphicon-comment text-secondary"  aria-hidden ="true"></span></a></a>
                  {% endif %}
                     </td>
-            </tr>
-    {% endfor %}  
-        </tbody>
-    </table>
+                </tr>
+            {% endfor %}  
+            </tbody>
+        </table>
+    </div>
 {% if items.has_other_pages %}
   <ul class="pagination">
     {% if items.has_previous %}
@@ -97,11 +99,11 @@
       <li class="disabled"><span>&laquo;</span></li>
     {% endif %}
     {% for i in items.paginator.page_range %}
-      {% if items.number == i %}
+        {% if items.number == i %}
         <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
+        {% else %}
         <li><a href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
+        {% endif %}
     {% endfor %}
     {% if items.has_next %}
       <li><a href="?page={{ items.next_page_number }}">&raquo;</a></li>

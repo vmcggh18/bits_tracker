@@ -55,7 +55,16 @@ Pencil wireframe was used to plot a two-dimensional model of the perceived end p
 
 ### Surface: ###
 
-Varying degrees of the blue palette are chosen to represent the front-end background colors. Blue is favoured by both men and women and represents trust, professionalism and a business-like manner. Blue is also generally associated with scientific/technical type information and information technology (examples are: samsung, linkedIn, facebook, twitter, cloud9). The background colors are kept consistent throughout the site. The main navigation bar and footer are the same on all pages. There is progressive disclosure in the sense that clicking on a link or icon in the summary issues list takes you to more detail on that particular issue. Comments can also be viewed  or items can be upvoted or commented on.  In the detail view, button colors and styles are consistent with similar type buttons on other pages. Fonts are consistent and icons are intuitive. For example header text is generally of exo style with paragraph content being of font style roboto. Form layout is standard throughout.
+Varying degrees of the blue palette are chosen to represent the front-end background colors. Blue is favoured by both men and women and represents trust, professionalism and a business-like manner. Blue is also generally associated with scientific/technical type information and information technology (examples are: samsung, linkedIn, facebook, twitter, cloud9). The blue theme is also consistent with the default Django admin panel.
+The background colors are kept consistent throughout the site. The main navigation bar and footer are the same on all pages. All forms are consistent in layout and color. The detail view for the issues and blog posts also keep this consistency. Across all pages button colors and styles are consistent. Comment buttons and icons for example are always orange. Submit form buttons are a custom grey. Button hover effects are also consistent. The colors on the charts are also consistent with bugs and features being represented by different shades of blue. The issue list uses the bootstrap success, warning and danger color styles to visually represent completed, ongoing and pending (i.e. the status) items respectively and these colors are carried into the charts where status is represented. Fonts are consistent so that, for example, header text is generally of exo style with paragraph content being of font style roboto. Both bootstrap and font-awesome icons are used. Icons are intuitive, in that, the thumbs-up icon represents upvoting and the shopping cart icon represents the cart, etc.
+There is progressive disclosure in the sense that clicking on a link or icon in the summary issues list takes you to more detail on that particular issue. In the detail view, further action can be taken. For example comments can be viewed or items can be upvoted and commented on.  Clicking on a link in the about page takes the user to the docs page. The read more button in the blog post list page, takes the user to a more detailed view where other actions such as commenting or editing can be done. Within the detail views, links are provided back to the previous view, thus mitigating against the use of the browser back button.  
+Other navigation includes the use of a search bar allowing search by name. The tracker list page has forward and reverse pagination allowing pages to be cycled through without the use of scrolling or use of the browser back and forward buttons.
+Django messaging is used to enhance the user experience. A message will flash at the top of the page on successful login or logout. A message will also flash to indicate if an upvote was added in the case of a bug. If a user has already upvoted a bug, a message will flash to the user indicating that they have already voted that bug. In the case of features a message will inform users that payment has been received and upvotes added. Conversely error messages will inform the user if payment cannot be received or if login cannot be achieved. Tooltips are also used to enhance the user experience. They are used in the issues list on hover over icons and links to give instruction. The charts also reveal quantities on hover over a pie slice or chart bar.
+Template logic is used to reveal or hide various elements depending on user permissions. General authorised users do not have full CRUD permissions unlike staff. The general user can add items, upvote, post blogs and comment. Icons for upvoting and commenting are present for general authorised users. However as general authorised users cannot edit items, these icons only show when staff are logged in. Within the staff group superusers (admin1 and admin2) have full CRUD permissions in the admin panel and the browser. However deletion can only occur in the django admin panel at present. 3 senior staff members also have full CRUD permissions with 2 more junior staff having create, read and edit permissions. All staff also have access to the django admin panel.
+Bootstrap is used as the main front-end framework, having ready made HTML and CSS based design templates for typography, forms, buttons, tables and navigation. Bootstrap also gives the ability to easily create responsive designs. Many of the bootstrap ready made classes are used in the application. Classes like text-center, btn btn-sm, table-responsive, text-muted, etc are used to quickly style elements. A substantive custom css stylesheet (style.css) is also used to provide styles not present in bootstrap, to further enhance bootstrap styles and in some cases to overwrite bootstrap styles.
+The dc.js charting library with crossfilter is used to render graphs, being very efficient in manipulating json type data and allowing for user interaction.
+Data is mostly processed in the back end, in some cases employing filters, and either read directly into the templates or returned in json format for use in graphs. There are some calculations within the graph function in one script file to return durations in days. There are also some simple functions to return quantities.
+For further information refer to the documentation within the application, accessible by clicking the link on the navbar.
 
 ## Features
 
@@ -75,26 +84,34 @@ The features are listed below. More detail on the features can be found in the d
 
 ### Features Left to Implement
 
-- The accounts app can be developed to allow administrators to reset lost password. 
-- Comment approval has been set up in the models and needs to be implemented so that inappropriate comments    can be deleted.
+- The accounts app can be developed to allow administrators to reset lost passwords. 
+- Staff users can edit the blog comments by clicking on the edit link. There is no provision yet for deletion   of comments through the browser. At the moment this is done through the admin panel. Comment approval has    been set up in the models and could be implemented so that inappropriate comments can be deleted by          authorised users in the browser, for both blogs and issues.
+- More graph views can be established to show hourly durations on activities for example.
+- The use of thumbnails in the comment section to allow authors of comments to have their image.
 - Functionality to provide notifications on projects, issues assigned, status changes, due dates, etc would    be a useful enhancement.
 - Reporting mechanism allowing for the issue of reports as PDF, Word or Excel files.
 - email support so that when a user has complex questions, detailed answers are supplied via an email support   system.
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+In this project the following technologies were employed:
+
 - [django](https://www.djangoproject.com/)
     - The project uses **django 1.11.16** as the main fully featured server-side web framework.
-    - 
 - [django_forms_bootstrap](https://django-bootstrap-form.readthedocs.io/en/latest/)
     - The project uses **django_forms** to fire django forms in the settings.py and bootstrap tags in the html.
+- [django_vote](https://django-vote.readthedocs.io/en/latest/)
+    - The project uses **django_vote** app to facilitate the use of upvoting.
+- [pillow](https://pillow.readthedocs.io/en/5.3.x/)
+    - The project uses **pillow** to facilitate the use of images in the application.
 - [bootstrap](https://getbootstrap.com/docs/3.3/getting-started/)
-    - The project uses bootstrap to theme and style the html pages (buttons)
+    - The project uses **bootstrap3** to theme and style the html pages. Bootstrap glyphicons are also used for upvotes, editing and comments.
 - [fontawesome](https://fontawesome.com/v4.7.0/)
-    - The project uses fontawesome icons for shopping cart
+    - The project uses **fontawesome** icons for shopping cart and users
 - [stripe](https://dashboard.stripe.com/)
     - The project uses **stripe** API as the credit/debit card payment mechanism.
+- [dc.js](https://dc-js.github.io/dc.js/)
+    - The project uses **dc.js crossfilter** to render json type data received from the backend into graphs. 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to fire tooltips and to link up django forms to the stripe API.
 
@@ -135,10 +152,29 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The following documentation was consulted for ideas on writing the about page 
+- [Mindtools Z](https://www.mindtools.com/pages/article/newPPM_69.htm)
+- [Sifter](https://sifterapp.com/academy/overview/why/)
 
 ### Media
-- The photos used in this site were obtained from ...
+- The images used in this site were obtained from:
+
+- [Landing-page image](https://www.pexels.com/photo/group-hand-fist-bump-1068523/)
+- [Free Use license link](https://www.pexels.com/photo-license/)
+- [Logo-image](https://pixabay.com/en/bug-animal-nature-windows-162019/)
+- [Staff 01 image](https://pixabay.com/en/head-man-portrait-face-big-40119/)
+- [Staff 02 image](https://pixabay.com/en/cartoon-child-comic-characters-face-2026702/)
+- [Staff 03 image](https://pixabay.com/en/girl-illustrate-portriat-design-3405035/)
+- [Staff 04 image](https://pixabay.com/en/caricature-head-male-man-portrait-157235/)
+- [Staff 05 image](https://pixabay.com/en/bald-bald-man-caricature-comic-man-1295928/)
+- [Creative Commons license link](https://pixabay.com/en/service/terms/#usage)
 
 ### Acknowledgements
-- I received inspiration for this project from X
+- The sources below provided inspiration for this application:
+
+#### Code Institute 
+- Code Institute Modules (1 -8), in particular Module 9 Full Stack Development
+
+#### Other Documentation Consulted ####
+- [Django Documentation:](https://www.djangoproject.com/start/overview/)    
+    - Overview of django. Django pagination, chaining of filters

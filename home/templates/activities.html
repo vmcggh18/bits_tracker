@@ -4,7 +4,7 @@
 {% block page_heading %}Activities Page{% endblock %}
 {% block content %}
 <section class ="statistics-section container-fluid">
-    <div class="row">
+    <div class="row issues-stats">
         <div class="col-sm-6 bug-stats">
         <!--bug statistics-->
             <div class = "row bug-header">
@@ -15,10 +15,10 @@
                         <span class="sr-only">50% of our time (success)
                     </div>
                 </div>
-                <div class = "row text-center">
+                <div class = "row text-center bug-activities">
                     <h3>We spend up to 50% of our time working to fix the highest voted bugs.</h3>
                         <p>As a user, you can post new bug tickets, view current tickets 
-                    and vote for tickets (free of charge!) to push them higher up on our works list)</p> 
+                    and vote for tickets (free of charge!) to push them higher up on our works list.</p> 
                 </div>
                 <div class = "row text-center">
                     <h4>Current Bug Statistics</h4>
@@ -30,7 +30,7 @@
             {% if user.is_authenticated %}
             <p></p>
             {% else %}
-            <p class = "text-center"> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign up!</button></a></p>
+            <p class = "text-center signup-butt"> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up Now!</button></a></p>
             {% endif %}
         </div>
     <!--feature statistics-->
@@ -43,7 +43,7 @@
                         <span class="sr-only">50% of our time (info)
                     </div>
                 </div>
-                <div class = "row text-center">
+                <div class = "row text-center feat-activities">
                     <h3>We spend at least 50% of our time working on the highest voted feature tickets.</h3>
                     <p>If you donate €50 or more, you can vote for tickets to push them higher up on our works list. With features vote as often as you wish.</p>
                 </div>
@@ -57,7 +57,7 @@
             {% if user.is_authenticated %}
             <p></p>
             {% else %}
-            <p class = "text-center"> <a href="{% url 'login' %}"><button class="btn btn-lg btn--cta btn--red" data-toggle='modal' data-target='#signUpModal'>Sign in!</button></a></p>
+            <p class = "text-center read-butt"> <a href="{% url 'documentation' %}"><button class="btn btn-lg btn btn-secondary" data-toggle='modal' data-target='#signUpModal'>Read More!</button></a></p>
              {% endif %}
         </div>
     </div>

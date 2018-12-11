@@ -40,6 +40,9 @@ class Item(models.Model):
     progress = models.TextField(max_length=200, default='Queued', help_text="Add progress note relative to the status (eg In Development)")
     fee = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     price= models.DecimalField(max_digits=6, decimal_places=2, default=50)
+    
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
    # define names in admin panel
     def __str__(self):
         return self.name

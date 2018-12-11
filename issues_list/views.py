@@ -92,6 +92,15 @@ def add_comment_to_issue(request, id):
         form = CommentForm()
      return render(request, "issue_commentform.html", {'form': form})
      
+def comment_approve(request, id):
+    comment = get_object_or_404(Comment, pk=id)
+    comment.approve()
+    return redirect('issue_detail', id=comment.item.id)  
+    
+def comment_remove(request, id):
+    comment = get_object_or_404(Comment, pk=id)
+    comment.delete()
+    return redirect('issue_detail', id=comment.item.id)
 
 
 

@@ -3,17 +3,22 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color:  #dfe3ee;
+    background-color: #dfe3ee;
 }
 .container-fluid {
     margin: 0px;
     padding: 0px;
 }
+
 /* General style for forms */
 form {
-    width: 50%;
+      width: 50%;
 }
-/* General text styles for */
+.form-detail, .profile-detail {
+    padding-left: 10px;
+}
+
+/* General text styles */
 h1, h2, h3, h4, h5 {
     font-family: "Exo", sans-serif;
 	font-weight: 500;
@@ -28,40 +33,94 @@ p {
     font-weight: bold;
 }
 /* glyphicon styles */
+.glyphicon-gift, .glyphicon-credit-card {
+    color: Cadetblue;
+}
 .glyphicon-edit, .glyphicon-align-justify {
     color: red;
 }
 .glyphicon-comment {
-    color: green;
+    color: orange;
 }
 .glyphicon-thumbs-up {
     color: blue;
+    font-size: 15px;
+}
+.glyphicon-remove {
+    color:crimson;
+}
+.glyphicon-ok {
+    color: darkgreen;
 }
 /* General styles for buttons */
 .btn--cta {
     font-weight: bold;
-    border-radius: 23px;
-    width: 160px;
+    border-radius: 25px;
+    width: 150px;
 }
-.btn--red {
+.btn--info {
     color: white;
-    background-color: #f05f40;
-    border-color: #f05f40;
+    background-color: darkblue;
+    border-color: darkblue;
 }
-.btn--red:hover,
-.btn--red:active,
-.btn--red:focus,
-.btn--red:active:focus {
-    background-color: #df4929;
-    border-color: #df4929;
+.btn--info:hover,
+.btn--info:active,
+.btn--info:focus,
+.btn--info:active:focus {
+    background-color: #7f7fff;
+    border-color: #7f7fff;
     color: white;
 }
-.btn-sm {
+.btn--blue {
+    color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+.btn--blue:hover,
+.btn--blue:active,
+.btn--blue:focus,
+.btn--blue:active:focus {
+    background-color: #8b9dc3;
+    border-color: #8b9dc3;
+    color: white;
+}
+
+.btn-sm, .btn-lg, .btn-light {
     border-radius: 25px;
 }
 .btn-secondary {
     background-color: cadetblue;
     color: white;
+}
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary:active:focus {
+    background-color: #4c7e80;
+    border-color: #4c7e80;
+    color: white;
+}
+.btn-light {
+    background-color: #C0C0C0;
+    color:black;
+}
+.btn-light:hover,
+.btn-light:active,
+.btn-light:focus,
+.btn-light:active:focus {
+    background-color: #808080;
+    border-color: #383838;
+    color:white;
+}
+.btn-dark {
+    background-color: #93C572;
+}
+.btn-dark:hover,
+.btn-dark:active,
+.btn-dark:focus,
+.btn-dark:active:focus {
+    background-color: #E9FFDB;
+    border-color: #93C572;
 }
 /* footer text */
 .end-line {
@@ -69,7 +128,7 @@ p {
     color: white;
     padding-top: 20px;
 }
-/*=== Base navbar stuyles ===*/
+/*=== Base html navbar styles ===*/
 .navbar {
     border: none;
     margin: 0px;
@@ -105,12 +164,10 @@ p {
     margin: 0px;
     text-shadow: none;
     color: black;
-
 }
 .navbar-toggle .collapsed {
-    background-color: black;
+    color: white;
 }
-
 
 /* ==== Index page styles ==== */
 .callout-container {
@@ -165,7 +222,7 @@ p {
 }
 /* Existing and planned Features section styles */
 /* section header text */
-.commitment, .features {
+.commitment, .feature-header {
     color: black;
 }
 .background-info, .our-promise {
@@ -177,14 +234,22 @@ p {
 .media-object {
     background-color: white;
 }
-.glyphicon-gift, .current-features, .glyphicon-credit-card, .planned-features, .feature-header {
+/* override bootstrap negative margins */
+#feature-summary {
+    margin: 0px;
+}
+/* features list text style */
+.current-features, .planned-features {
     color: Cadetblue;
 }
 .para-features {
     color: black ;
     font-size: 16px
 }
-/* === About page styles === */
+/* ==== About page styles ==== */
+.about-header, .team-header {
+    color: black;
+}
 .img-logo {
      display: block;
      margin: auto;
@@ -192,7 +257,15 @@ p {
 .col-about, .bits-detail {
     background-color: #f7f7f7; 
  }
- /*Activities page general styles */
+.bits-detail {
+     padding-left: 15px;
+     padding-right: 15px;
+ }
+.media-left {
+    padding-left: 5px;
+     padding-right: 5px;
+}
+ /* ==== Activities page general styles ==== */
  .bug-stats, .feat-stats {
     background-color: #f7f7f7;  
  }
@@ -207,7 +280,24 @@ p {
  .shadow {
    text-shadow: 2px 2px lightblue;   
  }
- /*==== General style on Issues List page ===*/
+ /* piechart text in bug and feature charts */
+#feature-chart text, #bug-chart text {
+    fill: black;
+}
+/* overwrite bootstrap negative margins */
+.bug-activities, .feat-activities {
+    margin: 0px;
+}
+.signup-butt, .read-butt {
+    margin: 0px;
+}
+ /*==== General style on Issues List page ====*/
+ .search-form {
+     width: 100%;
+ }
+ .search {
+     width: 150px;
+ }
  .tracker-header {
      background-color: #f7f7f7;  
 }
@@ -221,12 +311,23 @@ p {
 }
 /* section background color styles */
 .issue-comment-section {
-    background-color: #f7f7f7;
+    background-color: #dfe3ee;
 }
-/*cart_item panel styles*/
-.cart_item {
-    padding: 0px 10px 0px 10px;
+.comment-author {
+    color: black;
 }
+/* set styles on feature upvote form */
+.upvoting {
+    height:auto; 
+    margin:0 auto; 
+}
+.upvote-form {
+    width:50%; 
+    margin:0 auto;
+    text-align:center;
+}
+/*==== Style on cart item panel ===*/
+
 /* cart icon styles */
 .badge {
     padding-left: 9px;
@@ -251,7 +352,7 @@ caption p {
 }
 .panel-default {
     border-color: transparent;
-    padding: 0 10px;
+    padding: 0px;
 }
 .panel-body {
     height: 100%;
@@ -260,8 +361,23 @@ caption p {
 .content_desc {
     min-height: 40px;
 }
+.form-inline {
+    width: 100%;
+}
+.form-input {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.btn-amend {
+    height: 50px;
+}
+/*==== Style on chart page ===*/
 .chart-section {
     background-color: #f7f7f7;
+}
+ /* text style within charts on charts page */
+#fee-pie-chart text, #completed-weekly-chart text, #ongoing-weekly-chart text, #completed-monthly-chart text, #ongoing-monthly-chart text {
+    fill: black;
 }
 /* documentation page styles */
 /* documents page header styles*/
@@ -321,6 +437,10 @@ caption p {
 }
 .contents {
     margin: 0;
+    padding-left: 5px;
+}
+.doc-header {
+    color: black;
 }
 #main-content {
     /*width: 70%;*/
@@ -344,17 +464,28 @@ caption p {
     margin: 0;
 }
 /*blog post */
-.blog-post {
+.blog-post, .post-content {
     background-color: #f7f7f7;
+    margin: 0px;
 }
 .img-blogpost{
     height: 100px;
     width: auto;
     background-color: white;
 }
+.post-divider {
+    margin: 0px;
+}
+
+.profile-detail {
+    background-color:  #f7f7f7;
+}
+
+
+
 
 /* stack image logo on header text in docs on smaller screens*/
-@media all and (max-width: 800px) {
+@media all and (max-width: 700px) {
 
     #wrapper-header {
         flex-flow:column;
@@ -369,7 +500,7 @@ caption p {
 }
 
 /* stack contents nav-bar on contents text in docs on smaller screens*/
-@media all and (max-width: 800px) {
+@media all and (max-width: 700px) {
 
     #content-wrapper {
         flex-flow:column;
@@ -380,9 +511,7 @@ caption p {
     #contents-nav {
         width:auto;
     }
-
 }
-
 /*@media screen and (max-height: 450px) {*/
 /*  .side-nav {padding-top: 15px;}*/
 /*  .side-nav a {font-size: 18px;}*/

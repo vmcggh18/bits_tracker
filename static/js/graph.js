@@ -93,7 +93,7 @@ queue()
 function show_bug_feat_ratio(ndx) {
     var statusColors = d3.scale.ordinal()
         .domain(["Feature", "Bug"])
-        .range(["#ffa500", "#33A1DE"]);
+        .range(["#0099CC", "#006699"]);
     var dim = ndx.dimension(dc.pluck('category'));
     var group = dim.group();
         dc.pieChart("#feature-bug")

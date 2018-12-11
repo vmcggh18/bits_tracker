@@ -17,7 +17,7 @@ function deriveGraphs(error, data) {
         d.today = new Date(strtoday);
         
     //calculate time intervals for use in duration calcs for pending and completed issues
-    // currently only days used others msay be used with future development
+    // currently only days used others may be used with future development
         d.pending_dur_days = ((d.today - d.created_date)/(1000*60*60*24)); //day
         // d.completed_dur_mins = ((d.completed_date - d.assigned_date)/(1000*60)); //minutes
         // d.completed_dur_hours = ((d.completed_date - d.assigned_date)/(1000*60*60));//hours
@@ -55,6 +55,7 @@ function deriveGraphs(error, data) {
  function dist_to_date(ndx) {
     var dim = ndx.dimension(dc.pluck('category'));
     var group = dim.group();
+    
 //bar chart showing total bugs and features to date
     dc.barChart("#all_issues")
         .width(300)
@@ -62,6 +63,8 @@ function deriveGraphs(error, data) {
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(dim)
         .group(group)
+        .colorAccessor(d => d.key)
+        .ordinalColors(["#006699", "#0099CC"])
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -69,6 +72,7 @@ function deriveGraphs(error, data) {
         .xAxisLabel("Category")
         .yAxisLabel("Quantity")
         .yAxis().ticks(10);
+    
 }
 //bar chart showing status of bugs and features
 function stat_by_cat(ndx) {
@@ -97,6 +101,9 @@ function stat_by_cat(ndx) {
             };
         }
     var    totalFeature = cat_dim.group().reduceSum(totFeature('Feature'));
+    var issColors = d3.scale.ordinal()
+        .domain(["Bug", "Feature"])
+        .range(["#006699", "#0099CC"]);
 
     dc.barChart("#stack_status")
         .width(300)
@@ -106,14 +113,14 @@ function stat_by_cat(ndx) {
         .group(totalBug, 'Bug')
         .stack(totalFeature, 'Feature')
         .transitionDuration(500)
+        .colors(issColors)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .title(function(d) { return d.key +" quantity is "+ d.value; })
-         .legend(dc.legend().x(10).y(10).itemHeight(10).gap(3))
+        .legend(dc.legend().x(10).y(10).itemHeight(10).gap(3))
         .xAxisLabel("Status")
         .yAxisLabel("Quantity")
         .yAxis().ticks(10);
-        
 }
 //bar chart showing upvotes by category
 function upvote_by_cat(ndx) {
@@ -125,6 +132,8 @@ function upvote_by_cat(ndx) {
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_upvotes)
+        .colorAccessor(d => d.key)
+        .ordinalColors(["#006699", "#0099CC"])
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -153,6 +162,8 @@ function upvote_by_cat(ndx) {
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_cat_days)
+        .colorAccessor(d => d.key)
+        .ordinalColors(["#006699", "#0099CC"])
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -181,6 +192,8 @@ function upvote_by_cat(ndx) {
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_cat_days)
+        .colorAccessor(d => d.key)
+        .ordinalColors(["#006699", "#0099CC"])
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -209,6 +222,8 @@ function upvote_by_cat(ndx) {
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_cat_days)
+        .colorAccessor(d => d.key)
+        .ordinalColors(["#006699", "#0099CC"])
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
