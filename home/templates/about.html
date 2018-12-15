@@ -4,6 +4,7 @@
 {% block page_heading %}About Page{% endblock %}
 {% block content %}
 <!----------------------bits image -------------------->
+<div class = "container-fluid">
 <section class = "container-fluid about-section">
     <div class="background-info">
         <div class="col-xs-12 col-sm-4 logo col-about">
@@ -29,7 +30,7 @@
 </section>
 <section class = "container-fluid feature-section">
 	<article class = "bits-detail">		
-		<div class = "row">
+		<div class = "row container-fluid">
 			<div class = "col-sm-12">
 				<h4>Key features:</h4>
 				    <h5 class ="shadow">Web-based Architecture</h5>
@@ -60,10 +61,10 @@
 	</article>
 </section>		
 
-<div class="row the-players">
+<div class="row the-players container-fluid">
     <h2 class = "text-center team-header">Meet the team</h2>
 </div>
-        <div class="row staffing">
+        <div class="row staffing container-fluid">
             <div class="col-xs-12 col-sm-6 media">
                 <div class="media-left">
                     <img src="{% static 'images/prof.png' %}" class="img-circle media-object" alt="Staff 1 Prof image" height=100 width=100>
@@ -87,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="row staffing">
+        <div class="row staffing container-fluid">
             <div class="col-xs-12 col-sm-6 media">
                 <div class="media-left">
                     <img src="{% static 'images/jSmith.png' %}" class="img-circle media-object" alt="Staff 3 Jane Smith image" height=100 width=100>
@@ -111,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <div class="row staffing">
+        <div class="row staffing container-fluid">
             <div class="col-xs-12 col-sm-6 media">
                 <div class="media-left">
                     <img src="{% static 'images/JohnS.png' %}" class="img-circle media-object" alt="Staff 5 John Smith image" height=100 width=100>
@@ -124,5 +125,5 @@
                 </div>
             </div>
         </div>
-
+</div>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="row row-flex">
+<div class="row container-fluid row-flex">
     {% for part in cart_items %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
         <div class="panel-body">
@@ -35,14 +35,14 @@
     </div>
     {% endfor %}
 </div>
-<div class="row">
+<div class="row container-fluid">
     <p class = "text-center">Total upvotes in cart</p>
     <p class = "text-center"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
     <div class="col-xs-2 text-center">
         <a href="{% url 'checkout' %}" class="btn btn-sm btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Checkout</a>
     </div>
      <div class="col-xs-2 col-xs-offset-2 text-center">
-        <p><a href="{% url 'issues_list' %}" class="btn btn-sm btn-info">Back To Tracker</a></p>
+        <p><a href="{% url 'issues_list' %}" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back To Tracker</a></p>
     </div>
 </div>
 

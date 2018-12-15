@@ -32,6 +32,7 @@ class PostComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     text = models.TextField(max_length=200, blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to="img", blank=True, null=True)
     approved_postcomment =  models.BooleanField(default=False)
     
     def approve(self):

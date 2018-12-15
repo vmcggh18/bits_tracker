@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
-/*====General styles across all pages=======*/
+
+/*==== General styles across all pages ====*/
 body {
     margin: 0px;
     padding: 0px;
@@ -85,7 +86,7 @@ p {
     color: white;
 }
 
-.btn-sm, .btn-lg, .btn-light {
+.btn-sm, .btn-lg, .btn-light, .btn-success, .cart-button {
     border-radius: 25px;
 }
 .btn-secondary {
@@ -110,7 +111,7 @@ p {
 .btn-light:active:focus {
     background-color: #808080;
     border-color: #383838;
-    color:white;
+    color: white;
 }
 .btn-dark {
     background-color: #93C572;
@@ -122,6 +123,19 @@ p {
     background-color: #E9FFDB;
     border-color: #93C572;
 }
+.cart-button {
+    height: 38px;
+    width: 160px;
+    color: black;
+    background-color: white;
+}
+.cart-button:hover,
+.cart-button:active,
+.cart-button:focus,
+.cart-button:active:focus {
+    background-color: AliceBlue;
+    border-color: AliceBlue;
+}
 /* footer text */
 .end-line {
     background-color: #3b5998;
@@ -129,6 +143,9 @@ p {
     padding-top: 20px;
 }
 /*=== Base html navbar styles ===*/
+.container-fluid>.navbar-header, .container-fluid>.navbar-collapse, .navbar-nav {
+    margin:0px;
+}
 .navbar {
     border: none;
     margin: 0px;
@@ -143,7 +160,7 @@ p {
 .navbar-default .navbar-collapse {
     background-color: #B0C4DE;
     border: none;
-    padding: none;
+    padding: 0px;
 }
 .navbar-brand, .navbar-collapse, .navbar-header .container-fluid, .navbar-fixed{
     background-color:  #B0C4DE;
@@ -261,25 +278,29 @@ p {
      padding-left: 15px;
      padding-right: 15px;
  }
-.media-left {
-    padding-left: 5px;
-     padding-right: 5px;
-}
- /* ==== Activities page general styles ==== */
- .bug-stats, .feat-stats {
-    background-color: #f7f7f7;  
- }
-.activities-chart-section {
-     background-color: #dfe3ee;
- }
 .feature-section, .about-section {
     padding: 10px;
      margin-left: 0px;
      background-color: #f7f7f7;  
  }
- .shadow {
+.shadow {
    text-shadow: 2px 2px lightblue;   
  }
+.media-left {
+    padding-left: 5px;
+     padding-right: 5px;
+}
+ /* ==== Activities page general styles ==== */
+.statistics-section {
+    background-color: #f7f7f7;  
+ }
+.activities-chart-section {
+     background-color: #dfe3ee;
+ }
+.bug-head, .feature-head {
+     color: black;
+ }
+
  /* piechart text in bug and feature charts */
 #feature-chart text, #bug-chart text {
     fill: black;
@@ -307,11 +328,14 @@ p {
 }
 /*==== General style on Issues detail page ===*/
 .comment {
-    margin: 20px 0px 20px 20px;
+    margin: 0px 0px 0px 20px;
 }
 /* section background color styles */
 .issue-comment-section {
     background-color: #dfe3ee;
+}
+.item-content {
+    padding-left: 15px;
 }
 .comment-author {
     color: black;
@@ -369,7 +393,10 @@ caption p {
     padding-right: 15px;
 }
 .btn-amend {
-    height: 50px;
+    height: 38px;
+}
+.input-group .form-control { 
+    margin-bottom: -15px;
 }
 /*==== Style on chart page ===*/
 .chart-section {
@@ -476,12 +503,28 @@ caption p {
 .post-divider {
     margin: 0px;
 }
-
+/* blog comment avatar image styles */
+.avatar-image {
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.inline {
+    display: inline-block;
+}
+/* profile page styles */
 .profile-detail {
     background-color:  #f7f7f7;
 }
-
-
+/* blog page styles */
+.total-post-comments {
+    padding-left: 15px;
+}
+.spacer {
+    margin-bottom: 10px;
+}
 
 
 /* stack image logo on header text in docs on smaller screens*/

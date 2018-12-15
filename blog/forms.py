@@ -11,4 +11,4 @@ class BlogCommentForm(forms.ModelForm):
     
     class Meta:
         model = PostComment
-        fields = ('text',)
+        fields = ('text', 'image')

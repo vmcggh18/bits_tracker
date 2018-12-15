@@ -4,87 +4,67 @@
 {% block page_heading %}Activities Page{% endblock %}
 {% block content %}
 <section class ="statistics-section container-fluid">
-    <div class="row issues-stats">
-        <div class="col-sm-6 bug-stats">
-        <!--bug statistics-->
-            <div class = "row bug-header">
-                <h2 class="text-center">Bugs</h2>
-            </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                        <span class="sr-only">50% of our time (success)
-                    </div>
-                </div>
-                <div class = "row text-center bug-activities">
+    <div class="row issues-stats container-fluid">
+        <div class = "row container-fluid text-center issues-activities">
+             <!--bug statistics--> 
+            <div class = "col-sm-6">
+                <h2 class="bug-head text-center">Bugs</h2>
                     <h3>We spend up to 50% of our time working to fix the highest voted bugs.</h3>
                         <p>As a user, you can post new bug tickets, view current tickets 
-                    and vote for tickets (free of charge!) to push them higher up on our works list.</p> 
-                </div>
-                <div class = "row text-center">
+                        and vote for tickets (free of charge!) to push them higher up on our works list.</p> 
                     <h4>Current Bug Statistics</h4>
                         <h5>Total Bugs:</h5><p class="font-weight-bold">{{total_bug}}</p> 
                         <h5>Pending:</h5><p class="font-weight-bold">{{bug_pending}}</p> 
                         <h5>On-going:</h5><p class="font-weight-bold">{{bug_ongoing}}</p> 
                         <h5>Completed:</h5><p class="font-weight-bold">{{bug_completed}}</p>
-                </div>
-            {% if user.is_authenticated %}
-            <p></p>
-            {% else %}
-            <p class = "text-center signup-butt"> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up Now!</button></a></p>
-            {% endif %}
-        </div>
-    <!--feature statistics-->
-        <div class="col-sm-6 feat-stats">
-            <div class = "row">
-                <h2 class="feature-head text-center">Features</h2>
+                         {% if user.is_authenticated %}
+                            <p></p>
+                        {% else %}
+                            <p class = "text-center signup-butt"> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up Now!</button></a></p>
+                        {% endif %}
             </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                        <span class="sr-only">50% of our time (info)
-                    </div>
-                </div>
-                <div class = "row text-center feat-activities">
+             <!--feature statistics-->
+            <div class = "col-sm-6">
+                <h2 class="feature-head text-center">Features</h2>
                     <h3>We spend at least 50% of our time working on the highest voted feature tickets.</h3>
-                    <p>If you donate €50 or more, you can vote for tickets to push them higher up on our works list. With features vote as often as you wish.</p>
-                </div>
-                <div class="row text-center">
+                        <p>If you donate €50 or more, you can vote for tickets to push them higher up on our works list. With features vote as often as you wish.</p>
                     <h4>Current Feature Statistics</h4>
                         <h5>Total Features:</h5><p class="font-weight-bold">{{total_feature}}</p> 
                         <h5>Pending:</h5><p class="font-weight-bold">{{feature_pending}}</p> 
                         <h5>Ongoing:</h5><p class="font-weight-bold">{{feature_ongoing}}</p> 
-                        <h5>Completed:</h5><p class="font-weight-bold">{{feature_completed}}</p>
-                </div>
-            {% if user.is_authenticated %}
-            <p></p>
-            {% else %}
-            <p class = "text-center read-butt"> <a href="{% url 'documentation' %}"><button class="btn btn-lg btn btn-secondary" data-toggle='modal' data-target='#signUpModal'>Read More!</button></a></p>
-             {% endif %}
+                        <h5>Completed:</h5><p class="font-weight-bold">{{feature_completed}}</p> 
+                        {% if user.is_authenticated %}
+                            <p></p>
+                        {% else %}
+                            <p class = "text-center read-butt"> <a href="{% url 'documentation' %}"><button class="btn btn-lg btn btn-secondary" data-toggle='modal' data-target='#signUpModal'>Read More!</button></a></p>
+                        {% endif %}
+            </div>
         </div>
     </div>
 </section>
 <!--========== Chart Section Pie ==========-->
 <section class="activities-chart-section container-fluid">
-        <div class="row">
+        <div class="row container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-12 text-center"><h3>Charts below show Activities to Date on bugs and features</h3>
-                <p class = text-center>(hover on slice for total number)</p>
+                <p class = text-center>(in desktop mode hover on slice for total number)</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row container-fluid">
             <div class="col-xs-12 col-sm-6 col-md-6 center-block" id="bug-chart" class="custom-chart"></div>
             <div class="col-xs-12 col-sm-6 col-md-6 center-block" id="feature-chart" class="custom-chart">
             </div>
         </div>
-        <div class="row">
+        <div class="row container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-12 text-center"><p>Figures above show status on bugs and features respectively to date</p>
             </div>
         </div>
-         <div class = "row">
+         <div class = "row container-fluid">
             <div class = "col-sm-12 col-md-12 center-block">
                 <h3 class = "text-center">The chart below shows the Percentage ratio of Bugs to Features</h3>
-                    <p class = text-center>(hover on slice for total number)</p>
+                    <p class = text-center>(in desktop mode hover on slice for total number)</p>
             </div>
         </div>
-        <div class = "row">
+        <div class = "row container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-12 center-block" id="feature-bug" class="custom-chart">
             </div>
         </div>

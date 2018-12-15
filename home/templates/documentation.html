@@ -73,7 +73,7 @@
 	</aside>
 		<div id = "main-content" class="col-sm-9 content-info">
 				<h3 id = "docs-overview">Overview</h3>
-					<p>This documentation provide a concise explanation of how to use the application. The documentation outlines the different type of users and the type of permissions. It outlines the features available and instructions on how to fill out the various forms, that enable the various users to interact with the site.</p>
+					<p>This documentation provides a concise explanation of how to use the application. The documentation outlines the different type of users and the type of permissions. It outlines the features available and instructions on how to fill out the various forms, that enable the various users to interact with the site.</p>
 				<h3 id = "user-perm">User Permissions</h3>
 						<p>Users basically consist of non-authenticated and authenticated users (general and staff). Non-authenticated users have no authorisation with authenticated users having varying permissions depending on if they are general users or staff.</p>
 				 	<h4 id = "non-auth">Non-authenticated users</h4>
@@ -91,17 +91,17 @@
 					<h4 id = "authen-staff">Staff users</h4>
 						<p>Staff users are responsible for the daily implementation of the activities and deal with the issues raised. The staff users have access to all elements of the application including the backend admin panel. Currently there are 2 authorised superusers who have full administration rights to add to or edit any editable field registered in the admin panel. Any registered item can be deleted by these users. However any decisions to amend any aspects of the application are agreed on at the fortnightly staff meetings. The only exception is when a user requests their submitted item to be adjusted/deleted, which is done immediately.</p>
 					<h5><em>Senior staff:</em></h5>
-						<p>One senior staff member, although not a superuser per se, but being a valued staff member, has full administration permissions. Two other senior staff have all permissions bar the permission to delete items.</p>
+						<p> Three senior staff members, although not superusers, have full administration permissions.</p>
 					<h5><em>Junior staff:</em></h5>
 						<p>Two other more junior staff have permissions to add and edit items.</p>
 				<h3 id = "features">Features</h3>
 						<p>The features of this web application are described below.</p>
-					<h4 id = "home-page">Home Page:</h4>
+					<h4 id = "home_page">Home Page:</h4>
 						<p>The home page is effectively a landing page and introduces BITS. The jumbotron section contains the callout while the feature section summarises existing and future features.</p>
 						<p>The home page uses template logic to present slightly different elements depending on user authorisation. Non authenticated users see the basic nav bar with links to the elements as described in <a href= "#non-auth" title="Go to user section"> non-authenticated users above</a>. The nav bar also has links to login and register (profile and logout for authorised users). Also there is a signup button in the jumbotron area (or a view tracker button for authenticated users) with “You must login or signup” text (or “Feel free to add an issue or comment on issues”  for authorised users).</p>
 					<h4 id = "about_page">About Page:</h4>
 						<p>The about page gives some background information on BITS, along with  more insight into who is involved and what exactly BITS does. Non authenticated users see the basic nav bar. The background, image logo and team details are the same for all users.</p>
-					<h4 id = "activities-page">Activities Page:</h4>
+					<h4 id = "activities_page">Activities Page:</h4>
 						<p>This page shows some general statistics on activities to date. The issues are separated into bugs and features. Some graphs are also shown to visually represent the status on bugs and features to date along with the proportion of bugs to features. All users see this detail. The only difference is that non authenticated users see the basic nav bar.</p>
 					<h4 id = "view-issues-list">Issues List:</h4>
 						<p>This page presents the Issues Tracker List, which shows a summary list of all bugs and features to date. Only authorised users have access to this page, thus the full nav bar is available.</p>
@@ -131,13 +131,13 @@
 					<h5><em>Submitted by:</em></h5>
 						<p>This shows the username of the user that submitted the bug or feature.</p>
 					<h5><em>Category:</em></h5>
-						<p>This is either bug or feature and is selected when submitting the new item through the <a href = "#new-form" title = "Go to the forms section">form.</a></p>
+						<p>This is either bug or feature and is selected by the user when submitting the new item through the <a href = "#add-item" title = "Go to the forms section">form.</a></p>
 					<h5><em>Created on:</em></h5>
 						<p>The date the new item (bug or feature) was submitted.</p>
 					<h5><em>Upvotes:</em></h5>
 						<p>The total number of upvotes recieved todate.</p>
 					<h5><em>Status:</em></h5>
-						<p>The status (Pending, Ongoing, Completed) of the item. On submission of the new item the default is always Pending. Staff members then alter the status. It will become Ongoing when the item is assigned and work on the item has commenced. Eventually it will become Completed when all the work is complete.  </p>
+						<p>The status (Pending, Ongoing, Completed) of the item. On submission of the new item the default is always Pending. Staff members then alter the status. It will be assigned the statue of Ongoing when the item is assigned and work on the item has commenced. Eventually it will be assigned status Completed when all the work is complete.  </p>
 					<h5><em>Assigned to:</em></h5>
 						<p>This is the name of the staff member to which the item has been assigned.</p>
 					<h5><em>Progress:</em></h5>
@@ -145,18 +145,18 @@
 					<h5><em>Fees:</em></h5>
 						<p>This id the total fees received for a feature item. Bugs are currently fixed for free so this item will always read 0.00 for bugs.</p>
 					<h5><em>Comments:</em></h5>
-						<p>This is a comments icon which, when clicked takes the authorised user to the <a href="#issue_detail" title="Go to issue detail section"> detail view</a> where comments can be viewed. On this page there are also links to return to the list view, upvote or add a comment.</p>
-						<p>At the top of the table there is a search box where a user can enter text to search the list by the name column.At the bottom of the table is pagination functionality allowing a user to quickly navigate the different pages.</p>
-					<h4 id = "new-form">Create an Item:</h4>
+						<p>This field contains a comment icon which, when clicked takes the authorised user to the <a href="#issue_detail" title="Go to issue detail section"> detail view</a> where comments can be viewed. The total number of comments received is also displayed beside the icon in list view and on the detail view page. On the detail view page, there are also links to return to the list view, to upvote or to add a new comment.</p>
+						<p>At the top of the table there is a search box where a user can enter text to search the list by the name column. At the bottom of the table is pagination functionality allowing a user to quickly navigate the different pages.</p>
+					<h4 id = "create-item">Create an Item:</h4>
 						<p>Clicking on this takes the authorised user to the create an <a href="#add-item" title = "Go to create a new item form section">item form.</a> Fill in the name section, add some content (description of the issue) and select either bug or feature in the drop down  category section and then save to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a></p>
 					<h4 id = "view-charts">View Charts:</h4>
 						<p>This link takes the authorised user to the graphs page. All graphs are rendered using dc.js crossfilter. The first section of graphs consists of 6 bar chart type graphs. The first three show the distribution on categories to date, the status on those categories and the upvotes recieved to date. The second three show the total amount of days spent working on issues (completed) and (ongoing) and the duration of pending issues. These graphs are all based on the same crossfilter and thus are interactive with each other.</p>
 						<p>The next section contains piechart showing the percentage of fees received for features by status. This graph is based on the same crossfilter as above and thus is interactive with the feature element of other graphs.</p>
-						<p>The final section contains graphs showing the ratio of bugs and features completed and ongoing respectively over the last week.</p>
+						<p>The final section contains graphs showing the ratio of bugs and features completed and ongoing respectively over the last week and the last 31 days (monthly).</p>
 					<h4 id = "view-docs">Documentation</h4>
 						<p>This link takes the user to the documents page. The documents outline the features and detail any instructions needed to fill out forms and navigate the site. The contents are listed in the side-nav bar. Clicking on a heading will bring the user to the respective paragraph in the contents page. Within the contents text there are also hyperlinks, which when clicked, bring the user to other sections of the document.</p>
 					<h4 id = "blog-page">Blog Page</h4>
-						<p>Access to the blog page is via the nav bar link. All authorised users can view the blog page. Once on the blog page posts can be read. To read more <a href = "#view-blog" title="Go to blog detail section">detail</a> on a post or leave a comment on the post click on the read more button whch takes the user to the specific detail page. 
+						<p>Access to the blog page is via the nav bar link. All authorised users can view the blog page. Once on the blog page posts can be read. To read more <a href = "#view-blog" title="Go to blog detail section">detail</a> on a post or leave a comment on the post click on the read more button whch takes the user to the specific detail page.  
 						<p> The blog page may contain the following detail</p>
 						<ul>
 							<li>image: An image of the author.</li>
@@ -169,10 +169,10 @@
 							<li>tag: Keyword(s) reflecting the post.</li>
 						</ul>
 					<h4 id = "view-blog">View blog detail</h4>
-						<p>When a user clicks on the read more button of a blog post they are taken to the detail view. On this page a general authorised user can add a <a href = "#comment-blog" title="Go to blog form section"> comment</a>. A staff user can also edit the post. The back to blog button takes the user back to the posts list.</p>
-						<p>This page also shows the number of comments and all comments associated with it.</p>
+						<p>When a user clicks on the read more button of a blog post they are taken to the detail view. On this page a general authorised user can add a <a href = "#comment-blog" title="Go to blog form section"> comment</a>. A staff user can also edit the post. The staff user also sees ok or delete icons, enabling them to either approve or delete the comment, based on the appropriateness of the comment. The back to blog button takes the user back to the posts list.</p>
+						<p>This page also shows the number of comments and all comments associated with the issue item.</p>
 					<h4 id = "new-blog">New Blog Post</h4>
-						<p>Any authorised user can post a new blog by clicking on the link on the nav bar. The link takes you to a blank <a href="#form-blog" title="Go to blog form section"> form</a> where a user adds a Title, the content, their image and a tag. Clicking on the save button adds the post to the posts list.</p>
+						<p>Any authorised user can post a new blog by clicking on the link on the nav bar. The link takes you to a blank <a href="#form-blog" title="Go to blog form section"> form</a> where a user adds a title, the content, their image and a tag. Clicking on the save button adds the post to the posts list.</p>
 					<h4 id = "profile-view">Profile</h4>
 						<p>When an authorised user click on this nav-bar link, it reveals some details of the user. This version shows e-mail address, username, first name and last name.</p>
 					<h4 id = "logout">Logout</h4>
@@ -194,9 +194,9 @@
 							<li>add more items to the cart by clicking the back to tracker button and clicking on the <a href = "#upvoting" title = "Go to upvote section">upvote</a> icon in the issues list.</li>
 							<li>proceed to the payments form by clicking the checkout button.</li>
 						</ul>
-						<p>When items are added to the cart, a badge icon on the navbar reveals the number of upvotes in the cart.<strong>Note </strong> this is the total number of upvotes in the cart and not the number of <em>features</em>.</p>
+						<p>When items are added to the cart, a badge icon on the navbar reveals the number of upvotes in the cart. <strong>Note </strong> this is the total number of upvotes in the cart and not the number of <em>features</em>.</p>
 					<h4 id = "issue_detail">Issue Detail Page</h4>
-						<p>All authorised users have access to the detail view by either clicking on the contents link in the issues list or by clicking on the comment icon in the issues list. Clicking on a feature related upvote icon will also take the user to the detail view. The detail view gives the total text for content and progress, along with the category, number of votes and fees. Within this view a user can also add a comment or upvote the item providing the item is ongoing or pending. For completed items upvotes and comments are no longer required. Howeverthe detail can still be viewed by users as there may be solutions that can relate to new problems. For example a user may be experiencing a bug that was dealt with by BITS a year ago. There is a button link back to the summary tracker list. At the bottom of the panel is a list of comments on the item. The comments section also shows:</p>
+						<p>All authorised users have access to the detail view by either clicking on the contents link in the issues list or by clicking on the comment icon in the issues list. Clicking on a feature related upvote icon will also take the user to the detail view. The detail view gives the total text for content and progress, along with the category, number of votes and fees. Within this view a user can also add a comment or upvote the item providing the item is ongoing or pending. For completed items upvotes and comments are no longer required. However the detail can still be viewed by users as there may be solutions that can relate to new problems. For example a user may be experiencing a bug that was dealt with by BITS a year ago. There is a button link back to the summary tracker list. At the bottom of the panel is a list of comments on the item. The staff user also sees ok or delete icons, enabling them to either approve or delete the comment, based on the appropriateness of the comment. The comments section also shows:</p>
 						<ul>
 							<li>the total number of comments received.</li>
 							<li>the original author of the item. </li>
@@ -210,7 +210,7 @@
 						<p>Bugs are fixed for free and thus upvoting is straightforward. Click on the upvote icon in the issues list and an upvote is added to the upvote field in the issues list. A message appears at the top of the table stating that the upvote has been added. Alternatively click on the upvote button in the detail view and the upvote is added to the upvote field in the issues list. A message appears at the top of the table stating that the upvote has been added.</p>
 						<p><strong>Note:</strong> This version only allows one upvote per user per bug. This is to prevent users needlessly cycling through the upvote counter inflating bug upvotes. If a user has already upvoted a bug in the issues list or in the detail view a message will be returned to say "Sorry you have already voted". In summary a user can upvote as many bugs as they like but only <strong>once!</strong> </p>
 					<h5><em>Upvoting a feature</em></h5>
-						<p>Upvotes for a feature are linked to payments and thus are channelled through the cart and <a href = "#payments" title = "Go to the payments section">payments</a> system. When any authorised user clicks the upvote icon in the issues list they are redirected to the issues detail page where there is an upvote facility in the form of a button and input box. Cycle through the number selector to upvote. A user can have as many upvotes as they want but each upvote costs 50 euros. Once the number of votes are selected and the upvotes submitted they are entered into the <a href = "#view-cart" title = "Go to cart section">cart</a>. The cart holds the contents until the user has made payment through the checkout or logs out. A user can return to the tracker list and add upvotes to as many features as they wish all of which will be stored in the cart. Upvotes are only added to respective features when payment has been received. On successful payment, a message is returned at the top of the page stating "You have successfully paid and added upvotes to the feature" </p>
+						<p>Upvotes for a feature are linked to payments and thus are channelled through the cart and <a href = "#payments" title = "Go to the payments section">payments</a> system. When any authorised user clicks the upvote icon in the issues list they are redirected to the issues detail page where there is an upvote facility in the form of a button and input box. Cycle through the number selector to upvote or type in the desired number of upvotes. A user can have as many upvotes as they want but each upvote costs 50 euros. Once the number of votes are selected and the upvotes submitted they are entered into the <a href = "#view-cart" title = "Go to cart section">cart</a>. The cart holds the contents until the user has made payment through the checkout or logs out. A user can return to the tracker list and add upvotes to as many features as they wish all of which will be stored in the cart. Upvotes are only added to respective features when payment has been received. On successful payment, a message is returned at the top of the page stating "You have successfully paid and added upvotes to the feature" </p>
 					<h4 id = "payments">Checkout</h4>
 						<p>This version uses the stripe processing method of payment. Access to the payment <a href = "#payment-forms" title = "Go to payments form section">forms</a> is by clicking on the checkout button in the cart. Clicking this button presents the payments page which contains an order form showing:</p>
 						<ul>
@@ -231,7 +231,7 @@
 						</ul>
 						<p>Hit the submit button after details are submitted. </p>
 						<p>While passwords can be changed by administrators through the admin panel this version does not have password reset functionality for users who have forgotten their password. This is due in the next version. </p>
-					<h4 id = form_reg>Registration Form:</h4>
+					<h4 id = form-reg>Registration Form:</h4>
 						<p>For brand new users a registration form needs to filled in. This form requires: </p>
 						<ul>
 							<li>e-mail address: Provide a valid e-mail address.</li>
@@ -241,13 +241,14 @@
 						</ul>
 						<p>Hit the submit button after details are submitted. </p>
 					<h4 id = "add-item">Create new item form:</h4>
-						<p>The link on the nav bar takes any authenticated user to the form to <a href ="#new-form" title = "Go to create a new item section">create a new item.</a> This is currently the only way to create a new item. This form requires:</p>
+						<p>The link on the nav bar takes any authenticated user to the form to <a href ="#create-item" title = "Go to create a new item section">create a new item.</a> This is currently the only way to create a new item. This form requires:</p>
 						<ul>
 							<li>name: A title for the bug or feature.</li>
 							<li>content: Provide a description of the issue to be addressed.</li>
 							<li>category: Select either a bug or feature in the dropdown option.</li>
 						</ul>
-						<p> Click the save button to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a></p></p>
+						<p> Click the save button to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a></p>
+						<p>Within the backend the submitted date field is entered automatically. The default status field is set to pending. Other fields such as the assigned to, assigned date, status, progress and comments are manipulated by the staff user. The fees field default is set to 0.00. Values for fees and upvotes are generated through the interaction with users. </p>
 					<h4 id = "editing">Edit an item form:</h4>
 						<p>This feature is only available to authenticated users who are authorised as staff. Clicking on the edit icon takes the staff user to the edit form. This form will return the following field with data in them.</p>
 						<ul>
@@ -280,7 +281,7 @@
 					<h4 id = "comment-blog">Comment on a blog post form</h4>
 						<p>Clicking on the comment button in the blog post detail view allows a user to add a comment to the blog post. The form has a text area allowing the user to enter a comment. Clicking the save button returns the user to the detail page where the comment can be viewed along with the published date and author. Clicking on back to blog takes the user back to the blog posts list.</p>
 					<h4 id = "payment-forms">Payment forms</h4>
-						<p>Clicking on the checkout button in the cart takes the user to the payments forms section. This section has the <a href = "#checkout" title="Go to checkout section">order form</a> and the payments form The order form consists of:</p>
+						<p>Clicking on the checkout button in the cart takes the user to the payments forms section. This section has the <a href = "#payments" title="Go to checkout section">order form</a> and the payments form The order form consists of:</p>
 						<ul>
 							<li>the title of the feature upvoted.</li>
 							<li>the first 5 words of the content.</li>

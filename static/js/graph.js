@@ -23,8 +23,8 @@ function show_pie_status(ndx) {
     var dim = ndx.dimension(dc.pluck('status'));
     var group = dim.group();
         dc.pieChart("#bug-chart")
-                .height(300)
-                .radius(150)
+                .height(250)
+                .radius(125)
                 .colors(statusColors)
                 .transitionDuration(1500)
                 .dimension(dim)
@@ -60,8 +60,8 @@ function show_feat_status(ndx) {
     var dim = ndx.dimension(dc.pluck('status'));
     var Group = dim.group();
         dc.pieChart("#feature-chart")
-                .height(300)
-                .radius(150)
+                .height(250)
+                .radius(125)
                 .colors(statusColors)
                 .transitionDuration(1500)
                 .dimension(dim)
@@ -97,8 +97,8 @@ function show_bug_feat_ratio(ndx) {
     var dim = ndx.dimension(dc.pluck('category'));
     var group = dim.group();
         dc.pieChart("#feature-bug")
-                .height(300)
-                .radius(150)
+                .height(250)
+                .radius(125)
                 .colors(statusColors)
                 .transitionDuration(1500)
                 .dimension(dim)

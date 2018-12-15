@@ -60,7 +60,7 @@ def edit_a_post(request, pk):
 def add_comment_to_post(request, pk):
      """Add a comment to a ticket item"""
      post= get_object_or_404(Post, pk=pk)
-     form = BlogCommentForm(request.POST)
+     form = BlogCommentForm(request.POST, request.FILES)
      if request.method == "POST":
          if form.is_valid():
              if request.user.is_authenticated():

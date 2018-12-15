@@ -10,4 +10,7 @@
         {{ form | as_bootstrap }}
         <button type="submit" class="btn btn-light">Submit</button>
     </form>
+    <p></p>
+        <a href="{% url 'get_posts' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Blog</a>
+        <p></p>
 {% endblock %}

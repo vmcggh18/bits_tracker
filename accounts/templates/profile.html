@@ -2,11 +2,14 @@
 {% block page_title %}{{ user }}'s Profile{% endblock %} 
 {% block page_heading %}{{ user }}'s Profile{% endblock %} 
 {% block content %}
-<div class = "profile-detail">
+<div class = "profile-detail container-fluid">
     <h2>Your profile details</h2>
-    <p>Your email: {{ profile.email }}</p>
-    <p>Your username: {{ user.username }}</p>
-    <p>Your first name: {{ user.first_name}}</p>
-    <p>Your last name: {{ user.last_name }}</p>
+        <p>Your email: {{ profile.email }}</p>
+        <p>Your username: {{ user.username }}</p>
+        <p>Your first name: {{ user.first_name}}</p>
+        <p>Your last name: {{ user.last_name }}</p>
+        <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Tracker</a>
+        <p></p> 
 </div>
+
 {% endblock %}

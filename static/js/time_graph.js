@@ -58,8 +58,8 @@ function deriveGraphs(error, data) {
     
 //bar chart showing total bugs and features to date
     dc.barChart("#all_issues")
-        .width(300)
-        .height(400)
+        .width(250)
+        .height(350)
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(dim)
         .group(group)
@@ -106,8 +106,8 @@ function stat_by_cat(ndx) {
         .range(["#006699", "#0099CC"]);
 
     dc.barChart("#stack_status")
-        .width(300)
-        .height(400)
+        .width(250)
+        .height(350)
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(totalBug, 'Bug')
@@ -127,8 +127,8 @@ function upvote_by_cat(ndx) {
     var cat_dim = ndx.dimension(dc.pluck('category'));
     var tot_upvotes = cat_dim.group().reduceSum(dc.pluck('upvotes'));  
     dc.barChart("#upvote_status")
-        .width(300)
-        .height(400)
+        .width(250)
+        .height(350)
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_upvotes)
@@ -157,8 +157,8 @@ function upvote_by_cat(ndx) {
     var cat_dim = ndx.dimension(dc.pluck('category'));
     var tot_cat_days = cat_dim.group().reduceSum(days_for_completed('Completed'));  
     dc.barChart("#days_by_cat")
-        .width(300)
-        .height(400)
+        .width(250)
+        .height(350)
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_cat_days)
@@ -187,8 +187,8 @@ function upvote_by_cat(ndx) {
     var cat_dim = ndx.dimension(dc.pluck('category'));
     var tot_cat_days = cat_dim.group().reduceSum(days_for_ongoing('Ongoing'));  
     dc.barChart("#days_by_cat_ongoing")
-        .width(300)
-        .height(400)
+        .width(250)
+        .height(350)
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_cat_days)
@@ -217,8 +217,8 @@ function upvote_by_cat(ndx) {
     var cat_dim = ndx.dimension(dc.pluck('category'));
     var tot_cat_days = cat_dim.group().reduceSum(days_for_pending('Pending'));  
     dc.barChart("#days_pending")
-        .width(300)
-        .height(400)
+        .width(250)
+        .height(350)
         .margins({top: 50, right: 50, bottom: 40, left: 50})
         .dimension(cat_dim)
         .group(tot_cat_days)
@@ -250,18 +250,28 @@ function show_pie_fees(ndx) {
             }
     var feesGroup = dim.group().reduceSum(feature_fees());
     dc.pieChart("#fee-pie-chart")
-        .height(300)
-        .radius(150)
+        .height(250)
+        .radius(125)
         .transitionDuration(1500)
         .colors(statusColors)
         .dimension(dim)
         .group(feesGroup)
-        .legend(dc.legend().x(100).y(0).itemHeight(13).gap(5))
-         .on("renderlet", function(chart) {
+        // .legend(dc.legend())
+        .on("renderlet", function(chart) {
             chart.selectAll('text.pie-slice').text( function(d) {
             return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });
+    
+//   .on("renderlet", function(chart) {
+//     chart.selectAll('text.pie-slice')
+//     .attr('transform', function(d) {
+//             var translate = d3.select(this).attr('transform');
+//             var ang = ((d.startAngle + d.endAngle) / 2 * 180 / Math.PI)%360;
+//             if(ang<180) ang -= 90; else ang += 90;
+//             return translate + ' rotate(' + ang + ')';
+//         });
+// });
 }  
  queue()
         .defer(d3.json, "/chart/weekly/")
@@ -297,8 +307,8 @@ function show_weekly_act(ndx) {
          }   
     var totalComp = cat_dim.group().reduceSum(allStatus('Completed'));    
          dc.pieChart("#completed-weekly-chart")
-            .height(330)
-            .radius(150)
+            .height(250)
+            .radius(125)
             .transitionDuration(1500)
             .dimension(cat_dim)
             .group(totalComp)
@@ -310,18 +320,18 @@ function show_weekly_act(ndx) {
          
     var totalOng = cat_dim.group().reduceSum(allStatus('Ongoing'));          
          dc.pieChart("#ongoing-weekly-chart")
-            .height(330)
-            .radius(150)
+            .height(250)
+            .radius(125)
             .transitionDuration(1500)
             .dimension(cat_dim)
             .group(totalOng)
             .on("renderlet", function(chart) {
             chart.selectAll('text.pie-slice').text( function(d) {
-            return 'Ongoing' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+            return 'Commenced' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });     
-         
-         
+         console.log(totalComp);
+         console.log(totalOng);
          
 }
 queue()
@@ -358,8 +368,8 @@ function show_monthly_act(ndx) {
          }   
     var totalComp = cat_dim.group().reduceSum(allStatus('Completed'));    
          dc.pieChart("#completed-monthly-chart")
-            .height(330)
-            .radius(150)
+            .height(250)
+            .radius(125)
             .transitionDuration(1500)
             .dimension(cat_dim)
             .group(totalComp)
@@ -371,17 +381,18 @@ function show_monthly_act(ndx) {
          
     var totalOng = cat_dim.group().reduceSum(allStatus('Ongoing'));          
          dc.pieChart("#ongoing-monthly-chart")
-            .height(330)
-            .radius(150)
+            .height(250)
+            .radius(125)
             .transitionDuration(1500)
             .dimension(cat_dim)
             .group(totalOng)
             .on("renderlet", function(chart) {
             chart.selectAll('text.pie-slice').text( function(d) {
-            return 'Ongoing' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+            return 'Commenced' + ' ' + d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
         });
     });     
          
-         
+       console.log(totalComp);
+         console.log(totalOng);  
          
 }

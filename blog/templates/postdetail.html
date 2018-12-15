@@ -1,54 +1,63 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
-    <div class="row blog-post">
-        <div class="col-md-2 col-sm-3 text-center">
-            <a class="story-img" href="#">
-                 {% if post.image %}
-                <img class="img-blogpost img-circle" src="/media/{{ post.image }}">
-                {% endif %}
-            </a>
-            <p><span class="boldtext">Author: </span> {{ post.user}}</p>
-        </div>
-        <div class="col-md-10 col-sm-9">
-            <h3>{{ post.title }}</h3>
-            <div class="row">
-                <div class="col-xs-9">
+<div class="row container-fluid blog-post">
+    <div class="col-md-2 col-sm-3 text-center">
+        <a class="story-img" href="#">
+             {% if post.image %}
+            <img class="img-blogpost img-circle" src="/media/{{ post.image }}">
+            {% endif %}
+        </a>
+        <p><span class="boldtext">Author: </span> {{ post.user}}</p>
+    </div>
+    <div class="col-md-10 col-sm-9">
+        <h3>{{ post.title }}</h3>
+            <div class="row container-fluid">
+                <div class="col-xs-12">
                     <p>{{ post.content }}</p>
                     <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{post.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
-                        <a href="{% url 'get_posts' %}" class="btn btn-sm btn btn-info">Back To Blog</a>
-                    {% if request.user.is_staff %}
-                        <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn btn-danger">Edit Blog Post</a>
-                    {% else %}
-                    {% endif %}
-                        <a href="{% url 'post_comment' post.pk %}" class="btn btn-sm btn btn-warning">Add Comment</a>
+                    <div class = "row text container-fluid">
+                        <div class = "col-sm-4 col-xs-6 spacer text-center">
+                            <a href="{% url 'get_posts' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Blog</a>
+                        </div>
+                        <div class = "col-sm-4 col-xs-6 spacer text-center">
+                        {% if request.user.is_staff %}
+                            <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn btn-danger"> Edit Blog Post</a>
+                        {% else %}
+                        {% endif %}
+                        </div>
+                        <div class = "col-sm-4 col-xs-12 text-center">
+                            <a href="{% url 'post_comment' post.pk %}" class="btn btn-sm btn btn-warning">Add Comment</a>
+                        </div>
+                    </div>
                     <hr>
                 </div>
             </div>
-        </div>
     </div>
+</div>
 <h1>Leave a Comment</h1>
-<div class = "row">
-<div class = "col-sm-offset-1">Total Number of Comments  {{ post.comments.count }}</div>
+<div class = "row container-fluid">
+<div class = "col-sm-offset-1 total-post-comments">Total Number of Comments {{ post.comments.count }}</div>
 </div>
 {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_postcomment %}
-        <div class= "row blog-comment">
-            <div class ="row">
+        <div class= "row container-fluid blog-comment">
+            <div class ="row container-fluid">
                 {% if user.is_staff %}
                     {% if not comment.approved_postcomment %}
                     <a class="btn btn-default" href="{% url 'blogcomment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                     <a class="btn btn-default" href="{% url 'blogcomment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                     {% endif %}
                 {% endif %}
-                <div class="col-sm-2 pub_date"><h5 class="text-right">Comment Published Date:</h5></div>
-                <div class= "col-sm-2 pub_date"><h5 class = "text-left text-muted">{{ comment.created_date }}</h5></div>
-                <div class="col-sm-2 text-right"><h5>Published by: </h5></div>
-                <div class = "col-sm-2 text-left"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></div>
+                <div class= "col-xs-6 col-sm-3 pub_date text-right"><h5>Comment Published:</h5></div>
+                <div class= "col-xs-6 col-sm-3 pub_date text-left"><h5 class ="text-muted">{{ comment.created_date }}</h5></div>
+                <div class= "col-xs-6  col-sm-3 text-right"><h5>Published by: </h5></div> 
+                <div class= "col-xs-6 col-sm-3 text-left"><span class = "inline avatar-image"><img class = "img-circle avatar-image" alt = "avatar" src="/media/{{ comment.image }}"></span><span class = "inline"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></span></div>
             </div>
-            <div class = "row item_comment_para">
-                <div class = "col-sm-12 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>
+            <div class = "row container-fluid blog_comment_para">
+                <div class = "col-sm-11 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>
             </div>
         </div>
     {% endif %}

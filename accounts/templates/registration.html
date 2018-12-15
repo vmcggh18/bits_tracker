@@ -4,10 +4,13 @@
 {% block page_heading %}User Registration{% endblock %} 
 {% block content %}
 <h2 class = "form-detail">Register your details below</h2>
-<p class = "form-detail">If you already have an account, you can <a href="{% url 'login' %}">sign in </a>here</p>
-<form method="POST" class ="form-detail">
-    {% csrf_token %} 
-    {{ registration_form | as_bootstrap }}
-     <button type="submit" class="btn btn-light">Submit</button>
-</form><br>
+<div class = "container-fluid">
+    <p class = "form-detail">If you already have an account, you can <a href="{% url 'login' %}">sign in </a>here</p>
+        <form method="POST" class ="form-detail">
+            {% csrf_token %} 
+            {{ registration_form | as_bootstrap }}
+             <button type="submit" class="btn btn-light">Submit</button>
+        </form><br>
+            <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Tracker</a>
+</div>
 {% endblock %}

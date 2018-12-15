@@ -4,11 +4,14 @@
 {% block page_heading %}Blog Comment Form{% endblock %}
 {% block content %}
 <h1>New Blog Comment</h1>
-        <form method="POST" class = "form-detail">
+        <form method="POST" class = "form-detail" enctype="multipart/form-data">
         <!--prevent cross site scripting-->
             {% csrf_token %}
         <!--use as_bootstrap to render as bootstrap style-->
             {{ form | as_bootstrap  }}
-             <button class ="btn btn-lg btn-light" type="submit">Submit</button>
+             <button class ="btn btn-light" type="submit">Submit</button>
         </form>
+        <p></p>
+        <a href="{% url 'get_posts' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Blog</a>
+        <p></p>
 {% endblock %}

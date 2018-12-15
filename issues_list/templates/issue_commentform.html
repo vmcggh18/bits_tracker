@@ -9,6 +9,9 @@
             {% csrf_token %}
         <!--use as_bootstrap to render as bootstrap style-->
             {{ form | as_bootstrap  }}
-             <button class ="btn btn-lg btn-light" type="submit">Save</button>
+             <button class ="btn btn-light" type="submit">Submit</button>
         </form>
+        <p></p>
+        <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back to Tracker</a>
+        <p></p>
 {% endblock %}
