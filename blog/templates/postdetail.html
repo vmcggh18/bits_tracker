@@ -19,16 +19,16 @@
                     <p><span class="boldtext">Views:</span> {{post.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
                     <div class = "row text container-fluid">
-                        <div class = "col-sm-4 col-xs-6 spacer text-center">
+                        <div class = "col-sm-3 col-xs-6 spacer text-center">
                             <a href="{% url 'get_posts' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Blog</a>
                         </div>
-                        <div class = "col-sm-4 col-xs-6 spacer text-center">
+                        <div class = "col-sm-3 col-xs-6 spacer text-center">
                         {% if request.user.is_staff %}
                             <a href="{% url 'edit_post' post.id %}" class="btn btn-sm btn btn-danger"> Edit Blog Post</a>
                         {% else %}
                         {% endif %}
                         </div>
-                        <div class = "col-sm-4 col-xs-12 text-center">
+                        <div class = "col-sm-3 col-xs-12 text-center">
                             <a href="{% url 'post_comment' post.pk %}" class="btn btn-sm btn btn-warning">Add Comment</a>
                         </div>
                     </div>
@@ -37,9 +37,9 @@
             </div>
     </div>
 </div>
-<h1>Leave a Comment</h1>
+<h1 class ="post-comment-header">Leave a Comment</h1>
 <div class = "row container-fluid">
-<div class = "col-sm-offset-1 total-post-comments">Total Number of Comments {{ post.comments.count }}</div>
+<div class = "col-sm-3 total-post-comments"><p>Total Number of Comments <strong><label class = "badge">{{ post.comments.count }}</label></strong></p></div>
 </div>
 {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_postcomment %}
@@ -51,10 +51,10 @@
                     <a class="btn btn-default" href="{% url 'blogcomment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                     {% endif %}
                 {% endif %}
-                <div class= "col-xs-6 col-sm-3 pub_date text-right"><h5>Comment Published:</h5></div>
-                <div class= "col-xs-6 col-sm-3 pub_date text-left"><h5 class ="text-muted">{{ comment.created_date }}</h5></div>
-                <div class= "col-xs-6  col-sm-3 text-right"><h5>Published by: </h5></div> 
-                <div class= "col-xs-6 col-sm-3 text-left"><span class = "inline avatar-image"><img class = "img-circle avatar-image" alt = "avatar" src="/media/{{ comment.image }}"></span><span class = "inline"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></span></div>
+                <div class= "col-xs-6 col-sm-2"><h5>Comment Published:</h5></div>
+                <div class= "col-xs-6 col-sm-2"><h5 class ="text-muted">{{ comment.created_date }}</h5></div>
+                <div class= "col-xs-6  col-sm-2"><h5>Published by: </h5></div> 
+                <div class= "col-xs-6 col-sm-2"><span class = "inline avatar-image"><img class = "img-circle avatar-image" alt = "avatar" src="/media/{{ comment.image }}"></span><span class = "inline"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></span></div>
             </div>
             <div class = "row container-fluid blog_comment_para">
                 <div class = "col-sm-11 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>

@@ -26,12 +26,7 @@ h1, h2, h3, h4, h5 {
 }
 p {
     font-family: "Roboto", sans-serif;
-	font-weight: 300;
-}
-.messages {
-    background-color: #f7f7f7;
-    font-size: 1.5em;
-    font-weight: bold;
+	font-weight: 400;
 }
 /* glyphicon styles */
 .glyphicon-gift, .glyphicon-credit-card {
@@ -88,6 +83,22 @@ p {
 
 .btn-sm, .btn-lg, .btn-light, .btn-success, .cart-button {
     border-radius: 25px;
+}
+.home-button {
+    height: 38px;
+    width: 160px;
+    color: white;
+    background-color: #8b9dc3;
+    border-color: #8b9dc3;
+    border-radius: 25px;
+}
+.home-button:hover,
+.home-button:active,
+.home-button:focus
+.home-button:active:focus {
+    background-color: #178acc;;
+    border-color: #178acc;;
+    color: white;
 }
 .btn-secondary {
     background-color: cadetblue;
@@ -271,6 +282,17 @@ p {
      display: block;
      margin: auto;
  }
+ .narrative1 {
+     font-weight: 400;
+     font-size: 14px;
+ }
+  .narrative2 {
+     font-weight: 400;
+     font-size: 16px;
+ }
+ .beetle {
+     margin-top: 25px;
+ }
 .col-about, .bits-detail {
     background-color: #f7f7f7; 
  }
@@ -285,10 +307,16 @@ p {
  }
 .shadow {
    text-shadow: 2px 2px lightblue;   
+   font-size: 15px;
  }
 .media-left {
     padding-left: 5px;
      padding-right: 5px;
+}
+.about-img {
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
  /* ==== Activities page general styles ==== */
 .statistics-section {
@@ -336,6 +364,10 @@ p {
 }
 .item-content {
     padding-left: 15px;
+    color: black;
+}
+.pub_date {
+    padding-left: 0px;
 }
 .comment-author {
     color: black;
@@ -350,54 +382,7 @@ p {
     margin:0 auto;
     text-align:center;
 }
-/*==== Style on cart item panel ===*/
 
-/* cart icon styles */
-.badge {
-    padding-left: 9px;
-    padding-right: 9px;
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
-    border-radius: 9px;
-}
-/* badge background styles */
-.label-warning[href],
-.badge-warning[href] {
-    background-color:  #c67605;
-}
-/* cart caption and panel styles*/
-caption p {
-    word-wrap: break-word;
-}
-.cart-feature {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-.panel-default {
-    border-color: transparent;
-    padding: 0px;
-}
-.panel-body {
-    height: 100%;
-    border: 1px solid #ddd;
-}
-.content_desc {
-    min-height: 40px;
-}
-.form-inline {
-    width: 100%;
-}
-.form-input {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.btn-amend {
-    height: 38px;
-}
-.input-group .form-control { 
-    margin-bottom: -15px;
-}
 /*==== Style on chart page ===*/
 .chart-section {
     background-color: #f7f7f7;
@@ -514,11 +499,10 @@ caption p {
 .inline {
     display: inline-block;
 }
-/* profile page styles */
-.profile-detail {
-    background-color:  #f7f7f7;
-}
 /* blog page styles */
+.post-comment-header {
+    padding-left: 15px;
+}
 .total-post-comments {
     padding-left: 15px;
 }
@@ -526,6 +510,55 @@ caption p {
     margin-bottom: 10px;
 }
 
+/* profile page styles */
+.profile-detail {
+    background-color:  #f7f7f7;
+}
+/*==== Style on cart item panel ===*/
+
+/* badge styles */
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    background-color:  orange;
+}
+
+/* cart caption and panel styles*/
+caption p {
+    word-wrap: break-word;
+}
+.cart-feature {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.panel-default {
+    border-color: transparent;
+    padding: 0px;
+}
+.panel-body {
+    height: 100%;
+    border: 1px solid #ddd;
+}
+.content_desc {
+    min-height: 40px;
+}
+.form-inline {
+    width: 100%;
+}
+.form-input {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.btn-amend {
+    height: 38px;
+}
+.input-group .form-control { 
+    margin-bottom: -15px;
+}
 
 /* stack image logo on header text in docs on smaller screens*/
 @media all and (max-width: 700px) {

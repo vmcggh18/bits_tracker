@@ -4,6 +4,7 @@
 {% block page_heading %}Blog Comment Form{% endblock %}
 {% block content %}
 <h1>New Blog Comment</h1>
+    <div class = "row container">
         <form method="POST" class = "form-detail" enctype="multipart/form-data">
         <!--prevent cross site scripting-->
             {% csrf_token %}
@@ -14,4 +15,5 @@
         <p></p>
         <a href="{% url 'get_posts' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Blog</a>
         <p></p>
+    </div>
 {% endblock %}

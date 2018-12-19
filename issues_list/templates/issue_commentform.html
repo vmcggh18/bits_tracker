@@ -4,7 +4,8 @@
 {% block page_heading %}Comment Form{% endblock %}
 {% block content %}
 <h1>New Comment</h1>
-        <form method="POST" class = "form-detail">
+    <div class = "row container">
+        <form method="POST" class = "form-detail" enctype="multipart/form-data">
         <!--prevent cross site scripting-->
             {% csrf_token %}
         <!--use as_bootstrap to render as bootstrap style-->
@@ -14,4 +15,5 @@
         <p></p>
         <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back to Tracker</a>
         <p></p>
+    </div>
 {% endblock %}

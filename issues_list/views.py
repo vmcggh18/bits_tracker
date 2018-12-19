@@ -67,7 +67,7 @@ def cast_an_upvote(request, id):
     item = get_object_or_404(Item, id=id)
     user = request.user
     if Votefor.objects.filter(item=item, user_id=request.user.id).exists():
-        messages.success(request, "Sorry you have already voted!")
+        messages.info(request, "Sorry you have already voted this one!")
         return redirect(get_issues_list)  
     else:
         item.upvotes += 1
@@ -79,14 +79,14 @@ def cast_an_upvote(request, id):
 def add_comment_to_issue(request, id):
      """Add a comment to a ticket item"""
      item= get_object_or_404(Item, pk=id)
-     form = CommentForm(request.POST)
+     form = CommentForm(request.POST, request.FILES)
      if request.method == "POST":
-         #if item.category =="Bug":
         if form.is_valid():
             form = form.save(commit=False)
             form.author = request.user
             form.item = item
             form.save()
+            messages.success(request, "Your Comment has been added!")
             return redirect(get_issue_detail, id)
      else:
         form = CommentForm()

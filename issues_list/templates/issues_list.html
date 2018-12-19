@@ -15,8 +15,12 @@
     <table id ="table_id" class = "table table-condensed">
         <thead class = "table thead-dark bordered">
             <tr class="text-center">
-                <td style="width:4%"></td>
-                <td style="width:5%"></td>
+                 {% if user.is_staff %}
+                <td style="width:4%">Edit</td>
+                 {% else %}
+                 <td></td>
+                 {% endif %}
+                <td style="width:5%">Upvote</td>
                 <td style="width:10%">Name</td>
                 <td style="width:15%">Content</td>
                 <td style="width:8%">Submitted by</td>
@@ -83,7 +87,7 @@
             {% if item.status == "Completed" %}
                      <form></form>
             {% else %}
-                    <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!">{{ item.comments.count }} <span class="glyphicon glyphicon-comment text-secondary"  aria-hidden ="true"></span></a></a>
+                    <a href ="{% url 'issue_detail' item.id %}" data-toggle="tooltip" title="Click on icon to view comments!"><label class ="badge">{{ item.comments.count }}</label> <span class="glyphicon glyphicon-comment text-secondary"  aria-hidden ="true"></span></a>
                  {% endif %}
                     </td>
                 </tr>

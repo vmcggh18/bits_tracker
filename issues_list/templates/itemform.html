@@ -4,6 +4,7 @@
 {% block page_heading %}Home Page{% endblock %}
 {% block content %}
 <h1 class = "form-detail">New Ticket</h1>
+<div class = "row container">
         <form method="POST" class = "form-detail">
         <!--prevent cross site scripting-->
             {% csrf_token %}
@@ -11,4 +12,7 @@
             {{ form | as_bootstrap }}
              <button class ="btn btn-light" type="submit">Submit</button>
         </form><br>
+        <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back to Tracker</a>
+            <p></p>
+</div>
 {% endblock %}

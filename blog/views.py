@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-# import classes
 from .models import Post, PostComment
 from .forms import BlogPostForm, BlogCommentForm
+from django.contrib import messages
 
 # Create your views here.
 def get_posts(request):

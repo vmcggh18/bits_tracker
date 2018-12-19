@@ -45,7 +45,7 @@ def checkout(request):
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
             if customer.paid:
-                messages.error(request, "You have successfully paid and added upvotes to the feature")
+                messages.success(request, "You have successfully paid and added upvotes to the feature")
                 request.session['cart'] = {}
                 for id, upvote in cart.items():
                     item = get_object_or_404(Item, pk=id)

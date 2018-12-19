@@ -1,50 +1,51 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block page_title %}Issue Detail{% endblock %}
 {% block page_heading %}Issue{% endblock %}
 {% block content %}
 <section class = "tracker-issue-detail">
     <div class="panel panel-default">
         <div class = "row container-fluid">
-            <div class = "col-xs-6">
+            <div class = "col-xs-3">
                 <h3>Title:</h3> 
             </div>
-            <div class ="col-xs-6">
+            <div class ="col-xs-9">
                 <h3 class = "text-left text-muted">{{item.name}}</h3>
             </div>
         </div>
   <!-- Default panel contents -->
-   <div class="panel-heading"><h4>Content</h4></div>
-        <p class = "text-primary item-content">{{item.content}}</p><br>
-            <ul class="list-group">
-                <li class="list-group-item">Progress Notes</li>
-                <li class="list-group-item text-primary">{{item.progress}}</li>
-            </ul>
+       <div class="panel-heading"><h4>Content</h4></div>
+            <p class = "text-primary item-content">{{item.content}}</p><br>
+                <ul class="list-group">
+                    <li class="list-group-item text-primary">Progress Notes</li>
+                    <li class="list-group-item text-secondary">{{item.progress}}</li>
+                </ul>
   <!-- Table -->
-  <table class="table table-bordered table-responsive">
-    <thead class = "table thead-dark">
-        <tr class="text-center">
-            <td>Category</td>
-            <td>Status</td>
-            <td>Upvotes</td>
-            <td>Total fees</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="text-center">
-            <td class = "text-primary">{{ item.category }}</td>  
-            <td class = "text-primary">{{ item.status }}</td>
-            <td class = "text-primary">{{ item.upvotes }}</td>
-            {% if item.category == "Bug" %}
-            <td class = "text-primary">{{ 0 }}</td>
-            {% else %}
-            <td class = "text-primary">{{ item.fee }}</td>
-            {% endif %}
-        </tr>
-    </table><br>
+        <table class="table table-bordered table-responsive">
+            <thead class = "table thead-dark">
+                <tr class="text-center text-primary">
+                    <td>Category</td>
+                    <td>Status</td>
+                    <td>Upvotes</td>
+                    <td>Total fees</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td class = "text-secondary">{{ item.category }}</td>  
+                    <td class = "text-secondary">{{ item.status }}</td>
+                    <td class = "text-secondary">{{ item.upvotes }}</td>
+                    {% if item.category == "Bug" %}
+                    <td class = "text-secondary">{{ 0 }}</td>
+                    {% else %}
+                    <td class = "text-secondary">{{ item.fee }}</td>
+                    {% endif %}
+                </tr>
+        </table><br>
     <hr>
         <div class="row container-fluid">  
             <div class="col-sm-4 col-xs-6 text-center">
-                <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"> Back To Tracker</span></a>
+                <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Tracker</a>
             </div>
             {% if item.status == "Completed" %}
             <form></form>
@@ -69,11 +70,17 @@
                                 <button class="btn btn-dark text-center" type="submit">Upvote</button>
                             </span>
                     </div>
-                    <p class = "text-center">Cycle through the number selector to upvote. You can have as many upvotes as you want but each upvote costs 50 euros</p>
                 </form>
                 {% endif %}
             {% endif %}
             </div>
+            {% if item.status == "Completed" %}
+             <p></p>
+             {% else %}
+            <div class = "col-xs-12 col-sm-6 col-sm-offset-6">
+                <p class = "text-center">Cycle through the number selector to upvote or type upvotes into box. Cost is 50 euros per upvote</p>
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -85,10 +92,10 @@
      {% endif %}
     <div class ="row container-fluid">
         <div class="col-xs-6 col-sm-2"><h5>Original issue by:</h5></div>
-        <div class= "col-xs-6 col-sm-2"><h5 class = "text-muted">{{ item.user }} {{item.created_date }}</h5></div>
+        <div class= "col-xs-6 col-sm-3"><h5 class = "text-muted">{{ item.user }} {{item.created_date }}</h5></div>
     </div>
      <div class = "row container-fluid">   
-        <div class="col-sm-2"><p>Total Number of Comments {{ item.comments.count }}</p></div>
+        <div class="col-sm-3"><p>Total Number of Comments <strong><label class = "badge">{{ item.comments.count }}</label></strong></p></div>
     </div>
     {% for comment in item.comments.all %}
             {% if user.is_authenticated or comment.approved_comment %}
@@ -101,9 +108,9 @@
                     {% endif %}
                 {% endif %}
                 <div class= "col-xs-6 pub_date col-sm-2"><h5>Comment Published: </h5></div>
-                <div class= "col-xs-6 pub_date col-sm-2"><h5 class = "text-muted">{{ comment.created_date }}</h5></div>
+                <div class= "col-xs-6 col-sm-2"><h5 class = "text-muted">{{ comment.created_date }}</h5></div>
                 <div class= "col-xs-6 col-sm-2"><h5>Published by: </h5></div>
-                <div class= "col-xs-6 col-sm-2"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></div>
+                <div class= "col-xs-6 col-sm-2"><span class = "inline avatar-image"><img class = "img-circle avatar-image" alt = "avatar" src="/media/{{ comment.image }}"></span><span class = "inline"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></span></div>
             </div>
             <div class = "row container-fluid item_comment_para">
                 <div class = "col-sm-11 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>

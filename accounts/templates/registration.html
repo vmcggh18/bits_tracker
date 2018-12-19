@@ -11,6 +11,7 @@
             {{ registration_form | as_bootstrap }}
              <button type="submit" class="btn btn-light">Submit</button>
         </form><br>
-            <a href="{% url 'issues_list' %}" class="btn btn-sm btn btn-info"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Back To Tracker</a>
+            <a href="{% url 'index' %}"><button class = "home-button"><span class="glyphicon glyphicon-arrow-left" aria-hidden ="true"></span> Exit to Home</button></a>
+            <p></p>
 </div>
 {% endblock %}

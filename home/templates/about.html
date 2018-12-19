@@ -4,9 +4,8 @@
 {% block page_heading %}About Page{% endblock %}
 {% block content %}
 <!----------------------bits image -------------------->
-<div class = "container-fluid">
 <section class = "container-fluid about-section">
-    <div class="background-info">
+    <div class="background-info container-fluid">
         <div class="col-xs-12 col-sm-4 logo col-about">
     		<figure class="beetle"> 
     		        <img  src="{% static 'images/bitsImage.png' %}" style="background_image" class="img-responsive img-logo center-block" alt="BITS Company Image logo" height = 50% width = 50%></img>
@@ -23,107 +22,160 @@
         				    <p class="narrative1">Bug Issue Tracker Solutions provides an easy-to-use web-based application tool to help individuals and businesses track issues and find lasting solutions to their needs. It is driven by a vibrant user community ensuring collobaration on all levels.</p>
         				    <p class="narrative1">Bug Issue Tracker Solutions provides you with a central place to submit and comment on bugs and features. The focus is on accountability and progress, ensuring that not only does the work get done, but it gets done correctly.</p>
         					<p class="narrative1">The user community decides the priority through upvotes. The user community can also participate in the review process through commenting, ensuring that issues are dealt with correctly. In effect the user community acts as a second set of eyes.</p> 
-        					<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication. This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.</p>
+        					<p class="narrative1">Every issue is tracked from inception to completion. Each issue is assigned to an assignee best suited to the issue in order to encourage forward progress and reduce miscommunication. This organized approach to managing issues provides many valuable insights that can be used to refine and improve the system and deal with future issues more effectively.
+        					</p>
     		</div>
     	</article>
     </div>
 </section>
 <section class = "container-fluid feature-section">
-	<article class = "bits-detail">		
+	<article class = "bits-detail">	
+    	<div class = "row container-fluid">
+    	    <h4>Key features:</h4>
+        </div>
 		<div class = "row container-fluid">
-			<div class = "col-sm-12">
-				<h4>Key features:</h4>
+		    <div class = "col-sm-8 features-desc">
 				    <h5 class ="shadow">Web-based Architecture</h5>
-					    <p class="narrative1">Uses  Django, a high-level Python Web framework that ensures speed, security and ease of use.  All features and functionality are available to the user with a Web browser. Cloud based with mothing to install.</p>
-					<h5 class ="shadow">Standard Database Support</h5>
-					    <p class="narrative1">Uses   postgresql, a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.</p>
-					<h5 class ="shadow">Adaptable</h5>
-					    <p class="narrative1">Can cover a multiple of projects and involve multiple users. Multiple issues can be created and tracked and  allows management at a central location.</p>
-					<h5 class ="shadow">Cost effective: </h5>
-						<p class="narrative1">No overheads or implementation costs. Bugs dealt with free. Features developed for a nominal fee</p>
-						<h5 class ="shadow">Transparency and accountability:</h5>
-						<p class="narrative1">Use of charts and graphs to to visually display current and past project statistics as well as trends. Enables quick identification of trouble spots while also providing statistics to evaluate performance and aid in future planning.</p>
-					<h5 class ="shadow">Knowledge sharing</h5>
-						<p class="narrative1">Participate in a multidisciplinary environment where knowledge is shared. Directly comment on issues or use the blog post to discuss wide ranging issues. Facilitates sharing of information & knowledge. Reduce the need for meetings that require everyone to be at the same place and same time.</p>
-					<h5 class ="shadow">Management Framework</h5>
-						<p class="narrative1">An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively.</p>
-						<p "narrative1">For example:
-					    <ul class="list-style">
-                              <li>specific people with specific expertise handle specific issues</li>
-                              <li>issue are dealt with by both individuals and teams</li>
-                              <li>upvotes determine which issues to prioritise</li>
-                              <li>issues are communicated throughout the team through regular meetings, log checks, status updates emails, and so on</li>
-                          </ul>
+					    <p class="narrative2">Uses  Django, a high-level Python Web framework that ensures speed, security and ease of use.  All features and functionality are available to the user with a Web browser. Cloud based with nothing to install.
+					    </p>
+    		</div>
+    		<div class = "col-sm-4">
+    			<img src="{% static 'images/django.png' %}" class="about-img img-responsive center-block" alt="Django-logo" height= 100 width = 150>
+    		</div>
+        </div>
+    	<div class = "row container-fluid">
+        	 <div class = "col-sm-4">
+    			  <img src="{% static 'images/PostgreSQL.png' %}" class="about-img img-responsive center-block" alt="PostgreSQL-logo" height= 100 width = 100>
+            </div>
+            <div class = "col-sm-8 features-desc">
+	            <h5 class ="shadow">Standard Database Support</h5>
+				    <p class="narrative2">Uses postgresql, a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.
+				    </p>
+        	 </div>
+        </div>
+    	<div class = "row container-fluid">
+    	    <div class = "col-sm-8 features-desc">
+                <h5 class ="shadow">Adaptable</h5>
+				    <p class="narrative2">Can cover a multiple of projects and involve multiple users. Multiple issues can be created and tracked and  allows management at a central location.
+				    </p>
+    	    </div>
+    	    <div class = "col-sm-4">
+    	        <img src="{% static 'images/adaptable.jpg' %}" class="about-img img-responsive center-block" alt="adaptable-img" height= 100 width = 250>
+    	    </div>
+        </div>
+        <div class = "row container-fluid">
+            <div class = "col-sm-4">
+                <img src="{% static 'images/cost-eff.jpg' %}" class="about-img img-responsive center-block" alt="Cost effective-img" height= 100 width = 250> 
+            </div>
+            <div class = "col-sm-8 features-desc">
+    	        <h5 class ="shadow">Cost effective: </h5>
+					<p class="narrative2">Great value for money. No overheads or implementation costs. No maintenance costs. Bugs dealt with free. Features developed for a nominal fee. Tailor made solutions for a minimum cost.
 					</p>
-						
-			</div>
-		</div>	   
+            </div>
+        </div>
+        <div class = "row container-fluid">
+        	 <div class = "col-sm-8 features-desc">
+    	           <h5 class ="shadow">Transparency and accountability:</h5>
+						<p class="narrative2">Use of charts and graphs to to visually display current and past project statistics as well as trends. Enables quick identification of trouble spots while also providing statistics to evaluate performance and aid in future planning.
+						</p>
+        	   </div>
+    	       <div class = "col-sm-4">
+    	           <img src="{% static 'images/accountability.png' %}" class="about-img img-responsive center-block" alt="Accountability-img" height= 100 width = 250> 
+    	       </div>
+        </div>
+        <div class = "row container-fluid">
+            <div class = "col-sm-4">
+                 <img src="{% static 'images/know-share.jpg' %}" class="about-img img-responsive center-block" alt="Knowledge share-img" height= 100 width = 250> 
+            </div>
+            <div class = "col-sm-8 features-desc">
+	            <h5 class ="shadow">Knowledge sharing</h5>
+					<p class="narrative2">Participate in a multidisciplinary environment where knowledge is shared. Directly comment on issues or use the blog post to discuss wide ranging issues. Facilitates sharing of information & knowledge. Reduce the need for meetings that require everyone to be at the same place and at the same time.
+					</p>
+            </div>
+        </div>
+        <div class = "row container-fluid">
+    	    <div class = "col-sm-8 features-desc">
+	            <h5 class ="shadow">Management Framework</h5>
+					<p class="narrative2">An issues management framework is in place ensuring a comprehensive plan to deal with issues quickly and effectively.
+					</p>
+					<p "narrative2">For example:
+				        <ul class="list-style">
+                          <li>specific people with specific expertise handle specific issues</li>
+                          <li>issue are dealt with by both individuals and teams</li>
+                          <li>upvotes determine which issues to prioritise</li>
+                          <li>issues are communicated throughout the team through regular meetings, log checks, status updates emails, and so on.</li>
+                        </ul>
+				    </p>
+    	       </div>
+    	       <div class = "col-sm-4">
+    	           <img src="{% static 'images/management.jpg' %}" class="about-img img-responsive center-block" alt="Mamagement-img" height= 100 width = 250> 
+    	       </div>
+            </div>
 	</article>
 </section>		
 
 <div class="row the-players container-fluid">
     <h2 class = "text-center team-header">Meet the team</h2>
 </div>
-        <div class="row staffing container-fluid">
-            <div class="col-xs-12 col-sm-6 media">
-                <div class="media-left">
-                    <img src="{% static 'images/prof.png' %}" class="img-circle media-object" alt="Staff 1 Prof image" height=100 width=100>
-                </div>
-                <div class="media-body personnel">
-                    <blockquote class="quote">
-                        <h3>The professor.</h3>
-                        <p>So called because of his wide range expertise in legal and financial matters. Also an expertise in many software technologies.</p>
-                    </blockquote>
-                </div>
+    <div class="row staffing container-fluid">
+        <div class="col-xs-12 col-sm-6 media">
+            <div class="media-left">
+                <img src="{% static 'images/prof.png' %}" class="img-circle media-object" alt="Staff 1 Prof image" height=100 width=100>
             </div>
-            <div class=" col-xs-12 col-sm-6 media">
-                <div class="media-left">
-                   <img src="{% static 'images/jDoe.png' %}" class="img-circle media-object" alt="Staff 2 Jane Doe image" height=100 width=100>
-                </div>
-                <div class="media-body personnel">
-                    <blockquote class="quote">
-                       <h3>Jane Doe.</h3>
-                       <p>Our expert on human resources and company management.</p> 
-                    </blockquote>
-                </div>
+            <div class="media-body personnel">
+                <blockquote class="quote">
+                    <h3>The professor.</h3>
+                    <p>So called because of his wide range expertise in legal and financial matters. Also an expertise in many software technologies.</p>
+                </blockquote>
             </div>
         </div>
-        <div class="row staffing container-fluid">
-            <div class="col-xs-12 col-sm-6 media">
-                <div class="media-left">
-                    <img src="{% static 'images/jSmith.png' %}" class="img-circle media-object" alt="Staff 3 Jane Smith image" height=100 width=100>
-                </div>
-                <div class="media-body personnel">
-                    <blockquote class="quote">
-                        <h3>Jane Smith.</h3>
-                        <p>Our expert in all medical and pharaceutical matters.</p>
-                    </blockquote>
-                </div>
+        <div class=" col-xs-12 col-sm-6 media">
+            <div class="media-left">
+               <img src="{% static 'images/jDoe.png' %}" class="img-circle media-object" alt="Staff 2 Jane Doe image" height=100 width=100>
             </div>
-            <div class="col-xs-12 col-sm-6 media">
-                <div class="media-left">
-                    <img src="{% static 'images/johnD.png' %}" class="img-circle media-object" alt="Staff 4 John Doe image" height=100 width=100>
-                </div>
-                <div class="media-body personnel">
-                    <blockquote class="quote">
-                        <h3>John Doe.</h3> 
-                        <p>Our expert in engineering and technical matters.</p>
-                    </blockquote>
-                </div>
+            <div class="media-body personnel">
+                <blockquote class="quote">
+                   <h3>Jane Doe.</h3>
+                   <p>Our expert on human resources and company management. Jane also has special expertise in the use of front end frameworks such as ReactJS and AngularJS</p> 
+                </blockquote>
             </div>
         </div>
-        <div class="row staffing container-fluid">
-            <div class="col-xs-12 col-sm-6 media">
-                <div class="media-left">
-                    <img src="{% static 'images/JohnS.png' %}" class="img-circle media-object" alt="Staff 5 John Smith image" height=100 width=100>
-                </div>
-                <div class="media-body personnel">
-                    <blockquote class="quote">
-                        <h3>John Smith.</h3> 
-                        <p>Our expert in full stack development.</p>
-                    </blockquote>
-                </div>
+    </div>
+    <div class="row staffing container-fluid">
+        <div class="col-xs-12 col-sm-6 media">
+            <div class="media-left">
+                <img src="{% static 'images/jSmith.png' %}" class="img-circle media-object" alt="Staff 3 Jane Smith image" height=100 width=100>
+            </div>
+            <div class="media-body personnel">
+                <blockquote class="quote">
+                    <h3>Jane Smith.</h3>
+                    <p>Our expert in all medical and pharaceutical matters. Jane has a solid background in cloud service technological frameworks such as django and flask.</p>
+                </blockquote>
             </div>
         </div>
-</div>
+        <div class="col-xs-12 col-sm-6 media">
+            <div class="media-left">
+                <img src="{% static 'images/johnD.png' %}" class="img-circle media-object" alt="Staff 4 John Doe image" height=100 width=100>
+            </div>
+            <div class="media-body personnel">
+                <blockquote class="quote">
+                    <h3>John Doe.</h3> 
+                    <p>Our expert in engineering and technical matters. Many years experience using cloud service technologies programming languages such as python, javascript, ruby and php.</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="row staffing container-fluid">
+        <div class="col-xs-12 col-sm-6 media">
+            <div class="media-left">
+                <img src="{% static 'images/JohnS.png' %}" class="img-circle media-object" alt="Staff 5 John Smith image" height=100 width=100>
+            </div>
+            <div class="media-body personnel">
+                <blockquote class="quote">
+                    <h3>John Smith.</h3> 
+                    <p>Our expert in full stack development. He also has wide ranging knowledge in the use of relational databases such as MySQL,  Postgres and SQLite and the Mongo. NoSQL database .</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
 {% endblock %}
