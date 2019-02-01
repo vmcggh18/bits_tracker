@@ -4,7 +4,7 @@
 {% block page_heading %}Comment Form{% endblock %}
 {% block content %}
 <h1>New Comment</h1>
-    <div class = "row container">
+    <div class = "row container-fluid">
         <form method="POST" class = "form-detail" enctype="multipart/form-data">
         <!--prevent cross site scripting-->
             {% csrf_token %}

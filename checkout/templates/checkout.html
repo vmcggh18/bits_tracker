@@ -51,16 +51,17 @@
     </div>
     
     {% csrf_token %}
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6 text-center">
         <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
     </div>
 </form>
 <div class = "row container-fluid">
-<div class="col-xs-2 text-center">
+<div class="col-xs-12 text-center">
     <a href="{% url 'view_cart' %}">
         <button class = "cart-button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to <i class="fa fa-shopping-cart"></i> Cart
             <label class="badge badge-warning">{{ item_count }}</label>
         </button>
     </a>
     </div>
+</div>
 {% endblock %}

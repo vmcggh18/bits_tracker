@@ -5,7 +5,7 @@
     <div class="col-md-2 col-sm-3 text-center">
         <a class="story-img" href="#">
              {% if post.image %}
-            <img class="img-blogpost img-circle" src="/media/{{ post.image }}">
+            <img class="img-blogpost img-circle" alt = "user-image" src="/media/{{ post.image }}">
             {% endif %}
         </a>
         <p><span class="boldtext">Author: </span> {{ post.user}}</p>
@@ -54,7 +54,7 @@
                 <div class= "col-xs-6 col-sm-2"><h5>Comment Published:</h5></div>
                 <div class= "col-xs-6 col-sm-2"><h5 class ="text-muted">{{ comment.created_date }}</h5></div>
                 <div class= "col-xs-6  col-sm-2"><h5>Published by: </h5></div> 
-                <div class= "col-xs-6 col-sm-2"><span class = "inline avatar-image"><img class = "img-circle avatar-image" alt = "avatar" src="/media/{{ comment.image }}"></span><span class = "inline"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></span></div>
+                <div class= "col-xs-6 col-sm-2"><span class = "inline avatar-image"><img class = "img-circle avatar-image" alt = "user-avatar" src="/media/{{ comment.image }}"></span><span class = "inline"><h5 class = "comment-author"><strong>{{ comment.author }}</strong></h5></span></div>
             </div>
             <div class = "row container-fluid blog_comment_para">
                 <div class = "col-sm-11 col-sm-offset-1"><p>{{ comment.text|linebreaks }}</p></div>

@@ -4,7 +4,7 @@
 {% block page_heading %}Home Page{% endblock %}
 {% block content %}
 <h1 class = "form-detail">New Ticket</h1>
-<div class = "row container">
+<div class = "row container-fluid">
         <form method="POST" class = "form-detail">
         <!--prevent cross site scripting-->
             {% csrf_token %}

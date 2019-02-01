@@ -27,6 +27,9 @@
 						<li><a href = "#docs-overview">Overview</a></li>
 					</ul>
 					<ul>
+						<li><a href = "#docs-background">Background</a></li>
+					</ul>
+					<ul>
 						<li><a href="#user-perm" class="current">User Permissions</a>
 							<ul>
 						      <li><a href = "#non-auth">Non-authenticated</a></li>
@@ -60,40 +63,43 @@
 								<li><a href="#form-reg">Registration Form</a></li>
 								<li><a href="#add-item">Create a new item Form</a></li>
 								<li><a href="#editing">Edit an item Form</a></li>
-								<li><a href="#form-comment">Add a comment to an item</a></li>
+								<li><a href="#form-comment">Add comment to an issue</a></li>
 								<li><a href="#form-blog">Post a blog</a></li>
+								<li><a href="#form-blog-edit">Edit a blog Post</a></li>
 								<li><a href="#comment-blog">Comment on a Post</a></li>
 								<li><a href="#payment-forms">Payment forms</a></li>
 							</ul>
-						</li>
-						<li><a href="#credit">Credits</a></li>
-					</ul>					
 				</nav>
 		</div>
 	</aside>
 		<div id = "main-content" class="col-sm-9 content-info">
 				<h3 id = "docs-overview">Overview</h3>
 					<p>This documentation provides a concise explanation of how to use the application. The documentation outlines the different type of users and the type of permissions. It outlines the features available and instructions on how to fill out the various forms, that enable the various users to interact with the site.</p>
+					<h3 id = "docs-background">Background</h3>
+					<p>Bug Issue Tracker Solutions provides an easy-to-use web-based application tool to help individuals and businesses track issues and find lasting solutions to their needs. It is driven by a vibrant user community ensuring collobaration on all levels.
+					The application incorporates different apps to provide a range of functionality. It integrates a tracker list containing a list of bugs and features with other applications. 
+					The tracker list consists of a summary list of issues with which various users can interact with, the degree of interaction relative to the level of permission, on authentication. Authorised users at minimum can create their own bugs and features and follow their development through the ability to comment and post blogs. A search app allows users to search the summary list by name. Authentication is through the use of an accounts app, where users either sign in or register. Template logic is used to allow the users access to various features subject to their level of permission. Staff users have further permissions to edit items while superusers have full permissions. An e-commerce functionality is provided through the use of cart and checkout apps with the stripe application used to handle payments. At least 50% of time is spent developing the highest paid features, with the remaining time spent fixing bugs for free. Upvoting is incorporated into the issues_list app for bugs (free upvote) and the cart and checkout apps for features (upvoted for a fee). A chart app provides transparency to users on time spent working on bugs and features. Non-authenticated users can access the home, about and activities pages to read about BITS and sign up if they desire so.</p>
 				<h3 id = "user-perm">User Permissions</h3>
 						<p>Users basically consist of non-authenticated and authenticated users (general and staff). Non-authenticated users have no authorisation with authenticated users having varying permissions depending on if they are general users or staff.</p>
 				 	<h4 id = "non-auth">Non-authenticated users</h4>
-						<p>These users have basic access to the application to view the home page, the about page, the activities page, part of the documentation and the login/registration forms.  </p>
+						<p>These users have basic access to the application to view the home page, the about page, the activities page, the documentation page and the login/registration forms.  </p>
 					<h4 id = "authen-gen">Authenticated general users:</h4>
 						<p>These are the users who have registered and can log in. These users have access to the home page, about page, activities page, tracker list, charts, documentation and blog page.</p>
 						<p>These users can also:</p>
 						<ul>
 							<li>add items (bugs and/or features) to the tracker list.</li>
+							<li>upvote a bug or a feature</li>
 							<li>access the cart</li>
 							<li>comment on issues</li>
 							<li>post a blog or comment on a post</li>
 						</ul>
-						<p>These users drive the activities. However they cannot edit or delete items, even their own items. If a user wishes their item to be edited or removed it can be done by directly adding it as a comment on the issue or by referring to it as a blog post. Authorised staff will pick up on it and act accordingly.</p>
+						<p>These users drive the activities. However they cannot edit or delete items, even their own items. If a user wishes their item to be edited or removed it can be done by directly adding it as a comment on the issue or by referring to it in a blog post. Authorised staff will pick up on it and act accordingly.</p>
 					<h4 id = "authen-staff">Staff users</h4>
-						<p>Staff users are responsible for the daily implementation of the activities and deal with the issues raised. The staff users have access to all elements of the application including the backend admin panel. Currently there are 2 authorised superusers who have full administration rights to add to or edit any editable field registered in the admin panel. Any registered item can be deleted by these users. However any decisions to amend any aspects of the application are agreed on at the fortnightly staff meetings. The only exception is when a user requests their submitted item to be adjusted/deleted, which is done immediately.</p>
+						<p>Staff users are responsible for the daily implementation of the activities and deal with the issues raised. Staff users have the permissions of the general users and also have access to all elements of the application including the backend admin panel. Currently there are 2 authorised superusers who have full administration rights to add to or edit any editable field registered in the admin panel. Any registered item can be deleted by these users. However any decisions to amend any aspects of the application are agreed on at the fortnightly staff meetings. The only exception is when a user requests their submitted item to be adjusted/deleted, which is done immediately. Staff users can also edit issues and blog posts directly in the browser via an edit form. Comments are not edited but are approved by staff (i.e accepted or deleted).</p>
 					<h5><em>Senior staff:</em></h5>
-						<p> Three senior staff members, although not superusers, have full administration permissions.</p>
+						<p> Three senior staff members, although not superusers, have full administration permissions (CRUD).</p>
 					<h5><em>Junior staff:</em></h5>
-						<p>Two other more junior staff have permissions to add and edit items.</p>
+						<p>Two other more junior staff have permissions to read, create and edit items.</p>
 				<h3 id = "features">Features</h3>
 						<p>The features of this web application are described below.</p>
 					<h4 id = "home_page">Home Page:</h4>
@@ -117,13 +123,13 @@
 							<li>highest number of upvotes.</li>
 							<li>status descending alphabetically.</li>
 						</ul>
-						<p>Tooltips are available adding helper text to any links.</p>
+						<p>Bootstrap Tooltips are available adding helper text to any links.</p>
 						<p>The table consists of the following columns:</p>
 					<h5 ><a href="#editing" title="See editing forms section"><em>Edit:</em></a></h5>
 						<p>Staff authorised users have access to an edit icon which when clicked takes you to the edit form page where items can be edited.</p>
 					<h5><a href="#upvoting" title="See upvoting section"><em>Upvote:</em></a></h5>
 						<p>There is an upvote icon, which when clicked allows any authorised user to add an upvote to a bug or take you to a feature detail page where you can add feature upvotes to the cart.</p>
-						<p><strong>Note:</strong> Users only get one vote for a bug but can vote any number of times for a feature. Upvote features are added after <a href="#payments" title="Go to payments section">payment</a> is received.</p>
+						<p><strong>Note:</strong> Users only get one vote for a bug but can vote any number of times for a feature. Upvotes are added to features after <a href="#payments" title="Go to payments section">payment</a> is received.</p>
 					<h5><em>Name:</em></h5>
 						<p>This is the title of the submitted feature or bug</p>
 					<h5><em>Content:</em></h5>
@@ -135,24 +141,24 @@
 					<h5><em>Created on:</em></h5>
 						<p>The date the new item (bug or feature) was submitted.</p>
 					<h5><em>Upvotes:</em></h5>
-						<p>The total number of upvotes recieved todate.</p>
+						<p>The total number of upvotes recieved to date.</p>
 					<h5><em>Status:</em></h5>
-						<p>The status (Pending, Ongoing, Completed) of the item. On submission of the new item the default is always Pending. Staff members then alter the status. It will be assigned the statue of Ongoing when the item is assigned and work on the item has commenced. Eventually it will be assigned status Completed when all the work is complete.  </p>
+						<p>The status (Pending, Ongoing, Completed) of the item. On submission of the new item the default is always Pending. Whoever is assigned the item then alters the status. It will be assigned the status of Ongoing when the item is assigned and work on the item has commenced. Eventually it will be assigned status Completed when all the work is complete.The status is altered through the admin panel or through the edit form.</p>
 					<h5><em>Assigned to:</em></h5>
 						<p>This is the name of the staff member to which the item has been assigned.</p>
 					<h5><em>Progress:</em></h5>
 						<p>This is a progress note added by staff relative to the status of the issue. For pending items it may read queued, or awaiting upvotes. For ongoing it may read in development or testing ongoing. For completed it may contain a few words stating the final outcome.</p>
 					<h5><em>Fees:</em></h5>
-						<p>This id the total fees received for a feature item. Bugs are currently fixed for free so this item will always read 0.00 for bugs.</p>
+						<p>This is the total fees received for a feature item. On successful payment of an upvote fee, it is added to the existing fee total. Bugs are currently fixed for free so this item will always read 0.00 for bugs.</p>
 					<h5><em>Comments:</em></h5>
 						<p>This field contains a comment icon which, when clicked takes the authorised user to the <a href="#issue_detail" title="Go to issue detail section"> detail view</a> where comments can be viewed. The total number of comments received is also displayed beside the icon in list view and on the detail view page. On the detail view page, there are also links to return to the list view, to upvote or to add a new comment.</p>
 						<p>At the top of the table there is a search box where a user can enter text to search the list by the name column. At the bottom of the table is pagination functionality allowing a user to quickly navigate the different pages.</p>
 					<h4 id = "create-item">Create an Item:</h4>
-						<p>Clicking on this takes the authorised user to the create an <a href="#add-item" title = "Go to create a new item form section">item form.</a> Fill in the name section, add some content (description of the issue) and select either bug or feature in the drop down  category section and then save to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a></p>
+						<p>Clicking on this takes the authorised user to the create an <a href="#add-item" title = "Go to create a new item form section">item form.</a> Data is required in all fields. Fill in the name section, add some content (full description of the issue) and select either bug or feature in the drop down  category section and then save to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a> Additional fields are automatically added to the issues list such as status (default is pending), created date, author, upvotes (default is zero), assigned to (default is not yet) and fees (default is zero). The default fields are updated on edit or by an action such as upvoting or making a payment. Additional fields for assigned date and completed date are also added but only visible for edit on the edit form or through the admin panel. The created date is also entered into these fields when a new item is created. This default date does not affect any calculations. These default dates can be removed through an edit or left in and updated when updating status. When updated these fields are used to calculate durations for output in charts. There is also a hidden price field, allowing the price per upvote to be updated at a future date through the admin panel.</p>
 					<h4 id = "view-charts">View Charts:</h4>
-						<p>This link takes the authorised user to the graphs page. All graphs are rendered using dc.js crossfilter. The first section of graphs consists of 6 bar chart type graphs. The first three show the distribution on categories to date, the status on those categories and the upvotes recieved to date. The second three show the total amount of days spent working on issues (completed) and (ongoing) and the duration of pending issues. These graphs are all based on the same crossfilter and thus are interactive with each other.</p>
-						<p>The next section contains piechart showing the percentage of fees received for features by status. This graph is based on the same crossfilter as above and thus is interactive with the feature element of other graphs.</p>
-						<p>The final section contains graphs showing the ratio of bugs and features completed and ongoing respectively over the last week and the last 31 days (monthly).</p>
+						<p>This link takes the authorised user to the graphs page. All graphs are rendered using dc.js crossfilter. The first section of graphs consists of 6 bar chart type graphs. The first three show the distribution on categories to date, the status on those categories and the upvotes recieved to date. The second three show the total amount of days spent working on issues (completed) and (ongoing) and the duration of pending issues. These graphs are all based on the same crossfilter and thus are interactive with each other. Theses graphs plot data for the entire history and thus will always contain data.</p>
+						<p>The next section contains a piechart showing the percentage of fees received for features by status. This graph is based on the same crossfilter as above and thus is interactive with the feature element of other graphs.</p>
+						<p>The final section contains graphs showing the ratio of bugs and features completed and ongoing respectively over the last week and the last 31 days (monthly). These latter graphs show data related to the recent past and thus may contain empty data if there has been no activities within that time period. However in a real world situation a popular application should always have adequate recent activities that can be visually represented in charts.  </p>
 					<h4 id = "view-docs">Documentation</h4>
 						<p>This link takes the user to the documents page. The documents outline the features and detail any instructions needed to fill out forms and navigate the site. The contents are listed in the side-nav bar. Clicking on a heading will bring the user to the respective paragraph in the contents page. Within the contents text there are also hyperlinks, which when clicked, bring the user to other sections of the document.</p>
 					<h4 id = "blog-page">Blog Page</h4>
@@ -169,8 +175,8 @@
 							<li>tag: Keyword(s) reflecting the post.</li>
 						</ul>
 					<h4 id = "view-blog">View blog detail</h4>
-						<p>When a user clicks on the read more button of a blog post they are taken to the detail view. On this page a general authorised user can add a <a href = "#comment-blog" title="Go to blog form section"> comment</a>. A staff user can also edit the post. The staff user also sees ok or delete icons, enabling them to either approve or delete the comment, based on the appropriateness of the comment. The back to blog button takes the user back to the posts list.</p>
-						<p>This page also shows the number of comments and all comments associated with the issue item.</p>
+						<p>When a user clicks on the read more button of a blog post they are taken to the detail view. On this page all authorised users can add a <a href = "#comment-blog" title="Go to blog form section"> comment</a>. A staff user can also edit the post. The staff user also sees ok or delete icons, enabling them to either approve or delete the comment, based on the appropriateness of the comment. The back to blog button takes the user back to the blog posts list page.</p>
+						<p>The blog detail page also shows the number of comments and all comments associated with the post item.</p>
 					<h4 id = "new-blog">New Blog Post</h4>
 						<p>Any authorised user can post a new blog by clicking on the link on the nav bar. The link takes you to a blank <a href="#form-blog" title="Go to blog form section"> form</a> where a user adds a title, the content, their image and a tag. Clicking on the save button adds the post to the posts list.</p>
 					<h4 id = "profile-view">Profile</h4>
@@ -248,27 +254,27 @@
 							<li>category: Select either a bug or feature in the dropdown option.</li>
 						</ul>
 						<p> Click the save button to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a></p>
-						<p>Within the backend the submitted date field is entered automatically. The default status field is set to pending. Other fields such as the assigned to, assigned date, status, progress and comments are manipulated by the staff user. The fees field default is set to 0.00. Values for fees and upvotes are generated through the interaction with users. </p>
+						<p>Within the backend the submitted date field is entered automatically. The default status field is set to pending. Other fields such as the assigned to, assigned date, status, progress and comments are manipulated by the staff user. The fees field default is set to 0.00. Values for fees and upvotes are generated through the interaction with authorised users. </p>
 					<h4 id = "editing">Edit an item form:</h4>
-						<p>This feature is only available to authenticated users who are authorised as staff. Clicking on the edit icon takes the staff user to the edit form. This form will return the following field with data in them.</p>
+						<p>This feature is only available to authenticated users who are authorised as staff. Clicking on the edit icon takes the staff user to the edit form. This form will return the following fields with data in them.</p>
 						<ul>
 							<li>name: A title for the bug or feature. This field will generally remain as is unless specifically requested by the user who submitted to change it.</li>
 							<li>content: Provide a description of the issue to be addressed. As for the above field. However further content may be added to clarify the detail.</li>
 							<li>category: Select either a bug or feature in the dropdown option. There should be no need to change this field unless the user who submitted the issue misunderstood the difference.</li>
-							<li>status: The default for this field is pending. Once the amount of fees (if a feature) takes it to the top of the ongoing list or the number of upvotes (if it is a bug) takes it to the top of the ongoing list, it gets assigned a staff member and the status changes to ongoing. When the item is completed it obviously changes to completed.</li>
-							<li>assigned to: Following the conditions outlined in status above, a staff member is assigned to the issue according to resources and expertise. Generally the person assigned is the person who deals with the issue but again depending on resources and expertise required other staff may be more substantially involved in providing the solution with the person assigned ensuring that the issue gets closed off.</li>
-							<li>assigned date: Once assigned the date is filled in. It is a required field and is used in duration calculations. Helper text ensures the correct date format is supplierd.</li>
-							<li>completed date: This field is entered when all work has finished on the item.</li>
-							<li>progress: This is a note added periodically by the person assigned to inform other users on the progress of status.</li>
+							<li>status: The default for this field is pending. The staff member once assigned, changes the status. Once the amount of fees (if a feature) takes it to the top of the list or the number of upvotes (if it is a bug) takes it to the top of the list, it gets assigned a staff member and the status is changed to ongoing. When the item is completed it is obviously changed to completed.</li>
+							<li>assigned to: Following the conditions outlined in status above, a staff member is assigned to the issue according to resources and expertise. The default value is Not yet. Generally the person assigned is the person who deals with the issue but again depending on resources and expertise required other staff may be more substantially involved in providing the solution with the person assigned ensuring that the issue gets closed off.</li>
+							<li>assigned date: Once assigned the date is filled in (if this field is empty) or updated (if not empty). It is used in duration calculations. Helper text ensures the correct date format is supplied.</li>
+							<li>completed date: This field is filled in (if empty) or updated (if not) when all work has finished on the item.</li>
+							<li>progress: This is a note added periodically by the staff person assigned, to inform other users on the progress of status.</li>
 						</ul>
 						<p> Click the save button to commit the item to the <a href ="#view-issues-list" title="Go to issues list section">tracker issues list.</a></p></p>	
-					<h4 id = "form-comment">Comment on an issue form</h4>
-						<p>This form allows the user to comment on an issue. Clicking on the comment icon in the <a href="#view-issues-list" title = "Go to issues list section">tracker issues list</a> brings all authorised users to the <a href="#issue_detail" title ="Go to issue detail section">detail view</a> where there is a access to the comment form by clicking on the comment button. The form has a text area allowing the user to enter a comment. Clicking the save button returns the user to the detail page where the comment can be viewed along with the published date and author. Clicking on back to tracker takes the user back to the issues list. </p>
+					<h4 id = "form-comment">Add Comment to an issue form</h4>
+						<p>This form allows the user to comment on an issue. Clicking on the comment icon in the <a href="#view-issues-list" title = "Go to issues list section">tracker issues list</a> brings all authorised users to the <a href="#issue_detail" title ="Go to issue detail section">detail view</a> where there is a access to the comment form by clicking on the comment button. The form has a text area allowing the user to enter a comment. This field is required. Clicking the save button returns the user to the detail page where the comment can be viewed along with the published date and author. Clicking on back to tracker takes the user back to the issues list. </p>
 					<h4 id = "form-blog">New blog post form</h4>
 						<p>Clicking on the new blog nav-bar link allows an <a href ="#user-perm" title "Go to user permissions section"> authorised user</a> to enter details on a new blog form. The form requires:</p>
 						<ul>
-							<li>title: Give the post a name.</li>
-							<li>content: Add the content of your post here.</li>
+							<li>title: This field is required. Give the post a name.</li>
+							<li>content: This field is required. Add the content of your post here.</li>
 							<li>image: Add your image here.</li>
 							<li>tag: add a word or two to reflect the key points of your blog.</li>
 						</ul>
@@ -276,12 +282,12 @@
 						
 					<h4 id = "form-blog-edit">Edit blog post form</h4>
 						<p>Clicking on the edit post in the detail view allows an <a href ="#user-perm" title "Go to user permissions section"> authorised <em>staff user</em></a> to edit the details on a blog form. The form returns the existing text:</p>
-						<p>The form returns the text details of the existing post and edits may be grammatical or spelling related. As with all data posted by users, administrator level staff can delete a post or comment at the request of the user who posted it. </p>
+						<p>The form returns the text details of the existing post and edits may be grammatical or spelling related. Additional info may also be added. To delete an image just check the clear box. To change an image just upload a new image. As with all data posted by users, administrator level staff can delete a post or comment at the request of the user who posted it. </p>
 						<p>Hit the save button to add the edited post to the <a href ="#blog-page" title="Go to blog list section"> blog list</a></p>	
 					<h4 id = "comment-blog">Comment on a blog post form</h4>
-						<p>Clicking on the comment button in the blog post detail view allows a user to add a comment to the blog post. The form has a text area allowing the user to enter a comment. Clicking the save button returns the user to the detail page where the comment can be viewed along with the published date and author. Clicking on back to blog takes the user back to the blog posts list.</p>
+						<p>Clicking on the comment button in the blog post detail view allows a user to add a comment to the blog post. The form has a text area allowing the user to enter a comment. This field is required. An optional user image can also be uploaded. Clicking the save button returns the user to the detail page where the comment can be viewed along with the published date and author. The comment is visible to all authenticated users and there is an option for a staff user to approve or delete the comment. Clicking on back to blog takes the user back to the blog posts list.</p>
 					<h4 id = "payment-forms">Payment forms</h4>
-						<p>Clicking on the checkout button in the cart takes the user to the payments forms section. This section has the <a href = "#payments" title="Go to checkout section">order form</a> and the payments form The order form consists of:</p>
+						<p>Clicking on the checkout button in the cart takes the user to the payments forms section. This section has the <a href = "#payments" title="Go to checkout section">order form</a> and the payments form. The order form consists of:</p>
 						<ul>
 							<li>the title of the feature upvoted.</li>
 							<li>the first 5 words of the content.</li>
@@ -300,12 +306,12 @@
 							<li>street address 1:</li>
 							<li>street address 2:</li>
 							<li>county: Region.</li>
-							<li>credit card no: 16 digit number on card.</li>
-							<li>cvv: Security code. Last 3 numbers on the back of the card.</li>
+							<li>credit card no: 16 digit number on card. (for testing 4242424242424242 can be used).</li>
+							<li>cvv: Security code. Last 3 numbers on the back of the card. (for testing any 3 digits can be used).</li>
 							<li>month: Expiry month on card.</li>
 							<li>year: Expiry year on the card.</li>
 						</ul>
-						<p><strong>All fields are required</strong> with the exception of the <em> postcode.</em> Click on the Submit payment button to make payment and add upvote(s) to feature(s).</p>
+						<p><strong>All fields are required with </strong> with the exception of the <em> postcode.</em> Click on the Submit payment button to make payment and add upvote(s) to feature(s). There is also a back to cart button, if more amendments are needed or if the user wishes to cancel items and get back to the tracker list.</p>
 		</div>
 </div>	
 

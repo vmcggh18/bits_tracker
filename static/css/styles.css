@@ -13,7 +13,7 @@ body {
 
 /* General style for forms */
 form {
-      width: 50%;
+      width: 75%;
 }
 .form-detail, .profile-detail {
     padding-left: 10px;
@@ -172,6 +172,9 @@ p {
     background-color: #B0C4DE;
     border: none;
     padding: 0px;
+}
+.navbar-brand {
+    padding-top: 0px;
 }
 .navbar-brand, .navbar-collapse, .navbar-header .container-fluid, .navbar-fixed{
     background-color:  #B0C4DE;
@@ -378,7 +381,7 @@ p {
     margin:0 auto; 
 }
 .upvote-form {
-    width:50%; 
+    width:60%; 
     margin:0 auto;
     text-align:center;
 }
@@ -588,7 +591,23 @@ caption p {
         width:auto;
     }
 }
-/*@media screen and (max-height: 450px) {*/
-/*  .side-nav {padding-top: 15px;}*/
-/*  .side-nav a {font-size: 18px;}*/
-/*}*/
+/* Limit form width to 50% on larger screens*/
+@media screen and (min-width: 760px) {
+    form {
+          width: 50%;
+    }
+}
+/* hide horixontal scroll bar on laptop and desktop screens*/
+@media screen and (min-width: 1025px) {
+    .table-responsive {
+          overflow-x: hidden;
+    }
+}
+/* shorten width of upvote box on larger screens*/
+@media screen and (min-width: 1025px) {
+.upvote-form {
+    width:40%; 
+    margin:0 auto;
+    text-align:center;
+}
+}

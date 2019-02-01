@@ -53,7 +53,7 @@ class Item(models.Model):
 class Votefor(models.Model):
     user = models.ForeignKey(User, related_name ='user_votes')
     item = models.ForeignKey(Item, related_name="item_votes")
-    voteup = models.BooleanField(default=False)
+    #voteup = models.BooleanField(default=False)
     
     class Meta:
         unique_together = ('user', 'item')

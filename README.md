@@ -58,14 +58,14 @@ Pencil wireframe was used to plot a two-dimensional model of the perceived end p
 Varying degrees of the color palette blue are chosen to represent the front-end background colors. Blue is favoured by both men and women and represents trust, professionalism and a business-like manner. Blue is also generally associated with scientific/technical type information and information technology (examples are: samsung, linkedIn, facebook, twitter, cloud9). The blue theme is also consistent with the default Django admin panel.
 The background colors are kept consistent throughout the site. The main navigation bar and footer are the same on all pages. All forms are consistent in layout and color. The detail view for the issues and blog posts also keep this consistency. Across all pages button colors and styles are consistent. Comment buttons and icons for example are always orange. Submit form buttons are a custom grey. Button hover effects are also consistent. The colors on the charts are also consistent with bugs and features being represented by different shades of blue. The issue list uses the bootstrap success, warning and danger color styles to visually represent completed, ongoing and pending (i.e. the status) items respectively and these colors are carried into the charts where status is represented. Fonts are consistent so that, for example, header text is generally of exo style with paragraph content being of font style roboto. Both bootstrap and font-awesome icons are used. Icons are intuitive, in that, the thumbs-up icon represents upvoting and the shopping cart icon represents the cart, etc. Panels are also consistent in form and layout. Outer panels have a solid border to delineate between features and inner panels have transparent borders. 
 There is progressive disclosure in the sense that clicking on a link or icon in the summary issues list takes you to more detail on that particular issue. In the detail view, further action can be taken. For example comments can be viewed or items can be upvoted and commented on.  Clicking on a link in the about page takes the user to the docs page. The read more button in the blog post list page, takes the user to a more detailed view where other actions such as commenting or editing can be done. Within the detail views, links are provided back to the previous view, thus mitigating against the use of the browser back button.  
-Other navigation includes the use of a search bar allowing search by name. The tracker list page has forward and reverse pagination allowing pages to be cycled through without the use of scrolling or use of the browser back and forward buttons. All form pages have a back to button with text and icon, ensuring a user does not need to use the browser back link to escape from a form page if they change their minds.
+Other navigation includes the use of a search bar allowing search by name. The tracker list page has forward and reverse pagination allowing pages to be cycled through without the use of scrolling or use of the browser back and forward buttons. All form pages have a back to button with text and icon, ensuring a user does not need to use the browser back arrow to escape from a form page if they change their minds.
 Django messaging is used to enhance the user experience. A message will flash at the top of the page on successful login or logout. A message will also flash to indicate if an upvote was added in the case of a bug. If a user has already upvoted a bug, a message will flash to the user indicating that they have already voted that bug. In the case of features a message will inform users that payment has been received and upvotes added. Conversely error messages will inform the user if payment cannot be received or if login cannot be achieved. Tooltips are also used to enhance the user experience. They are used in the issues list on hover over icons and links to give instruction. The charts also reveal quantities on hover over a pie slice or chart bar (in desktop mode).
 Template logic is used to reveal or hide various elements depending on user permissions. General authorised users do not have full CRUD permissions unlike staff. The general user can add items, upvote, post blogs and comment. Icons for upvoting and commenting are present for general authorised users. However as general authorised users cannot edit items, these icons only show when staff are logged in. Within the staff group superusers (admin1 and admin2) have full CRUD permissions in the admin panel and the browser. However deletion can only occur in the django admin panel at present. 3 senior staff members also have full CRUD permissions with 2 more junior staff having create, read and edit permissions. All staff also have access to the django admin panel.
 Bootstrap is used as the main front-end framework, having ready made HTML and CSS based design templates for typography, forms, buttons, tables and navigation. Bootstrap also gives the ability to easily create responsive designs. The main issue table uses the bootstrap responsive class giving it a neat and scrollable form on smaller screen sizes. Many of the bootstrap ready made classes are used in the application. Classes like text-center, btn btn-sm, table-responsive, text-muted, etc are used to quickly style elements. A substantive custom css stylesheet (style.css) is also used to provide styles not present in bootstrap, to further enhance bootstrap styles and in some cases to overwrite bootstrap styles, where anothe style is preferred.
 The dc.js charting library with crossfilter is used to render graphs, being very efficient in manipulating json type data and allowing for user interaction.
 Data is mostly processed in the back end, in some cases employing filters, and either read directly into the templates or returned in json format for use in graphs. There are some calculations within the graph function in one script file to return durations in days. There are also some simple functions to return quantities.
 In the backend choice fields where appropriate are used so the user just needs to select an option, ensuring theses fields will always have similar type data. For example a category will always either be a bug or a feature. Status will always be one of completed, ongoing or pending. A specific date format is also requested in the input date fields. Helper text suggests what needs to be inputted. Anything other that what is requested throws up a date invalid error.
-For further information refer to the documentation within the application, accessible by clicking the link on the navbar.
+For further information refer to the documentation within the application, accessible by clicking the link on the navbar. (the mile5Notes.pdf file in the additional info folder in the static directory also includes more abstract information on project approach.)
 
 ## Features
 
@@ -88,7 +88,6 @@ The features are listed below. More detail on the features can be found in the d
 
 - The accounts app can be developed to allow administrators to reset lost passwords. 
 - More graph views can be established to show hourly durations on activities for example.
-- The use of thumbnails in the comment section to allow authors of comments to have their image.
 - Functionality to provide notifications on projects, issues assigned, status changes, due dates, etc would    be a useful enhancement.
 - Reporting mechanism allowing for the issue of reports as PDF, Word or Excel files.
 - email support so that when a user has complex questions, detailed answers are supplied via an email support   system.
@@ -119,24 +118,17 @@ In this project the following technologies were employed:
 
 ## Testing
 
-Django test case framework has been used to write some tests. The additional notes describe the use of coverage..........
-Try, except............nducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+The Django test case framework has been used to write some tests for the various model, form and views.py files within each app. The test files are easily identifyable being prefixed with test_.
+After writing some tests coverage was installed to see the extent of testing.
+For example use the *coverage run --source=issues_list manage.py test* command to run the tests for the issues-list app. To run the tests for a different app use the above command but change the app name.
+After running the test, typing *coverage report* in the command line shows the coverage for that particular app rather than the whole system.
+The *coverage html* command generates a new folder where files can be inspected to pinpoint where additional tests may be required.
+In addition to automated testing, extensive manual testing was carried out to ensure that the requirements of the brief were adequately addressed.
+While testing stripe 4242424242424242 was used as a visa card number and 111 as the CVC number to make a valid payment. Typing 4242424242424241 for example returns 'Your card number is incorrect.' Typing 4242424242424242 but 11 for the cvc number returns 'Your card's security code is invalid.'
+The app was fully tested on chrome and firefox for responsiveness and performed similarly well in both browsers. It worked fine in microsoft edge desktop mode but the emulation panel would not open to allow testing of different browser profiles. Microsoft edge kept throwing up a this page cannot open error. This was true while trying to view any website page in emulation mode, indicating a problem with microsoft edge. The application did appear responsive while resizing the browser window in desktop mode. The app was also directly tested using a samsung S5 and all pages with the exception of chart pages were fully responsive. However the charts being compact bar and pie charts render reasonably well on smaller screen sizes. The issue tracker list is a responsive table in that it can be horizontally scrolled to view all columns on smaller screen sizes. During testing it was noticed that some of the form pages were not fully responsive but adding a container-fluid class to the form resolved this. 
+Chrome was used to develop the application and chrome developer tools was useful in pin-pointing elements where styles could be experimented with and then adopted. It was particularly useful in tracing bootstrap styles that needed to be overridden. The form width was chosen as 75% to cater for smaller screen sizes and then a media query used to reduce the width further to 50% on larger screen sizes. During development there was an issue loading the graphs into the activities page. Sometimes the page needed to be refreshed to load all charts. While charts on the charts page were all loading there seemed to be conflict between the 2 chart javascript files. This was resolved by taking both files out of the base html file and loading them from their respective html files. The developer tool also facilitated testing for different device sizes such as ipad, pixels, samsung and iphone. The width upvote input form for example needed to be widened to cater for tablet sizes such as ipad and kindle. On these devices it was difficult to see the inputted number of upvotes as the form was squeezed into a line with other link buttons rather than being stacked as on smaller screen sizes.
+Some of the errors encountered during development and testing of the application and their solutions have been written into the tracker list as part of the bugs list. 
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet. (graph, burger bar,) Some bugs alrady listed in the tracker list.....
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
 
@@ -153,29 +145,46 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
-- The following documentation was consulted for ideas on writing the about page 
+The following documentation was consulted for ideas on writing the about page 
 - [Mindtools Z](https://www.mindtools.com/pages/article/newPPM_69.htm)
 - [Sifter](https://sifterapp.com/academy/overview/why/)
 
 ### Media
-- The images used in this site were obtained from:
+The images used in this site were obtained from:
 
 - [Landing-page image](https://www.pexels.com/photo/group-hand-fist-bump-1068523/)
-- [Free Use license link](https://www.pexels.com/photo-license/)
+- [Free use license link](https://www.pexels.com/photo-license/)
 - [Logo-image](https://pixabay.com/en/bug-animal-nature-windows-162019/)
+- [admin1 image](https://pixabay.com/en/man-avator-person-admin-161282/)
+- [admin2 image](https://pixabay.com/en/user-person-people-profile-account-1633249/)
 - [Staff 01 image](https://pixabay.com/en/head-man-portrait-face-big-40119/)
 - [Staff 02 image](https://pixabay.com/en/cartoon-child-comic-characters-face-2026702/)
 - [Staff 03 image](https://pixabay.com/en/girl-illustrate-portriat-design-3405035/)
 - [Staff 04 image](https://pixabay.com/en/caricature-head-male-man-portrait-157235/)
 - [Staff 05 image](https://pixabay.com/en/bald-bald-man-caricature-comic-man-1295928/)
+- [user01](https://pixabay.com/en/avatar-boy-cartoon-comic-human-2027366/)
+- [user02](https://pixabay.com/en/woman-girl-avatar-female-pretty-159169/)
+- [user03](https://pixabay.com/en/avatar-icon-document-entrepreneur-1789663/)
+- [user04](https://pixabay.com/en/avatar-cartoon-eyes-female-funny-2026510/)
+- [Use of django logo](https://www.djangoproject.com/trademarks/)
+- [Use of postgresql logo](https://www.postgresql.org/about/licence/)
+- [Adaptability image](https://pixabay.com/en/businesswoman-business-puzzle-2822607/)
+- [Cost-effective image](https://pixabay.com/en/triangle-quality-time-cost-3125882/)
+- [Transparency & Accountability image](https://pixabay.com/en/accounting-statistics-excel-finance-1928237/)
+- [Knowledge sharing image](https://pixabay.com/en/smartphone-hand-photomontage-faces-1445489/)
+- [Management Framework image](https://pixabay.com/en/whiteboard-strategy-diagram-849803/)
 - [Creative Commons license link](https://pixabay.com/en/service/terms/#usage)
 
 ### Acknowledgements
 - The sources below provided inspiration for this application:
 
 #### Code Institute 
-- Code Institute Modules (1 -8), in particular Module 9 Full Stack Development
+- Code Institute Modules (1 -9), in particular Module 9 Full Stack Development
 
 #### Other Documentation Consulted ####
 - [Django Documentation:](https://www.djangoproject.com/start/overview/)    
     - Overview of django. Django pagination, chaining of filters
+- [Other pagination:](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html )
+    - Django pagination
+- [Moderating Comments](https://tutorial-extensions.djangogirls.org/en/homework_create_more_models/)
+    - Moderating comments to be approved or deleted

@@ -30,7 +30,7 @@ class TestTrackerUserLoginForm(TestCase):
         form = UserRegistrationForm(data=invalid_data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['password2'], ['Passwords must match']) 
-   
+  
    
    
     

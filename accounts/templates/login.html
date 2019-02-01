@@ -4,7 +4,7 @@
 {% block page_heading %}User Login{% endblock %}  
 {% block content %}
 <h2 class = "form-detail">Enter login details below</h2>
-<div class = "row container">
+<div class = "row container-fluid">
         <form method="POST" class = "form-detail">
              <!--use the cross site request forgery django function to prevent cross site scripting-->
             {% csrf_token %}

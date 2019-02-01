@@ -48,7 +48,7 @@ def edit_a_post(request, pk):
     """ Return an existing form for edit """
     item = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = BlogPostForm(request.POST, instance=item)
+        form = BlogPostForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             form.save()
             return redirect(get_posts)

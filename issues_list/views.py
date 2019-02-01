@@ -92,6 +92,7 @@ def add_comment_to_issue(request, id):
         form = CommentForm()
      return render(request, "issue_commentform.html", {'form': form})
      
+    # code below based on moderating your comments in django girls tutorial create comment model
 def comment_approve(request, id):
     comment = get_object_or_404(Comment, pk=id)
     comment.approve()
