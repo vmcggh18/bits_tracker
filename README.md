@@ -114,7 +114,8 @@ In this project the following technologies were employed:
     - The project uses **dc.js crossfilter** to render json type data received from the backend into graphs. 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to fire tooltips and to link up django forms to the stripe API.
-
+- [![Build Status](https://travis-ci.org/vmcggh18/bits_tracker.svg?branch=master)](https://travis-ci.org/vmcggh18/bits_tracker)
+    - Travis Continuous integration testing
 
 ## Testing
 
@@ -132,7 +133,7 @@ Some of the errors encountered during development and testing of the application
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+This project was depoyed to Github and Heroku. A repository was set up in Github and the following commands used to push it from the ide (cloud9) to github, git remote add origin https://github.com/vmcggh18/bits_tracker.git and git push -u origin master
 
 In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
 - Different values for environment variables (Heroku Config Vars)?
@@ -188,3 +189,5 @@ The images used in this site were obtained from:
     - Django pagination
 - [Moderating Comments](https://tutorial-extensions.djangogirls.org/en/homework_create_more_models/)
     - Moderating comments to be approved or deleted
+
+  
