@@ -7,11 +7,7 @@ class TestBlogModel(TestCase):
         post.save()
         self.assertEqual(post.title, "Create a Test")
         self.assertTrue(post.content)
-    # def test_text_defaults_to_False(self):
-    #     post = PostComment(text="Create a Test")
-    #     post.save()
-    #     self.assertEqual(post.text, "Create a Test")
-    #     self.assertFalse(post.text)
+    
     def test_post_as_a_string(self):
         post = Post(title="Create a Test")
         self.assertEqual("Create a Test", str(post))

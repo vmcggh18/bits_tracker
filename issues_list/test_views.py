@@ -43,28 +43,6 @@ class TestViews(TestCase):
         item.save()
         page = self.client.get ("/issues_list/issue_detail/{0}".format(item.id))
         self.assertEqual(page.status_code, 301)
-        #self.assertTemplateUsed(page, "issue_detail.html")
         
         
-    # def test_create_an_item(self):
-    #     response = self.client.post("/issues_list/add/", {"name": "Create a Test"})
-        #item = get_object_or_404(Item, pk=1)
-        # self.assertEqual(response, 'Create a test')
-    # def test_post_edit_an_item(self):
-    #     item = Item(name="Create a Test")
-    #     item.save()
-    #     id = item.id
-
-    #     response = self.client.post("/issues_list/edit/{0}".format(id), {"name": "A different name"})
-    #     item = get_object_or_404(Item, pk=id)
-
-    #     self.assertEqual("A different name", item.name)
-    # def setUp(self):
-    #     self.c = Client()
-    
-    # def get_issues_detail(self):
-    #     response = self.c.get('/issue_detail/')
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "issue_detail.html")
-    
-        
+ 

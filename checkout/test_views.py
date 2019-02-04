@@ -11,5 +11,5 @@ class TestViews(TestCase):
     def test_get_payment_form(self):
         page=self.client.get("/checkout/")
         self.assertEqual(page.status_code, 302)
-        #self.assertTemplateUsed(page, "checkout.html")
+        
   

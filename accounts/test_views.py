@@ -68,14 +68,6 @@ class TestViews(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         
-    # def test_correct_message_on_successful_registeration(self):
-    #     valid_data = {"email": "admin@example.com", 
-    #     "password": "user01", 
-    #     "username": "admin"}
-    #     form = UserRegistrationForm(data=valid_data)
-    #     form.is_valid()
-    #     self.assertEqual(form.errors['username'], [u'A user with that username already exists.'])
-        
     def tearDown(self):
         del self.user
   
@@ -86,14 +78,7 @@ class TestViews(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "profile.html")
         
-    # def test_get_index_page_on_authentication(self):
-    #      self.user = User.objects.create_user(username='admin12', password='user012')
-    #      login = self.client.login(username='admin12', password='user012')
-    #      url = reverse('index')
-    #      user = auth.get_user(self.client)
-    #      self.assertEqual(user.is_authenticated(), True)  
-    #      response = self.client.get(url)
-    #      self.assertEqual(response.status_code, 200)
+    
         
     
         
