@@ -136,10 +136,11 @@ Some of the errors encountered during development and testing of the application
 
 ## Deployment
 
-This project was depoyed to Github and Heroku. A repository was set up in Github and the following commands used to push it from the ide (cloud9) to github, git remote add origin https://github.com/vmcggh18/bits_tracker.git and git push -u origin master
+This project was depoyed to Github and Heroku. A repository was set up in Github and the following commands used to push it from the ide (cloud9) to github, git remote add origin (https://github.com/vmcggh18/bits_tracker.git) and git push -u origin master
 On github the repo can be downloaded as a zip file for installation into a local ide or cloned to receive the full commit history.  When installed locally, ensure any dependencies needed to run it are installed, by checking the requirements.txt file. Use the django secret key generator to generate a secret key and save it to the env.py file stored in the local ide. To use stripe functionality the secret keys for this also need to be obtained and saved to the env.py file. When running locally ensure the the env file is imported into the settings.py file. Then just type run to view in the browser.      
-Alternatively the working application can be viewed at https:///  
-
+Alternatively the working application can be viewed at (https://bits-tracker.herokuapp.com/).
+A new app called bits-tracker was created in heroku. In resources a postgres add on was created giving a database url in the config vars in settings. This url was copied for use in the env.py file and linked to the settings.py file using an environment variable. 2 packages were installed (sudo pip3 install dj-database-url was used to enable connection to a database url in heroku) and (sudo pip3 install psycopg2 installed a package allowing connection to a postgresql database). These dependencies were added to the requirements.txt file. The database was imported into the application using import dj_database_url in the settings.py file. In the database section of the settings.py file, the following line was added: DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }. A requirements.txt file was installed to the root directory, listing the dependencies and allowing heroku to build the application when deployed to heroku.
+The mile5Notes.pdf file in the additional info folder in the static directory, outlines the methodology adopted in wiring the application up to the aws cloud server.
 
 
 

@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-
+import django.utils.timezone
 
 class Migration(migrations.Migration):
 
@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='item',
             name='assigned_date',
-            field=models.DateTimeField(blank=True, default=0, help_text='Enter as for example 10-10-11-2018 11:30 (secs not required)', null=True),
+            field=models.DateTimeField(blank=True, default=django.utils.timezone.now, help_text='Enter as for example 10-10-11-2018 11:30 (secs not required)', null=True),
         ),
         migrations.AlterField(
             model_name='item',
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='item',
             name='completed_date',
-            field=models.DateTimeField(blank=True, default=0, help_text='Enter as for example 10-10-11-2018 11:30 (secs not required)', null=True),
+            field=models.DateTimeField(blank=True, default=django.utils.timezone.now, help_text='Enter as for example 10-10-11-2018 11:30 (secs not required)', null=True),
         ),
         migrations.AlterField(
             model_name='item',
