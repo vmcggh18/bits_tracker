@@ -88,9 +88,9 @@ The features are listed below. More detail on the features can be found in the d
 
 - The accounts app can be developed to allow administrators to reset lost passwords. 
 - More graph views can be established to show hourly durations on activities for example.
-- Functionality to provide notifications on projects, issues assigned, status changes, due dates, etc would    be a useful enhancement.
+- Functionality to provide notifications on projects, issues assigned, status changes, due dates, etc would be a useful enhancement.
 - Reporting mechanism allowing for the issue of reports as PDF, Word or Excel files.
-- email support so that when a user has complex questions, detailed answers are supplied via an email support   system.
+- email support so that when a user has complex questions, detailed answers are supplied via an email support system.
 
 ## Technologies Used
 
@@ -119,8 +119,8 @@ In this project the following technologies were employed:
 
 ## Testing
 
-The Django test case framework has been used to write some tests for the various model, form and views.py files within each app. The test files are easily identifyable being prefixed with test_.
-After writing some tests coverage was installed to see the extent of testing.
+The Django test case framework has been used to write some tests (64 in total across all apps) for the various model, form and views.py files within each app. The test files are easily identifyable being prefixed with test_.
+After writing some tests coverage was installed to see the extent of testing in the local ide.
 For example use the *coverage run --source=issues_list manage.py test* command to run the tests for the issues-list app. To run the tests for a different app use the above command but change the app name.
 After running the test, typing *coverage report* in the command line shows the coverage for that particular app rather than the whole system.
 The *coverage html* command generates a new folder where files can be inspected to pinpoint where additional tests may be required.
