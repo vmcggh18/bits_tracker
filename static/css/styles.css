@@ -235,11 +235,6 @@ p {
     font-weight: 500;
     margin: 25px 0;
 }
-.minor-lead {
-    font-size: 16px;
-    font-weight: 500;
-    color:  #5bc0de;
-}
 /* Block dividers */
 .block-divider {
     width: 75px;
