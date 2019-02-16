@@ -74,7 +74,7 @@ The features are listed below. More detail on the features can be found in the d
 ### Existing Features
 
 - Feature 1 - An accounts app allowing users to either sign in or register to use the application.
-  Users and permissions are discussed further in the documentattion.
+  Users and permissions are discussed further in the documentation.
 - Feature 2 - An home app allowing all users even non-authenticated users to get a flavour of what goes on.    There is a home (landing page), an about page, an activities page and the docs page. Non-authenticated       users will see slightly different items on the home and docs pages.
 - Feature 3 - A blog app allowing authorised users to post a blog or comment on a blogs.
 - Feature 4 - A cart app which allows users to upvote the various features and retains the items until         either payment is made or the user is logged out. It uses a context to ensure contents are available on all   pages. 
@@ -88,6 +88,8 @@ The features are listed below. More detail on the features can be found in the d
 
 - The accounts app can be developed to allow administrators to reset lost passwords. 
 - More graph views can be established to show hourly durations on activities for example.
+- It would be useful if staff could edit grammatical errors in comments in the browser window.
+- Addition of subject matter images for features and blogs would enhance the application
 - Functionality to provide notifications on projects, issues assigned, status changes, due dates, etc would be a useful enhancement.
 - Reporting mechanism allowing for the issue of reports as PDF, Word or Excel files.
 - email support so that when a user has complex questions, detailed answers are supplied via an email support system.
@@ -114,36 +116,42 @@ In this project the following technologies were employed:
     - The project uses **dc.js crossfilter** to render json type data received from the backend into graphs. 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to fire tooltips and to link up django forms to the stripe API.
+- [Heroku](https://www.heroku.com/)
+    - This project is hosted on the cloud application platform **Heroku** and uses **heroku postgres** as an add-on.
 - [![Build Status](https://travis-ci.org/vmcggh18/bits_tracker.svg?branch=master)](https://travis-ci.org/vmcggh18/bits_tracker)
-    - Travis Continuous integration testing
+    - This project uses **Travis** Continuous integration testing
+
 
 ## Testing
 
-The Django test case framework has been used to write some tests (64 in total across all apps) for the various model, form and views.py files within each app. The test files are easily identifyable being prefixed with test_.
-After writing some tests coverage was installed to see the extent of testing in the local ide.
-For example use the *coverage run --source=issues_list manage.py test* command to run the tests for the issues-list app. To run the tests for a different app use the above command but change the app name.
-After running the test, typing *coverage report* in the command line shows the coverage for that particular app rather than the whole system.
-The *coverage html* command generates a new folder where files can be inspected to pinpoint where additional tests may be required.
-Travis continuous integration testing through the github repository is also used.
-In addition to automated testing, extensive manual testing was carried out to ensure that the requirements of the brief were adequately addressed.
-For example entering a wrong username during login gives a "Your username or password is incorrect" error. Entering an incorrect email address format during registration gives a "Enter a valid email address" error and entering differing passwords gives a "Passwords must match" error.
+The Django test case framework has been used to write some tests (64 in total across all apps) for the various model, form and views.py files within each app. The test files are easily identifiable being prefixed with test_.
+After writing some tests coverage was installed to see the extent of testing in the local ide. This gives an average coverage of 89.25% across all apps (see coverage.pdf file in the additional_info folder in the static directory).
+For example the *coverage run --source=issues_list manage.py test* command was used to to run the tests for the issues-list app. To run the tests for a different app the above command was used with the respective app name.
+After running the test, typing *coverage report* in the command line showed the coverage for that particular app rather than the whole system. The *coverage html* command was used to generate a new folder where files could be inspected to pinpoint where additional tests may be required.
+
+Travis continuous integration testing through the github repository is used enabling tests to be run before deployment on heroku.
+
+In addition to automated testing, extensive manual testing was carried out to ensure that the requirements of the brief were adequately addressed. For example entering a wrong username during login gives a "Your username or password is incorrect" error. Entering an incorrect email address format during registration gives a "Enter a valid email address" error and entering differing passwords gives a "Passwords must match" error.
 When upvoting a feature, if 0 is used, a message comes up stating that "A" value must be greater than or equal to one".
+
 While testing stripe 4242424242424242 was used as a visa card number and 111 as the CVC number to make a valid payment. Typing 4242424242424241 for example returns 'Your card number is incorrect.' Typing 4242424242424242 but 11 for the cvc number returns 'Your card's security code is invalid.'
-The app was fully tested on chrome and firefox for responsiveness and performed similarly well in both browsers. It worked fine in microsoft edge desktop mode but the emulation panel would not open to allow testing of different browser profiles. Microsoft edge kept throwing up a this page cannot open error. This was true while trying to view any website page in emulation mode, indicating a problem with microsoft edge. The application did appear responsive while resizing the browser window in desktop mode. The app was also directly tested using a samsung S5 and all pages with the exception of chart pages were fully responsive. However the charts being compact bar and pie charts render reasonably well on smaller screen sizes. The issue tracker list is a responsive table in that it can be horizontally scrolled to view all columns on smaller screen sizes. During testing it was noticed that some of the form pages were not fully responsive but adding a container-fluid class to the form resolved this. 
+
+The app was fully tested on chrome and firefox for responsiveness and performed similarly well in both browsers. It worked fine in microsoft edge desktop mode but the emulation panel would not open to allow testing of different browser profiles. Microsoft edge kept throwing up a this page cannot open error. This was true while trying to view any website page in emulation mode, indicating a problem with microsoft edge. The application did appear responsive while resizing the browser window in desktop mode. The app was also directly tested using a samsung S5 and all pages with the exception of chart pages were fully responsive. However the charts being compact bar and pie charts render reasonably well on smaller screen sizes. Images uploaded okay as well using the s5 mobile. The issue tracker list is a responsive table in that it can be horizontally scrolled to view all columns on smaller screen sizes. During testing it was noticed that some of the form pages were not fully responsive but adding a container-fluid class to the form resolved this. 
 Chrome was used to develop the application and chrome developer tools was useful in pin-pointing elements where styles could be experimented with and then adopted. It was particularly useful in tracing bootstrap styles that needed to be overridden. The form width was chosen as 75% to cater for smaller screen sizes and then a media query used to reduce the width further to 50% on larger screen sizes. During development there was an issue loading the graphs into the activities page. Sometimes the page needed to be refreshed to load all charts. While charts on the charts page were all loading there seemed to be conflict between the 2 chart javascript files. This was resolved by taking both files out of the base html file and loading them from their respective html files. The developer tool also facilitated testing for different device sizes such as ipad, pixels, samsung and iphone. The width upvote input form for example needed to be widened to cater for tablet sizes such as ipad and kindle. On these devices it was difficult to see the inputted number of upvotes as the form was squeezed into a line with other link buttons rather than being stacked as on smaller screen sizes.
-Some of the errors encountered during development and testing of the application and their solutions have been written into the tracker list as part of the bugs list. 
+
+Some of the errors encountered during development and testing of the application and their solutions have been written into the tracker list as part of the bugs list. Some of the features developed for this app are also written in as features.
 
 
 ## Deployment
 
-This project was depoyed to Github and Heroku. A repository was set up in Github and the following commands used to push it from the ide (cloud9) to github, git remote add origin (https://github.com/vmcggh18/bits_tracker.git) and git push -u origin master
-On github the repo can be downloaded as a zip file for installation into a local ide or cloned to receive the full commit history.  When installed locally, ensure any dependencies needed to run it are installed, by checking the requirements.txt file. Use the django secret key generator to generate a secret key and save it to the env.py file stored in the local ide. To use stripe functionality the secret keys for this also need to be obtained and saved to the env.py file. When running locally ensure the the env file is imported into the settings.py file. Then just type run to view in the browser.      
-Alternatively the working application can be viewed at (https://bits-tracker.herokuapp.com/).
-A new app called bits-tracker was created in heroku. In resources a postgres add on was created giving a database url in the config vars in settings. This url was copied for use in the env.py file and linked to the settings.py file using an environment variable. 2 packages were installed (sudo pip3 install dj-database-url was used to enable connection to a database url in heroku) and (sudo pip3 install psycopg2 installed a package allowing connection to a postgresql database). These dependencies were added to the requirements.txt file. The database was imported into the application using import dj_database_url in the settings.py file. In the database section of the settings.py file, the following line was added: DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }. A requirements.txt file was installed to the root directory, listing the dependencies and allowing heroku to build the application when deployed to heroku.
-The mile5Notes.pdf file in the additional info folder in the static directory, outlines the methodology adopted in wiring the application up to the aws cloud server.
-For deployment on Heroku the secret key variables were added to the config variables in the app settings. Then click deploy, github and search for app. Once found click connect. sudo pip3 install gunicorn installs a package which allows the application to connect to heroku. Then update the requirements.txt file. Ensure the Procfile has been created in the root directory so that heroku knows the type of application being received. Set DISABLE_COLLECTSTATIC to 1 in the config variables to prevent heroku uploading static files. Ensure the heroku app name is added to allowed hosts in the settings.py file. Click deploy, deploy branch to build.
+This project was depoyed to Github and Heroku. A repository was set up in Github and the following commands used to push it from the ide (cloud9) to github, git remote add origin [github](https://github.com/vmcggh18/bits_tracker.git) and git push -u origin master
+On github the repo can be downloaded as a zip file for installation into a local ide or cloned to receive the full commit history.  When installed locally, ensure any dependencies needed to run it are installed, by checking the requirements.txt file. Use the django secret key generator to generate a secret key and save it to the env.py file stored in the local ide. To use stripe functionality the secret keys for this also need to be obtained and saved to the env.py file. When running locally ensure the the env file is imported into the settings.py file. Then just type run to view in the browser.
 
+The mile5Notes.pdf file in the additional info folder in the static directory, outlines the methodology adopted in wiring the application up to the aws cloud server and django to s3.
 
+Alternatively the working application can be viewed at [heroku](https://bits-tracker.herokuapp.com/).
+A new app called bits-tracker was created in heroku. In resources a postgres add on was created giving a database url in the config vars in settings. This url was copied for use in the env.py file and linked to the settings.py file using an environment variable. 2 packages were installed (sudo pip3 install dj-database-url was used to enable connection to a database url in heroku) and (sudo pip3 install psycopg2 installed a package allowing connection to a postgresql database). A requirements.txt file was installed to the root directory, listing the dependencies and allowing heroku to build the application when deployed to heroku. The database was imported into the application using import dj_database_url in the settings.py file. (Prior to deployment ensure debug is set to false in the settings.py file). In the database section of the settings.py file, the following line was added: DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }. 
+For deployment on Heroku the secret key variables were added to the config variables in the app settings. Then deploy was clicked, followed by github and search for app. Once found the connect tab was clicked. sudo pip3 install gunicorn was then used to install a package which allows the application to connect to heroku. The requirements.txt file was then updated. (Ensure the Procfile has been created in the root directory so that heroku knows the type of application being received). DISABLE_COLLECTSTATIC was set to 1 in the config variables to prevent heroku uploading static files. (The static directory was then added to the gitignore file. Use the git add -f switch to commit any updated files within the static directory to git in the future). The heroku app name was added to allowed hosts in the settings.py file and once deploy was clicked the branch was built. Automatic deploys was enabled in heroku ensuring that the newest version is deployed after a push to master.
 
 ## Credits
 
@@ -152,7 +160,7 @@ The following documentation was consulted for ideas on writing the about page
 - [Mindtools Z](https://www.mindtools.com/pages/article/newPPM_69.htm)
 - [Sifter](https://sifterapp.com/academy/overview/why/)
 
-### Media
+### Media                       
 The images used in this site were obtained from:
 
 - [Landing-page image](https://www.pexels.com/photo/group-hand-fist-bump-1068523/)
@@ -192,5 +200,13 @@ The images used in this site were obtained from:
     - Django pagination
 - [Moderating Comments](https://tutorial-extensions.djangogirls.org/en/homework_create_more_models/)
     - Moderating comments to be approved or deleted
+- [Coverage testing](https://stackoverflow.com/questions/47466185/got-an-error-creating-the-test-database-django-unittest)
+    - Use coverage run --source appname  manage.py test in conjunction with env.py file in local ide after migration to postgresql Also see specific reference within the settings.py file.
+- [html validation](https://validator.w3.org/#validate_by_input )
+    - Used to check for html syntax errors.
+- [CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input+with_options)
+    - Used to check for css syntax errors.
+- [PEP 8 - Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
+    - Consulted for coding conventions related to python.
 
   

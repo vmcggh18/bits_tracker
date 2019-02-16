@@ -56,12 +56,13 @@
     </div>
 </form>
 <div class = "row container-fluid">
-<div class="col-xs-12 text-center">
-    <a href="{% url 'view_cart' %}">
-        <button class = "cart-button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to <i class="fa fa-shopping-cart"></i> Cart
-            <label class="badge badge-warning">{{ item_count }}</label>
-        </button>
-    </a>
+    <div class="col-xs-12 text-center">
+        <a href="{% url 'view_cart' %}">
+            <button class = "cart-button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to <i class="fa fa-shopping-cart"></i> Cart
+                <label class="badge badge-warning">{{ item_count }}</label>
+            </button>
+        </a>
     </div>
 </div>
+<p></p>
 {% endblock %}

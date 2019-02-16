@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-# import env
+# uncomment 2 imports below to run coverage manage.py test in local ide
+#import sys
+#import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -101,6 +103,10 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+# uncomment both lines below to run coverage manage.py test in local ide without errors
+#code sourced from https://stackoverflow.com/questions/47466185/got-an-error-creating-the-test-database-django-unittest
+# if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

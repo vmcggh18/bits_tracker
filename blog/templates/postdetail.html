@@ -4,11 +4,11 @@
 <div class="row container-fluid blog-post">
     <div class="col-md-2 col-sm-3 text-center">
         <a class="story-img" href="#">
-             {% if post.image %}
+            {% if post.image %}
             <img class="img-blogpost img-circle" alt = "user-image" src="/media/{{ post.image }}">
             {% endif %}
         </a>
-        <p><span class="boldtext">Author: </span> {{ post.user}}</p>
+            <p><span class="boldtext">Author: </span> {{ post.user}}</p>
     </div>
     <div class="col-md-10 col-sm-9">
         <h3>{{ post.title }}</h3>
@@ -39,7 +39,7 @@
 </div>
 <h1 class ="post-comment-header">Leave a Comment</h1>
 <div class = "row container-fluid">
-<div class = "col-sm-3 total-post-comments"><p>Total Number of Comments <strong><label class = "badge">{{ post.comments.count }}</label></strong></p></div>
+    <div class = "col-sm-3 total-post-comments"><p>Total Number of Comments <strong><label class = "badge">{{ post.comments.count }}</label></strong></p></div>
 </div>
 {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_postcomment %}
@@ -64,7 +64,6 @@
     <hr>
 {% empty %}
     <p>No comments here yet :(</p>
-</section>
 {% endfor %}  
 
 {% endblock %}

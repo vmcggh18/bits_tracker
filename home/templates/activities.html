@@ -20,7 +20,7 @@
                          {% if user.is_authenticated %}
                             <p></p>
                         {% else %}
-                            <p class = "text-center signup-butt"> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up Now!</button></a></p>
+                            <p class = "text-center signup-butt"> <a href="{% url 'registration' %}" class="btn btn-lg btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up Now!</a></p>
                         {% endif %}
             </div>
              <!--feature statistics-->
@@ -36,7 +36,7 @@
                         {% if user.is_authenticated %}
                             <p></p>
                         {% else %}
-                            <p class = "text-center read-butt"> <a href="{% url 'documentation' %}"><button class="btn btn-lg btn btn-secondary" data-toggle='modal' data-target='#signUpModal'>Read More!</button></a></p>
+                            <p class = "text-center read-butt"> <a href="{% url 'documentation' %}" class="btn btn-lg btn btn-secondary" data-toggle='modal' data-target='#signUpModal'>Read More!</a></p>
                         {% endif %}
             </div>
         </div>

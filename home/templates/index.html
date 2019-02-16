@@ -15,11 +15,11 @@
                                 <p class="lead text-uppercase">No bug problem too trivial nor too complex. <span class="visible-xs"><br></span> <mark>All bugs fixed for free!</mark></p><br>
                                 <p class="lead text-uppercase"><mark>For a Reasonable Fee!</mark> We also develop features <br></p><br>
                                   {% if user.is_authenticated %}
-                                <p><a href="{% url 'issues_list' %}"><button class="btn btn-lg btn--cta btn--info">View Tracker</button></a></p>
-                                <p class = "lead"><medium>Feel free to create and comment on bugs and features</medium></p>
+                                <p><a href="{% url 'issues_list' %}" class="btn btn-lg btn--cta btn--info">View Tracker</a></p>
+                                <p class = "minor-lead">Feel free to create and comment on bugs and features</p>
                                   {% else %}
-                                <p> <a href="{% url 'registration' %}"><button class="btn btn-lg btn--cta btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up!</button></a></p>
-                                <p class="lead"><medium>You must sign up or login to contribute to bugs and features</medium></p>
+                                <p> <a href="{% url 'registration' %}" class="btn btn-lg btn--cta btn--blue" data-toggle='modal' data-target='#signUpModal'>Sign up!</a></p>
+                                <p class="minor-lead">You must sign up or login to contribute to bugs and features</p>
                                   {% endif %} 
                     </section>
                 </div>

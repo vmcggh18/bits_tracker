@@ -12,7 +12,7 @@ body {
 }
 
 /* General style for forms */
-form {
+.form-detail {
       width: 75%;
 }
 .form-detail, .profile-detail {
@@ -235,6 +235,10 @@ p {
     font-weight: 500;
     margin: 25px 0;
 }
+.minor-lead {
+    font-size: 16px;
+    font-weight: 500;
+}
 /* Block dividers */
 .block-divider {
     width: 75px;
@@ -284,53 +288,53 @@ p {
 .img-logo {
      display: block;
      margin: auto;
- }
+}
  .narrative1 {
      font-weight: 400;
      font-size: 14px;
- }
+}
   .narrative2 {
      font-weight: 400;
      font-size: 16px;
- }
+}
  .beetle {
      margin-top: 25px;
- }
+}
 .col-about, .bits-detail {
     background-color: #f7f7f7; 
- }
+}
 .bits-detail {
      padding-left: 15px;
      padding-right: 15px;
- }
+}
 .feature-section, .about-section {
     padding: 10px;
      margin-left: 0px;
      background-color: #f7f7f7;  
- }
+}
 .shadow {
    text-shadow: 2px 2px lightblue;   
    font-size: 15px;
- }
+}
 .media-left {
     padding-left: 5px;
      padding-right: 5px;
 }
 .about-img {
     margin: 0 auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
  /* ==== Activities page general styles ==== */
 .statistics-section {
     background-color: #f7f7f7;  
- }
+}
 .activities-chart-section {
      background-color: #dfe3ee;
- }
+}
 .bug-head, .feature-head {
      color: black;
- }
+}
 
  /* piechart text in bug and feature charts */
 #feature-chart text, #bug-chart text {
@@ -339,17 +343,19 @@ p {
 /* overwrite bootstrap negative margins */
 .bug-activities, .feat-activities {
     margin: 0px;
+     padding-bottom: 25px;
 }
 .signup-butt, .read-butt {
     margin: 0px;
+    padding-bottom: 20px;
 }
  /*==== General style on Issues List page ====*/
  .search-form {
      width: 100%;
- }
+}
  .search {
      width: 150px;
- }
+}
  .tracker-header {
      background-color: #f7f7f7;  
 }
@@ -609,5 +615,5 @@ caption p {
     width:40%; 
     margin:0 auto;
     text-align:center;
-}
+    }
 }
