@@ -238,6 +238,7 @@ p {
 .minor-lead {
     font-size: 16px;
     font-weight: 500;
+    color:  #5bc0de;
 }
 /* Block dividers */
 .block-divider {
@@ -279,7 +280,8 @@ p {
 }
 .para-features {
     color: black ;
-    font-size: 16px
+    font-size: 16px;
+    padding-bottom: 15px;
 }
 /* ==== About page styles ==== */
 .about-header, .team-header {
@@ -349,6 +351,10 @@ p {
     margin: 0px;
     padding-bottom: 20px;
 }
+#bug-chart, #feature-chart, #feature-bug {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
  /*==== General style on Issues List page ====*/
  .search-form {
      width: 100%;
@@ -399,6 +405,10 @@ p {
  /* text style within charts on charts page */
 #fee-pie-chart text, #completed-weekly-chart text, #ongoing-weekly-chart text, #completed-monthly-chart text, #ongoing-monthly-chart text {
     fill: black;
+}
+#completed-weekly-chart, #ongoing-weekly-chart, #completed-monthly-chart, #ongoing-monthly-chart {
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 /* documentation page styles */
 /* documents page header styles*/
@@ -546,7 +556,8 @@ caption p {
 }
 .panel-default {
     border-color: transparent;
-    padding: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .panel-body {
     height: 100%;
