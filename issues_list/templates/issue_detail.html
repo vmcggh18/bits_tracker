@@ -59,7 +59,7 @@
              <p></p>
              {% else %}
                  {% if item.category == "Bug" %}
-                   <a href ="{% url 'upvote' item.id %}" class = "btn btn-sm btn-dark center-block"><span class="glyphicon glyphicon-thumbs-up text-info" aria-hidden ="true"></span>Upvote</a>
+                   <a href ="{% url 'upvote' item.id %}" class = "btn btn-sm btn-dark"><span class="glyphicon glyphicon-thumbs-up text-info" aria-hidden ="true"></span> Upvote</a>
                   {% else %}
                    <form class = "upvote-form" method="post" action="{% url 'add_to_cart' item.id %}">
                     {% csrf_token %}
