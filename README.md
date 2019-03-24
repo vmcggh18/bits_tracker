@@ -141,27 +141,6 @@ Chrome was used to develop the application and chrome developer tools was useful
 
 Some of the errors encountered during development and testing of the application and their solutions have been written into the tracker list as part of the bugs list. Some of the features developed for this app are also written in as features.
 
-### Note for assessors
-For assessment purposes any anonymous user can view the basic site. Register to achieve further permissions as outlined in the docs.
-
-The following admin and staff users were also used in the development and testing of the application:
-- Superusers
- - username: admin1 password: 00superuser01
- - username: admin2 password: 00superuser02
-- Senior Staff:
- - username: Prof password: 00staff01
- - username: Janey1 password: 00staff02
- - username: Janey2 password: 00staff03
-- Junior Staff
- - username: Johnny1 password: 00staff04
- - username: Johnny2 password: 00staff05
-- General Users
- - username: Festy password: 00user01
- - username: Matty password: 00user02
- - username: Spence password: 00user03
- - username: Penny password: 00user04
-
-Viewing the profile page when logged in reveals other details such as email address and full name.
 
 ## Deployment
 
